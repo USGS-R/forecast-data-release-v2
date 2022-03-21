@@ -54,37 +54,22 @@ targets:
     command: sf_to_zip(target_name,
       sf_object = modeled_network_sf,
       layer_name = I('study_stream_reaches'))
-      
-  #out_data/01_spatial_hru.zip:
-   # command: sf_to_zip(target_name,
-    #  sf_object = hrus_sf,
-     # layer_name = I('study_hrus'))
-     
-  network_lordville:
-    command: readRDS(file = '../delaware-model-prep/9_collaborator_data/umn/network_subset_lordville.rds')
-    
-  lordville_sites:
-    command: get_sites(network_lordville)
 
-  # Define scope of reservoir modeling data in this repo
-  reservoir_modeling_site_ids:
-    command: c(I(c(
-      Pepacton = 'nhdhr_151957878',
-      Cannonsville = 'nhdhr_120022743')))
+  # let's change this to be all reservoir polygons in the DRB 
+  # from the global reservoir data base
+  #reservoir_polygons:
+   # command: fetch_filter_res_polygons(
+    #  out_rds = target_name,
+     # in_ind = "../lake-temperature-model-prep/1_crosswalk_fetch/out/canonical_lakes_sf.rds.ind",
+      #in_repo = I('../lake-temperature-model-prep/'),
+      #site_ids = reservoir_modeling_site_ids)
       
-  reservoir_polygons:
-    command: fetch_filter_res_polygons(
-      out_rds = target_name,
-      in_ind = "../lake-temperature-model-prep/1_crosswalk_fetch/out/canonical_lakes_sf.rds.ind",
-      in_repo = I('../lake-temperature-model-prep/'),
-      site_ids = reservoir_modeling_site_ids)
-      
-  reservoir_metadata:
-    command: extract_feature(reservoir_polygons)
+  #reservoir_metadata:
+    #command: extract_feature(reservoir_polygons)
     
-  out_data/study_reservoirs.zip:
-    command: sf_to_zip(zip_filename = target_name, 
-      sf_object = reservoir_polygons, layer_name = I('study_reservoirs'))
+  #out_data/study_reservoirs.zip:
+   # command: sf_to_zip(zip_filename = target_name, 
+    #  sf_object = reservoir_polygons, layer_name = I('study_reservoirs'))
       
   monitoring_sites:
     command: readRDS(file = '../delaware-model-prep/2_observations/out/drb_filtered_sites.rds')
@@ -93,4 +78,7 @@ targets:
     command: reduce_and_zip(zip_filename = target_name, 
       in_dat = monitoring_sites,
       layer_name = I('study_monitoring_sites'))
+      
+  # let's also include reach metadata in this spatial section
+  # which includes distance to nearest reservoir, to and from segments, etc
     
