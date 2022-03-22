@@ -2,10 +2,7 @@
 include:
   - 1_spatial.yml
   - 2_observations.yml
-  - 3_config.yml
   - 4_inputs.yml
-  - 5_predictions.yml
-
 
 packages:
   - yaml
@@ -34,13 +31,9 @@ targets:
       - 01_spatial_sb_shp
       - 02_observations_sb_data
       - 02_observations_sb_xml
-      - 03_config_sb_xml
-      - 03_config_sb_data
       - 04_inputs_sb_xml
       - 04_inputs_sb_data
       - 04_inputs_sb_meteo
-      - 05_predictions_sb_xml
-      - 05_predictions_sb_data
 
 # in case you want to mess w/ the xml alone:
   out_xml/00_parent.xml:
@@ -104,24 +97,6 @@ targets:
       "out_data/reservoir_temp_obs.csv",
       "out_data/reservoir_level_obs.csv")
 
-  03_config_sb_xml:
-    command: sb_render_post_xml(sbid_03_config,
-      xml_file = I('03_config.xml'),
-      "in_text/text_SHARED.yml",
-      "in_text/text_03_config.yml",
-      reservoir_metadata)
-      
-  out_xml/03_config_fgdc_metadata.xml:
-    command: render(filename = target_name, 
-      "in_text/text_SHARED.yml",
-      "in_text/text_03_config.yml",
-      reservoir_metadata)
-
-  03_config_sb_data:
-    command: sb_replace_files(sbid_03_config,
-      "out_data/reservoir_nml_values.json",
-      "out_data/reservoir_nml_files.zip")
-
   04_inputs_sb_xml:
     command: sb_render_post_xml(sbid_04_inputs,
       xml_file = I('04_inputs.xml'),
@@ -154,32 +129,10 @@ targets:
       "in_data/NLDAS_time[0.367700]_x[401]_y[136].csv",
       file_hash = 'log/reservoir_meteo_files.yml')
 
-  05_predictions_sb_xml:
-    command: sb_render_post_xml(sbid_05_predictions,
-      xml_file = I('05_predictions.xml'),
-      "in_text/text_SHARED.yml",
-      "in_text/text_05_predictions.yml",
-      river_metadata2)
-
-  out_xml/05_predictions_fgdc_metadata.xml:
-    command: render(filename = target_name,
-      "in_text/text_SHARED.yml",
-      "in_text/text_05_predictions.yml",
-      river_metadata2)
-
-  05_predictions_sb_data:
-    command: sb_replace_files(sbid_05_predictions,
-      "out_data/reservoir_io_sntemp.csv",
-      "out_data/reservoir_downstream_preds.csv",
-      "out_data/reservoir_outlet_depth_preds.csv",
-      "out_data/dwallin_stream_preds.csv", 
-      "out_data/forecast[2021-04-16_2021-07-16]_files.zip",
-      "in_data/dwallin_functions.R")
-
   # ------ SB IDs --------
 
   sbid_00_parent:
-    command: c(I('5f6a26af82ce38aaa2449100'))
+    command: c(I('6238fcead34e915b67cc4856'))
 
   sbid_01_spatial:
     command: c(I('5f6a285d82ce38aaa244912e'))
@@ -187,14 +140,7 @@ targets:
   sbid_02_observations:
     command: c(I('5f6a287382ce38aaa2449131'))
 
-  sbid_03_config:
-    command: c(I('5f6a288982ce38aaa2449133'))
-
   sbid_04_inputs:
     command: c(I('5f6a289982ce38aaa2449135'))
 
-  sbid_05_predictions:
-    command: c(I('5f6a28a782ce38aaa2449137'))
 
-  sb_id_06_evaluation:
-    command: c(I('5f6a28ba82ce38aaa2449139'))
