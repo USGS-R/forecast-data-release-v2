@@ -37,8 +37,8 @@ cross-cites:
 
 
 purpose: Decision support, limnological research, fish habitat, reservoir management, and climate science.
-start-date: 19801001XX
-end-date: 20210716XX
+start-date: 19790101
+end-date: 20220515
 
 update: none planned
 themekeywords: ["XX", "machine learning", "deep learning", "hybrid modeling", "water","temperature","reservoirs","streams","forecast","modeling"]
