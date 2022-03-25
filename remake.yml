@@ -132,15 +132,15 @@ targets:
   # ------ SB IDs --------
 
   sbid_00_parent:
-    command: c(I('6238fcead34e915b67cc4856'))
+    command: c(I('XX'))
 
   sbid_01_spatial:
-    command: c(I('5f6a285d82ce38aaa244912e'))
+    command: c(I('XX'))
 
   sbid_02_observations:
-    command: c(I('5f6a287382ce38aaa2449131'))
+    command: c(I('XX'))
 
   sbid_04_inputs:
-    command: c(I('5f6a289982ce38aaa2449135'))
+    command: c(I('XX'))
 
 
