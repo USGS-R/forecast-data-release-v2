@@ -1,11 +1,9 @@
 
 include:
   - 1_spatial.yml
-  - 2_observations.yml
+  - 2_drivers.yml
   - 3_config.yml
-  - 4_inputs.yml
-  - 5_predictions.yml
-
+  - 4_predictions.yml
 
 packages:
   - yaml
@@ -24,23 +22,12 @@ packages:
 
 sources:
   #- src/spatial_utils.R
-  - src/sb_functions.R
+  - src/sb_utils.R
 
 targets:
   all:
     depends:
-      - 00_parent_sb_xml
-      - 01_spatial_sb_xml
-      - 01_spatial_sb_shp
-      - 02_observations_sb_data
-      - 02_observations_sb_xml
-      - 03_config_sb_xml
-      - 03_config_sb_data
-      - 04_inputs_sb_xml
-      - 04_inputs_sb_data
-      - 04_inputs_sb_meteo
-      - 05_predictions_sb_xml
-      - 05_predictions_sb_data
+
 
 # in case you want to mess w/ the xml alone:
   # out_xml/00_parent.xml:
@@ -82,27 +69,21 @@ targets:
   #     "in_text/text_02_observations.yml",
   #     river_metadata2)
   #     
-  # out_xml/02_observations_fgdc_metadata.xml:
+  # out_xml/02_drivers_fgdc_metadata.xml:
   #   command: render(filename = target_name,
   #     "in_text/text_SHARED.yml",
   #     "in_text/text_02_observations.yml",
   #     river_metadata2)
-  # 
-  # 02_observations_sb_data:
-  #   command: sb_replace_files(sbid_02_observations,
-  #     "out_data/temperature_observations_drb.zip",
-  #     "out_data/temperature_observations_lordville.zip",
-  #     "out_data/temperature_observations_forecast_sites.zip",
-  #     "out_data/flow_observations_drb.zip",
-  #     "out_data/flow_observations_lordville.zip",
-  #     "out_data/flow_observations_forecast_sites.zip",
-  #     "out_data/reservoir_releases_total.csv",
-  #     "out_data/reservoir_releases_by_type_drb.csv",
-  #     "out_data/reservoir_releases_by_type_lordville.csv",
-  #     "out_data/reservoir_realsat_monthly_surface_area.csv",
-  #     "out_data/reservoir_io_obs.csv",
-  #     "out_data/reservoir_temp_obs.csv",
-  #     "out_data/reservoir_level_obs.csv")
+
+  # note, pointing to the files is not rebust?
+  log/02_drivers_sb_data.csv:
+    command: sb_replace_files(
+      filename = target_name,
+      sb_id = sbid_02_drivers,
+      sources = 'src/sb_utils.R',
+      "out_data/reservoir_io_obs.csv",
+      "in_data/NLDAS_time[0.377900]_x[397]_y[136].csv",
+      "in_data/NLDAS_time[0.377900]_x[401]_y[136].csv")
 
   # 03_config_sb_xml:
   #   command: sb_render_post_xml(sbid_03_config,
@@ -122,25 +103,19 @@ targets:
   #     "out_data/reservoir_nml_values.json",
   #     "out_data/reservoir_nml_files.zip")
   # 
-  # 04_inputs_sb_xml:
+  # 04_predictions_sb_xml:
   #   command: sb_render_post_xml(sbid_04_inputs,
   #     xml_file = I('04_inputs.xml'),
   #     "in_text/text_SHARED.yml",
   #     "in_text/text_04_inputs.yml",
   #     river_metadata2)
   # 
-  # 04_inputs_sb_data:
-  #   command: sb_replace_files(sbid_04_inputs,
-  #     "out_data/distance_matrix_drb.csv",
-  #     "out_data/distance_matrix_lordville.csv",
-  #     "out_data/reservoir_features_drb.csv",
-  #     "out_data/reservoir_features_lordville.csv",
-  #     "out_data/sntemp_inputs_outputs_drb.zip",
-  #     "out_data/sntemp_inputs_outputs_lordville.zip",
-  #     "out_data/reach_attributes_drb.csv",
-  #     "out_data/reach_attributes_lordville.csv",
-  #     "out_data/reservoir_interpolated_daily_water_budget_components.csv",
-  #     "out_data/noaagefs_meteo_files.zip")
+  log/04_predictions_sb_data.csv:
+    command: sb_replace_files(
+      filename = target_name,
+      sb_id = sbid_04_predictions,
+      sources = 'src/sb_utils.R',
+      'out_data/reservoir_io_sntemp.csv')
   # 
   # out_xml/04_inputs_fgdc_metadata.xml:
   #   command: render(filename = target_name,
@@ -148,11 +123,6 @@ targets:
   #     "in_text/text_04_inputs.yml",
   #     river_metadata2)
 
-  04_inputs_sb_meteo:
-    command: sb_replace_files(sbid_04_inputs,
-      "in_data/NLDAS_time[0.367700]_x[397]_y[136].csv",
-      "in_data/NLDAS_time[0.367700]_x[401]_y[136].csv",
-      file_hash = 'log/reservoir_meteo_files.yml')
 
   # 05_predictions_sb_xml:
   #   command: sb_render_post_xml(sbid_05_predictions,
@@ -179,19 +149,19 @@ targets:
   # ------ SB IDs --------
 
   sbid_00_parent:
-    command: c(I('5f6a26af82ce38aaa2449100'))
+    command: c(I('6238fcead34e915b67cc4856'))
 
   sbid_01_spatial:
-    command: c(I('5f6a285d82ce38aaa244912e'))
+    command: c(I('624f211ed34e21f82769a7a4'))
 
-  sbid_02_observations:
-    command: c(I('5f6a287382ce38aaa2449131'))
+  sbid_02_drivers:
+    command: c(I('624f21b9d34e21f82769a7ab'))
 
   sbid_03_config:
-    command: c(I('5f6a288982ce38aaa2449133'))
+    command: c(I('624f21ddd34e21f82769a7af'))
 
-  sbid_04_inputs:
-    command: c(I('5f6a289982ce38aaa2449135'))
+  sbid_04_predictions:
+    command: c(I('624f21fad34e21f82769a7b1'))
 
   sbid_05_predictions:
     command: c(I('5f6a28a782ce38aaa2449137'))

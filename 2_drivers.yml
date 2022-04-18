@@ -20,7 +20,7 @@ targets:
   #out_data/palceholder_for_nldas:
    # command: copy_files()
    
-  # out_data/reservoir_io_obs.csv:
+  out_data/reservoir_io_obs.csv:
     command: copy_filter_feather(
       out_csv = target_name,
       in_feather = '../delaware-model-prep/9_collaborator_data/res/res_io_obs.feather',
