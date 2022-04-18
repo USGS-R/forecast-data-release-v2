@@ -1,0 +1,875 @@
+title: >-
+  XXtitle: XXsubtitle
+
+abstract: >-
+  XX [Modify] This dataset includes model inputs including gridded weather data, a stream network distance matrix,
+  stream reach attributes and metadata, and reservoir characteristics.
+cross-cites:
+  -
+    authors: ['Steven L. Markstrom']
+    title: >-
+      P2S-Coupled simulation with the Precipitation-Runoff Modeling
+      System (PRMS) and the Stream Temperature Network (SNTemp) Models
+    pudate: 2012
+    form: publication
+    link: https://doi.org/10.3133/ofr20121116
+  -
+    authors: ['John T. Abatzoglou']
+    title: >-
+      Development of gridded surface meteorological data for ecological applications and modelling
+    pubdate: 2013
+    form: publication
+    link: https://doi.org/10.1002/joc.3413
+  -
+    authors: ['Kenneth E. Mitchell','Dag Lohmann','Paul R. Houser','Eric F. Wood','John C. Schaake','Alan Robock','Brian A. Cosgrove','Justin Sheffield','Qingyun Duan','Lifeng Luo','R. Wayne Higgins','Rachel T. Pinker','J. Dan Tarpley','Dennis P. Lettenmaier','Curtis H. Marshall','Jared K. Entin','Ming Pan','Wei Shi','Victor Koren','Jesse Meng','Bruce H. Ramsay','Andrew A. Bailey']
+    title: >-
+      The multi-institution North American Land Data Assimilation System (NLDAS): Utilizing multiple GCIP products and partners in a continental distributed hydrological modeling system
+    pubdate: 2004
+    form: publication
+    link: http://dx.doi.org/10.1029/2003JD003823
+  -
+    authors: ['Luke A. Winslow','Gretchen J.A. Hansen','Jordan S. Read','Michael Notaro']
+    title: >-
+      Large-scale modeled contemporary and future water temperature estimates for 10,774 Midwestern U.S. Lakes
+    pubdate: 2017
+    form: publication
+    link: http://dx.doi.org/10.1038/sdata.2017.53
+  -
+    authors: ['Matthew R. Hipsey', 'Louise C. Bruce', 'Casper Boon', 'Brendan Busch', 'Cayelan C. Carey', 'David P. Hamilton', 'Paul C. Hanson', 'Jordan S. Read', 'Eduardo de Sousa', 'Michael Weber', 'Luke A. Winslow']
+    title: >-
+      A General Lake Model (GLM 3.0) for linking with high-frequency sensor data from the Global Lake Ecological Observatory Network (GLEON).
+    pubdate: 2019
+    form: publication
+    link: https://doi.org/10.5194/gmd-12-473-2019
+  -
+    authors: ["Bernhard Lehner", "Catherine Reidy Liermann", "Carmen Revenga", "Charles Vorosmarty", "Balazs Fekete", "Philippe Crouzet", "Petra Doll", "Marcel Endejan", "Karen Frenken", "Jun Magome", "Christer Nilsson", "James C Robertson", "Raimund Rodel", "Nikolai Sindorf", "Dominik Wisser"]
+    title: >-
+      High-resolution mapping of the world's reservoirs and dams for sustainable river-flow management
+    pubdate: 2011
+    form: publication
+    link: >-
+      https://doi.org/10.1890/100125
+  -
+    authors: ['Roland Viger', 'Andrew Bock']
+    title: >-
+      GIS Features of the Geospatial Fabric for National Hydrologic Modeling
+    pubdate: 2014
+    link: http://dx.doi.org/doi:10.5066/F7542KMD
+  -
+    authors: ['Roland Viger']
+    title: >-
+      Preliminary spatial parameters for PRMS based on the Geospatial Fabric, NLCD2001 and SSURGO
+    pubdate: 2014
+    link: http://dx.doi.org/doi:10.5066/F7WM1BF7
+  -
+    authors: ['Elizabeth A. Nystrom']
+    title: >-
+      Bathymetry of Ashokan, Cannonsville, Neversink, Pepacton, Rondout, and Schoharie Reservoirs, New York
+    pubdate: 2018
+    link: https://doi.org/10.3133/sir20175064
+  -
+    authors: ['NA']
+    title: >-
+      National Oceanic and Atmospheric Administration Global Ensemble Forecast System
+    pubdate: 2020
+    link: https://www.emc.ncep.noaa.gov/emc/pages/numerical_forecast_systems/gefs.php
+
+entities:
+  -
+    data-name: >-
+      distance_matrix_{subset}.csv
+    data-description: >-
+      A matrix documenting the upstream (negative numbers) or downstream (positive numbers)
+      distances between river reaches. There are two files; files are either for all 456 reaches in the Delaware
+      River Basin modeling network (distance_matrix.csv),
+      or for a subset of 56 reaches above Lordville, New York (distance_matrix_lordville.csv).
+    attributes:
+    -
+      attr-label: from
+      attr-def: >-
+        The segment ID (seg_id_nat) of the starting segment for the distance calculation.
+      attr-defs: >-
+        https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: -138821.4
+      data-max: 120381.61
+      data-units: meters
+    -
+      attr-label: >-
+        {seg_id_nat}
+      attr-def: >-
+        All columns other than the "from" column are named with a seg_id_nat value, where the column values correspond to the
+        distance (in meters) between the seg_id_nat in the "from"" column to the {seg_id_nat} in the column name.
+        Positive numbers indicate a downstream direction, while positive numbers indicate an upstream direction.
+        "Inf" indicates the two segments are not connected by streamflow (e.g., water from two separate
+        branches that share the same mainstem are not connected via streamflow).
+      attr-defs: This data release
+      data-min: -138821.4
+      data-max: 120381.61
+      data-units: meters
+  -
+    data-name: >-
+      reach_attributes_{subset}.csv
+    data-description: >-
+      Metadata about reaches in the Delaware River Basin, including fields for
+      upstream/downstream segments, segment length, and position relative to reservoirs.
+      There are two files; files either describe all 456 reaches in the Delaware River Basin modeling network, or
+      a subset of 56 reaches above Lordville, New York.
+    attributes:
+    -
+      attr-label: seg_id_nat
+      attr-def: >-
+        Stream reach identification number for this dataset.
+        This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
+      attr-defs: >-
+        https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: frac_overlap
+      attr-def: >-
+        The fraction of stream segment length that overlaps with a reservoir. NA indicates no overlap with reservoir.
+      attr-defs: >-
+        This data release
+      data-min: 0.01870757
+      data-max: 1.0
+      data-units: NA
+    -
+      attr-label: reach_class
+      attr-def: >-
+        Classification of river reaches relative to reservoirs.
+
+        reach = the river reach is > 2 segments away from a reservoir;
+
+        upstream of reservoir (2) = reach is two segments above a reservoir;
+
+        upstream of reservoir (1) = reach is one segment above a reservoir;
+
+        downstream of reservoir (2) = reach is two segments below a reservoir;
+
+        downstream of reservoir (1) = reach is one segment below a reservoir;
+
+        reservoir_inlet_reach = the reach starting point is above a reservoir and the endpoint is within a reservoir;
+
+        reservoir_outlet_reach = the reach starting point is within a reservoir and the endpoint is downstream of a reservoir;
+
+        within_reservoir = the reach is fully contained within a reservoir (both start and end points are within a reservoir);
+
+        contains_reservoir = a reservoir is fully contained within the reach
+      attr-defs: >-
+        This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: nearest_GRAND_ID
+      attr-def: >-
+        The unique identifier (GRAND ID) if the nearest reservoir. Only reaches within two reaches of a reservoir are associated with a reservoir, such that reaches with reach_class = reach have an NA in this field.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: subseg_id
+      attr-def:  >-
+        An alternative unique reach identifier which was created in order to split segments such that
+        segment start and endpoints were connected by one reach with no intersecting reaches. The ID was created
+        using the seg_id from the Geospatial Fabric and an index from one to the number of splits (e.g., {subseg_id}_{index}).
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: subseg_seg
+      attr-def: >-
+        An alternative reach identifier, which corresponds to seg_id in the Geospatial Fabric.
+      attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: subseg_length
+      attr-def: >-
+        Length of stream reach.
+      attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: 47.24
+      data-max: 36592.38
+      data-units: meters
+    -
+      attr-label: from_segs
+      attr-def: >-
+        Reach identifier (subseg_seg) of the upstream segment. NA indicates a headwater stream with no upstream segments.
+        Multiple upstream segments are seperated with a semicolon.
+      attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: to_seg
+      attr-def: >-
+        Reach identifier (subseg_seg) of the downstream segment. NA indicates a terminal stream.
+      attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: NA
+      data-max: NA
+      data-units: NA
+  -
+    data-name: reservoir_features_{subset}.csv
+    data-description: >-
+      Features of the 17 dam and reservoir systems in the Delaware River Basin.
+      Data come from the GRaND database, and either represent the 17 dam and reservoir systems
+      across the basin (reservoir_features.csv), or the 2 dam and reservoir systems
+      (Pepacton and Cannonsville) above Lordville, New York (reservoir_features_lordville.csv).
+    attributes:
+    -
+      attr-label: GRAND_ID
+      attr-def: >-
+        Unique reservoir identifier.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: AREA_SKM
+      attr-def: >-
+        Reservoir surface area.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: 0.100
+      data-max: 21
+      data-units: square kilometers
+    -
+      attr-label: RES_NAME
+      attr-def: >-
+        Reservoir name.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: DAM_NAME
+      attr-def: >-
+        Dam name.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: ALT_NAME
+      attr-def: >-
+        Alternative reservoir name.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: RIVER
+      attr-def: >-
+        The river name on which the reservoir and dam is situated.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: ALT_RIVER
+      attr-def: >-
+        The alternative river name on which the reservoir and dam is situated.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: YEAR
+      attr-def: >-
+        Year the dam was built.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: 1869
+      data-max: 1998
+      data-units: NA
+    -
+      attr-label: DAM_HGT_M
+      attr-def: >-
+        Height of the dam.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: 5
+      data-max: 62
+      data-units: meters
+    -
+      attr-label: DAM_LEN_M
+      attr-def: >-
+        The length of the dam (perpendicular to the river).
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: 83
+      data-max: 1390
+      data-units: meters
+
+    -
+      attr-label: DEPTH_M
+      attr-def: >-
+        Average depth of the reservoir.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: 6.5
+      data-max: 156
+      data-units: meters
+    -
+      attr-label: ELEV_MASL
+      attr-def: >-
+        Elevation of reservoir surface in meters above sea level.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: 4
+      data-max: 419
+      data-units: meters
+    -
+      attr-label: CATCH_SKM
+      attr-def: >-
+        Area of upstream catchment draining into the reservoir.
+      attr-defs: https://doi.org/10.1890/100125
+      data-min: 44
+      data-max: 1177
+      data-units: square kilometers
+  -
+    data-name: >-
+      sntemp_inputs_outputs_{subset}.zip
+    data-description: >-
+      PRMS-SNTemp inputs and outputs, including weather driver data, intermediate varibles, and
+      model predictions. There are two files; files either contain inputs/outputs from all 456 stream reaches in the
+      Delaware River Basin modeling network, or for the 56 segments above Lordville, New York.
+
+      
+      Code used to generate these inputs and outputs can be found in the repository "run-prms-sntemp" in Zwart and others 2021 (https://doi.org/10.5281/zenodo.5164910).
+
+      
+      There are two error codes in PRMS-SNTemp v5.1.0_rc that can be present in the
+      seg_tave_water and seg_tave_upstream attributes indicating no streamflow for the current
+      timestep (error code: -98.9) or no streamflow at any timestep (error code: -99.9) of the model run.
+      Stream segments that never have streamflow (-99.9) do not have any hydrologic reach units and do not have any upstream segments to produce
+      streamflow, and consequently never be able to simulate stream temperature. Segments with
+      contributing hydrologic reach units and/or upstream segments can have streamflow but
+      may not have streamflow at the current timestep (-98.9)
+
+      
+      Very negative groundwater and shallow subsurface water temperatures (e.g. less than -1 C) are
+      not error codes, but rather are a product of the way this version of PRMS-SNTemp is coded. However,
+      we advise against using these very low groundwater and shallow subsurface temperature values
+      as they likely are far from actual water temperatures.
+    attributes:
+    -
+      attr-label: seg_id_nat
+      attr-def: >-
+        Stream reach identification number for this dataset. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
+      attr-defs: >-
+        https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: model_idx
+      attr-def: >-
+        Unique river segment identifier from the model cutout.
+      attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: NA
+      data-max: NA
+      data-units: NA
+
+    -
+      attr-label: date
+      attr-def: >-
+        Date of the observation or prediction.
+      attr-defs: This data release
+      data-min: 1980-01-01
+      data-max: 2020-07-31
+      data-units: NA
+    -
+      attr-label: seg_ccov
+      attr-def: >-
+        Area-weighted average cloud cover fraction for each segment from HRUs contributing flow to the segment.
+      attr-defs: https://doi.org/10.1002/joc.3413
+      data-min: 0.2565
+      data-max: 0.8
+      data-units: decimal fraction
+    -
+      attr-label: seg_humid
+      attr-def: >-
+        Area-weighted average relative humidity for each segment from HRUs contributing flow to the segment
+      attr-defs: https://doi.org/10.1002/joc.3413
+      data-min: 0.7
+      data-max: 0.7
+      data-units: decimal fraction
+    -
+      attr-label: seg_outflow
+      attr-def: >-
+        Streamflow leaving a segment
+      attr-defs: This data release
+      data-min: 1.50589e-05
+      data-max: 838.4617
+      data-units: cubic meters per second
+    -
+      attr-label: seg_rain
+      attr-def: >-
+        Area-weighted average rainfall for each segment from HRUs contributing flow to the segment
+      attr-defs: https://doi.org/10.1002/joc.3413
+      data-min: 0.0
+      data-max: 0.160782
+      data-units: meters
+    -
+      attr-label: seg_shade
+      attr-def: >-
+        Area-weighted average shade fraction for each segment
+      attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: 0
+      data-max: 0
+      data-units: decimal fraction
+    -
+      attr-label: seg_tave_air
+      attr-def: >-
+         Area-weighted average air temperature for each segment from HRUs contributing flow to the segment
+      attr-defs: https://doi.org/10.1002/joc.3413
+      data-min: -25.44
+      data-max: 28.22
+      data-units: degrees Celsius
+    -
+      attr-label: seg_tave_gw
+      attr-def: >-
+        Groundwater temperature.
+      attr-defs: This data release
+      data-min: -12.49
+      data-max: 23.46
+      data-units: degrees Celsius
+    -
+      attr-label: seg_tave_sroff
+      attr-def: >-
+        Surface runoff temperature.
+      attr-defs: This data release
+      data-min: 0
+      data-max: 0
+      data-units: degrees Celsius
+    -
+      attr-label: seg_tave_ss
+      attr-def: >-
+        Subsurface temperature.
+      attr-defs: This data release
+      data-min: -19.29
+      data-max: 26.08
+      data-units: degrees Celsius
+    -
+      attr-label: seg_tave_upstream
+      attr-def: >-
+        Temperature of streamflow entering each segment.
+      attr-defs: This data release
+      data-min: -98.9
+      data-max: 26.09
+      data-units: degrees Celsius
+    -
+      attr-label: seg_tave_water
+      attr-def: >-
+        Computed daily mean stream temperature for each segment
+      attr-defs: This data release
+      data-min: 0
+      data-max: 26.09
+      data-units: degrees Celsius
+    -
+      attr-label: seg_upstream_inflow
+      attr-def: >-
+        Sum of inflow from upstream segments
+      attr-defs: This data release
+      data-min: 0
+      data-max: 841.5766
+      data-units: cubic meters per second
+    -
+      attr-label: seg_width
+      attr-def: >-
+        Width of each segment.
+      attr-defs: This data release.
+      data-min: 1.622
+      data-max: 93.45
+      data-units: meters
+    -
+      attr-label: seginc_gwflow
+      attr-def: >-
+          Area-weighted average groundwater discharge for each segment from HRUs contributing flow to the segment.
+      attr-defs: This data release
+      data-min: 0
+      data-max: 12.46791
+      data-units: cubic meters per second
+    -
+      attr-label: seginc_potet
+      attr-def: >-
+        Area-weighted average potential ET for each segment from HRUs contributing flow to the segment.
+      attr-defs: This data release
+      data-min: 4.146e-08
+      data-max: 0.3052
+      data-units: meters
+    -
+      attr-label: seginc_sroff
+      attr-def: >-
+        Area-weighted average surface runoff for each segment from HRUs contributing flow to the segment.
+      attr-defs: This data release
+      data-min: 0
+      data-max: 88.00875
+      data-units: cubic meters per second
+    -
+      attr-label: seginc_ssflow
+      attr-def: >-
+        Area-weighted average interflow for each segment from HRUs contributing flow to the segment.
+      attr-defs: This data release
+      data-min: 0
+      data-max: 147.5874
+      data-units: cubic meters per second
+    -
+      attr-label: seginc_swrad
+      attr-def: >-
+        Area-weighted average solar radiation for each segment from HRUs contributing flow to the segment.
+      attr-defs: This data release
+      data-min: 0.0009744971
+      data-max: 341.4374
+      data-units: watts per square meter
+    -
+      attr-label: seg_length
+      attr-def: >-
+        Length of stream segment.
+      attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: 108.8776
+      data-max: 31063.61
+      data-units: meters
+    -
+      attr-label: seg_slope
+      attr-def: >-
+        Stream segment slope.
+      attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: 2e-06
+      data-max: 0.04883
+      data-units: NA
+    -
+      attr-label: seg_elev
+      attr-def: >-
+        Stream segment average elevation above mean sea level.
+      attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: 256.44
+      data-max: 618.24
+      data-units: meters
+  -
+    data-name: reservoir_interpolated_daily_water_budget_components.csv
+    data-description: >-
+      Daily reservoir water budget components calculated for Pepacton and Cannonsville Reservoirs.
+      When monthly values were available, we interpolated down to daily values which is tracked in
+      the column named data_type. Data were compiled from USGS New York Water Data Reports (e.g., https://ny.water.usgs.gov/pubs/wdr/wdrny051/) and
+      reservoir operation data from the Office of the Delaware River Master (e.g., https://webapps.usgs.gov/odrm/documents/tables/jun2013.pdf).
+
+
+      Note that these data are not collected by USGS, and elevation record and capacity table were provided by New York City Department of Environmental Protection.
+    attributes:
+    -
+      attr-label: reservoir
+      attr-def: >-
+        Reservoir name.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: date
+      attr-def: >-
+        Date of diversion
+      attr-defs: This data release
+      data-min: 1979-10-01
+      data-max: 2020-12-31
+      data-units: NA
+    -
+      attr-label: diversion_cms
+      attr-def: >-
+        Volume of diversion
+      attr-defs: This data release
+      data-min: 0
+      data-max: 29.5212
+      data-units: cubic meters per second
+    -
+      attr-label: precip_in
+      attr-def: >-
+        Precipitation
+      attr-defs: This data release
+      data-min: 0
+      data-max: 4.87
+      data-units: inches
+    -
+      attr-label: storage_perc
+      attr-def: >-
+        Percent of total reservoir storage volume occupied by current reservoir volume.
+      attr-defs: This data release
+      data-min: 17.75855
+      data-max: 110.2272
+      data-units: NA
+    -
+      attr-label: data_type
+      attr-def: >-
+        Type of data - monthly or daily values.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: res_level_m
+      attr-def: >-
+        Reservoir surface elevation.
+      attr-defs: This data release
+      data-min: 329.184
+      data-max: 391.0523
+      data-units: meters
+    -
+      attr-label: gross_storage_m3
+      attr-def: >-
+        Total reservoir storage.
+      attr-defs: This data release
+      data-min: 79358318
+      data-max: 663599577
+      data-units: cubic meters
+    -
+      attr-label: storage_change_cms
+      attr-def: >-
+        Reservoir storage change
+      attr-defs: This data release
+      data-min: -756.7326
+      data-max: 1060.398
+      data-units: cubic meters per second
+    -
+      attr-label: conservation_release_cms
+      attr-def: >-
+        Volume of reservoir conservation release
+      attr-defs: This data release
+      data-min: 0.0
+      data-max: 44.2818
+      data-units: cubic meters per second
+    -
+      attr-label: directed_release_cms
+      attr-def: >-
+        Volume of reservoir directed release
+      attr-defs: This data release
+      data-min: 0.0
+      data-max: 43.7124
+      data-units: cubic meters per second
+    -
+      attr-label: total_release_cms
+      attr-def: >-
+        Total volume released
+      attr-defs: This data release
+      data-min: 0.7446
+      data-max: 44.2818
+      data-units: cubic meters per second
+    -
+      attr-label: spillway_cms
+      attr-def: >-
+        Volume spilled over reservoir spillway
+      attr-defs: This data release
+      data-min: 0
+      data-max: 355.875
+      data-units: cubic meters per second
+    -
+      attr-label: total_runoff_cms
+      attr-def: >-
+        Total runoff contributing to discharge from reservoir.
+      attr-defs: This data release
+      data-min: -6.57
+      data-max: 789.5826
+      data-units: cubic meters per second
+    -
+      attr-label: storage_above_sill_m3
+      attr-def: >-
+        Storage above the reservoir sill
+      attr-defs: This data release
+      data-min: 243625103
+      data-max: 636738619
+      data-units: cubic meters
+    -
+      attr-label: source_file
+      attr-def: >-
+        Where the data originated
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+  -
+    data-name: >-
+      NLDAS_time[0.367700]_x[{x}]_y[{y}].csv
+    data-description: >-
+      A csv file for each reservoir with input meteorological data. Files are named "NLDAS_time[0.367700]_x{x}_y{y}.csv" where the x and y locations are longitude and latitude indices from NLDAS
+      of the individual meteorological data cell (data are from Mitchell and others 2004).
+      The filename of the NLDAS file associated with each reservoir is listed in the "meteo_fl" fields in reservoir_nml_values.json, which is in the 3_config child item.
+    attributes:
+    -
+      attr-label: time
+      attr-def: >-
+        Date of this weather estimate.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: ShortWave
+      attr-def: >-
+        Incoming radiant energy with wavelengths between ~300 and ~3000 nm,
+        emitted by the sun and reaching the reservoir surface after passing through the atmosphere, as a daily average.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: Watts per meter squared
+    -
+      attr-label: LongWave
+      attr-def: >-
+        Incoming thermal radiation at wavelengths > 3000 nm directed from the atmosphere to the reservoir surface, as a daily average.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: Watts per meter squared
+    -
+      attr-label: AirTemp
+      attr-def: >-
+        Air temperature above the surface of the reservoir, as a daily average.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: degrees Celsius
+    -
+      attr-label: RelHum
+      attr-def: >-
+        Percent relative humidity of the air above the surface of the reservoir, as a daily average.
+      attr-defs: This data release
+      data-min: 0
+      data-max: 100
+      data-units: NA
+    -
+      attr-label: Windspeed
+      attr-def: >-
+        Speed of the wind above the reservoir, calculated to a daily number using the methods described in Winslow and others 2017.
+      attr-defs: This data release
+      data-min: 0
+      data-max: NA
+      data-units: meters per second
+    -
+      attr-label: Rain
+      attr-def: >-
+        Daily rate of rain reaching the reservoir surface in a day as described in Winslow and others 2017; rate as determined by Hipsey and others 2019.
+      attr-defs: This data release
+      data-min: 0
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: Snow
+      attr-def: >-
+        Daily rate of snow reaching the reservoir surface in a day as described in Winslow and others 2017.
+      attr-defs: This data release
+      data-min: 0
+      data-max: NA
+      data-units: m day−1
+  -
+    data-name: noaagefs_meteo_files.zip
+    data-description: >-
+      NOAA Global Ensemble Forecasting System v12.0 0.25-degree operational model output for the 00 UTC forecast cycle from 2021-04-15 to 2021-07-16.
+      These data are aggregated to the daily scale and NOAA GEFS grid cells are matched to the centroid of the target stream segment. The target stream segment
+      seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
+
+      
+      The zipped folder contains one NetCDF file per forecast issue date evaluated in Zwart and others 2021, such
+      that the file name is final_noaa_gefs_{extent}_{YYYY-MM-DD}_00_forecast_segments.segments.nc. Archiving of the NOAA GEFS
+      product was changed from USGS NGWOS priority basins early in the record (extent = NGWOS) to the continental U.S. starting
+      on 2021-05-26 which is reflected in the name change (extent = CONUS).
+
+
+      Example code for how read the NOAA GEFS .nc files can be found in the "forecast-pgdl-da" repository in Zwart and others 2021 (https://doi.org/10.5281/zenodo.5164910).
+
+    attributes:
+    -
+      attr-label: RH
+      attr-def: >-
+        Relative humidity
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: NA
+      data-max: NA
+      data-units: decimal fraction
+    -
+      attr-label: TCDC
+      attr-def: >-
+        Total cloud cover
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: NA
+      data-max: NA
+      data-units: decimal fraction
+    -
+      attr-label: TMP
+      attr-def: >-
+        Air temperature
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: NA
+      data-max: NA
+      data-units: degrees C
+    -
+      attr-label: DSWRF
+      attr-def: >-
+        Downward short-wave radiation flux
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: NA
+      data-max: NA
+      data-units: Watts per meter squared
+    -
+      attr-label: WS
+      attr-def: >-
+        Wind speed
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: NA
+      data-max: NA
+      data-units: meters per second
+    -
+      attr-label: TMAX
+      attr-def: >-
+        Maximum air temperature
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: NA
+      data-max: NA
+      data-units: degrees C
+    -
+      attr-label: TMIN
+      attr-def: >-
+        Minimum air temperature
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: NA
+      data-max: NA
+      data-units: degrees C
+    -
+      attr-label: APCP
+      attr-def: >-
+        Total accumulated precipitation
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: NA
+      data-max: NA
+      data-units: meters
+    -
+      attr-label: time
+      attr-def: >-
+        Valid time of the forecast
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: >-
+        seconds since 1970-01-01 00:00:00.0 0:00
+    -
+      attr-label: seg_id_nat
+      attr-def: >-
+        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
+      attr-defs: >-
+        https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: NA
+      data-max: NA
+      data-units: dimensionless
+    -
+      attr-label: E
+      attr-def: >-
+         NOAA GEFS ensemble member, 0 = control
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: integer
+
+build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and linux. The open source languages R and Python was used on all systems.
+
+process-date: !expr format(Sys.time(),'%Y%m%d')
+indirect-spatial: U.S.A.
+latitude-res: 0.1
+longitude-res: 0.1
+
+file-format: comma-delimited files (some compressed into zip files) and NetCDF files compressed into a zip file

@@ -1,0 +1,91 @@
+authors: ["Data release to support multiple modeling efforts in the Delaware River Basin", "Jacob A. Zwart", "Samantha K. Oliver", "Alison A. Appling", "Margaux J. Sleckman"]
+pubdate: 2022
+doi: XXhttps://doi.org/10.5066/P9GD8I7A
+abstract: >-
+  XXDaily temperature predictions in the Delaware River Basin (DRB) can inform decision makers who can use cold-water reservoir releases to maintain thermal habitat for sensitive fish and mussel species.
+  This data release provides the inputs and outputs for process-guided machine learning methods to improve prediction of water temperature across 456 river reaches in the DRB.
+
+build-environment: >-
+  XXThis dataset was generated using open source tools available in the R programming language (R version 4.1.2 (2021-11-01)).\n  The computing platform for generating data and metadata was x86_64-w64-mingw32. \n  R packages loaded into this environment: dataRetrieval, version: 2.7.7; RJSONIO, version: 1.3-1.4; zoo, version: 1.8-9; zip, version: 2.2.0; forcats, version: 0.5.1; purrr, version: 0.3.4; tibble, version: 3.1.2; ggplot2, version: 3.3.3; tidyverse, version: 1.3.1; dssecrets, version: 0.1.4; sbtools, version: 1.1.14; sf, version: 0.9-8; stringr, version: 1.4.0; rgdal, version: 1.5-23; sp, version: 1.4-5; feather, version: 0.3.5; readr, version: 1.4.0; meddle, version: 0.0.11; mapdata, version: 2.3.0; maps, version: 3.3.0; tidyr, version: 1.1.3; dplyr, version: 1.0.6; yaml, version: 2.2.1; scipiper, version: 0.0.24.
+
+
+# ----associated publication----
+larger-cites:
+  -
+    authors: ["Jacob Zwart", "Samantha Oliver", "David Watkins", "Jeffrey Sadler", "Alison Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
+    title: >-
+      XXNear-term forecasts of stream temperature using process-guided deep learning and data assimilation
+    form: publication
+    pubdate: 2021
+    link: https://doi.org/10.31223/X55K7G
+
+
+# ----supporting publications----
+cross-cites:
+  -
+    authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
+    title: >-
+      XX [Maybe include data processing code here] Source code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
+    pubdate: 2021
+    link: https://doi.org/10.5281/zenodo.5164910
+  -
+    authors: ["Xiaowei Jia", "Jacob Zwart", "Jeffrey Sadler", 'Alison Appling', 'Samantha Oliver', 'Steven Markstrom', "Jared Willard", 'Shaoming Xu', 'Michael Steinbach', "Jordan Read", 'Vipin Kumar']
+    title: >-
+      Physics-Guided Recurrent Graph Model for Predicting Flow and Temperature in River Networks
+    pubdate: 2020
+    link: https://doi.org/10.1137/1.9781611976700.69
+
+
+purpose: Decision support, limnological research, fish habitat, reservoir management, and climate science.
+start-date: 19790101
+end-date: 20220515
+
+update: none planned
+themekeywords: ["XX", "machine learning", "deep learning", "hybrid modeling", "water","temperature","reservoirs","streams","forecast","modeling"]
+
+usage-rules: >-
+  These data are subject to change and are not citable until reviewed and approved for official publication by the USGS
+
+descgeog: "XXThe Delaware River Basin. River reach polylines as defined by the Geospatial Fabric for National Hydrologic Modeling. Reservoir polygons as defined by the national hydrography dataset high resolution"
+data-publisher: U.S. Geological Survey
+
+# ----contacts----
+contact-person: XXSamantha K. Oliver
+contact-phone: 608-821-3824
+contact-email: soliver@usgs.gov
+contact-position: Data Scientist
+contact-address: "8505 Research Way"
+contact-city: Middleton
+contact-state: WI
+contact-zip: 53562
+
+metadata-person: XXSamantha K. Oliver
+metadata-position: Data Scientist
+metadata-phone: 608-821-3824
+metadata-fax: 608-821-3817
+metadata-email: soliver@usgs.gov
+metadata-address: "8505 Research Way"
+metadata-city: Middleton
+metadata-state: WI
+metadata-zip: 53562
+metadata-date: !expr format(Sys.time(),'%Y%m%d')
+
+accur-test: No formal attribute accuracy tests were conducted.
+funding-credits: >-
+  This study was funded by the United States Geological Survey.
+  This research used resources of the Core Science Analytics and Synthesis Advanced Research Computing program at the U.S. Geological Survey.
+
+process-description: >-
+  XXAt the core of the modeling framework is a coupled hydrologic-thermodynamic model that uses inputs of reach-specific properties and local meteorology to estimate flow and water temperature.
+  Our chosen process-based stream model is the open source, Precipitation Runoff Modeling System (PRMS) with the coupled Stream Network Temperature Model (SNTemp) version 5.1.0 RC. PRMS is a
+  deterministic model that simulates watershed hydrology as a function of climate and land use, and the coupled SNTemp module simulates the change in stream temperature as a function of
+  changes in hydrology and energy. For reservoir modeling, our chosen model is the open source, General Lake Model (GLM) version 3.1. GLM is a one-dimensional dynamical model which simplifies lakes using a vertical approximation,
+  where horizontal variability is ignored. GLM uses a Lagrangian approach to layer structure where layers can split and combine based on changing vertical gradients.
+  GLM is a modern, implementation of other one-dimensional models. We used GLM to run individual lake simulations according to the processes described in Winslow and others 2017.
+
+distro-person: Samantha K. Oliver
+liability-statement: >-
+  Unless otherwise stated, all data, metadata and related materials are considered to satisfy the quality standards relative to the purpose for which the data were collected.
+  Although these data and associated metadata have been reviewed for accuracy and completeness and approved for release by the U.S. Geological Survey (USGS),
+  no warranty expressed or implied is made regarding the display or utility of the data on any other system or for general or scientific purposes, nor shall
+  the act of distribution constitute any such warranty.

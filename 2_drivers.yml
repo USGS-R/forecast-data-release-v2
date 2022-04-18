@@ -1,0 +1,29 @@
+target_default: 2_drivers
+
+packages:
+  #- dplyr
+
+sources:
+  #- src/file_functions.R
+
+targets:
+  2_observations:
+    depends:
+      #- out_data/placeholder_for_gefs_archive
+      #- out_data/placeholder_for_nldas
+      #- out_data/reservoir_io.csv
+      
+  # gefs data will come from 
+  #out_data/placeholder_for_gefs_archive:
+   # command: copy_files()
+    
+  #out_data/palceholder_for_nldas:
+   # command: copy_files()
+   
+  out_data/reservoir_io_obs.csv:
+    command: copy_filter_feather(
+      out_csv = target_name,
+      in_feather = '../delaware-model-prep/9_collaborator_data/res/res_io_obs.feather',
+      site_ids = reservoir_modeling_site_ids)
+
+  
