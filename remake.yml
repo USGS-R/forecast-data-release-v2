@@ -115,7 +115,8 @@ targets:
       filename = target_name,
       sb_id = sbid_04_predictions,
       sources = 'src/sb_utils.R',
-      'out_data/reservoir_io_sntemp.csv')
+      'out_data/reservoir_io_sntemp.csv',
+      'in_data/downstream_preds.csv')
   # 
   # out_xml/04_inputs_fgdc_metadata.xml:
   #   command: render(filename = target_name,
