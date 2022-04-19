@@ -57,16 +57,14 @@ fetch_filter_historical <- function(out_rds, in_ind, in_repo, xwalk) {
     saveRDS(out_rds)
 }
 
-fetch_filter_nml <- function(out_json, in_ind, in_repo, site_ids) {
-  # pull the data file down to that other repo
-  # gd_get_elsewhere(gsub(in_repo, '', in_ind, fixed=TRUE), in_repo)
-
-  # read and filter to just the specified sites
-  as_data_file(in_ind) %>%
-    readRDS() %>%
-    .[site_ids] %>%
+fetch_combine_nmls <- function(out_file, ...) {
+ 
+  # read nml files and put in list
+  nml_files <- c(...)
+  out_list <- purrr::map(nml_files, glmtools::read_nml) %>%
     RJSONIO::toJSON(pretty = TRUE) %>%
-    write(out_json)
+    write(out_file)
+ 
 }
 
 confirm_meteo_staged <- function(csv_file) {

@@ -1,0 +1,4 @@
+filepath,sb_id,time_uploaded_to_sb
+out_data/reservoir_io_obs.csv,624f21b9d34e21f82769a7ab,2022-04-07 18:13 UTC
+in_data/NLDAS_time[0.377900]_x[397]_y[136].csv,624f21b9d34e21f82769a7ab,2022-04-07 18:24 UTC
+in_data/NLDAS_time[0.377900]_x[401]_y[136].csv,624f21b9d34e21f82769a7ab,2022-04-07 18:24 UTC
