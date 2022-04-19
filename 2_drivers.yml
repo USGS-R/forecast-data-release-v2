@@ -23,7 +23,7 @@ targets:
   out_data/reservoir_io_obs.csv:
     command: copy_filter_feather(
       out_csv = target_name,
-      in_feather = '../delaware-model-prep/9_collaborator_data/res/res_io_obs.feather',
+      in_feather = 'in_data/res_io_obs.feather',
       site_ids = reservoir_modeling_site_ids)
 
   
