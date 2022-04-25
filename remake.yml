@@ -104,7 +104,8 @@ targets:
       sb_id = sbid_03_config,
       sources = 'src/sb_utils.R',
       "out_data/reservoir_nml_values.json",
-      "out_data/reservoir_nml_files.zip")
+      "out_data/reservoir_nml_files.zip",
+      "in_data/dwallin_stream_preds.csv")
   # 
   # 04_predictions_sb_xml:
   #   command: sb_render_post_xml(sbid_04_inputs,
