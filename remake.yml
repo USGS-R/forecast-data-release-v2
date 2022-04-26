@@ -104,8 +104,7 @@ targets:
       sb_id = sbid_03_config,
       sources = 'src/sb_utils.R',
       "out_data/reservoir_nml_values.json",
-      "out_data/reservoir_nml_files.zip",
-      "in_data/dwallin_stream_preds.csv")
+      "out_data/reservoir_nml_files.zip")
   # 
   # 04_predictions_sb_xml:
   #   command: sb_render_post_xml(sbid_04_inputs,
@@ -120,7 +119,8 @@ targets:
       sb_id = sbid_04_predictions,
       sources = 'src/sb_utils.R',
       'out_data/reservoir_io_sntemp.csv',
-      'out_data/reservoir_downstream_preds.csv')
+      'out_data/reservoir_downstream_preds.csv',
+      "in_data/dwallin_stream_preds.csv")
   # 
   # out_xml/04_inputs_fgdc_metadata.xml:
   #   command: render(filename = target_name,
