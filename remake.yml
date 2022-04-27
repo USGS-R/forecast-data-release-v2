@@ -120,7 +120,7 @@ targets:
       sources = 'src/sb_utils.R',
       'out_data/reservoir_io_sntemp.csv',
       'out_data/reservoir_downstream_preds.csv',
-      "in_data/dwallin_stream_preds.csv")
+      "out_data/dwallin_stream_preds.csv.zip")
   # 
   # out_xml/04_inputs_fgdc_metadata.xml:
   #   command: render(filename = target_name,
