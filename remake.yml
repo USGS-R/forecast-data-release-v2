@@ -98,10 +98,13 @@ targets:
   #     "in_text/text_03_config.yml",
   #     reservoir_metadata)
   # 
-  # 03_config_sb_data:
-  #   command: sb_replace_files(sbid_03_config,
-  #     "out_data/reservoir_nml_values.json",
-  #     "out_data/reservoir_nml_files.zip")
+  log/03_config_sb_data.csv:
+    command: sb_replace_files(
+      filename = target_name,
+      sb_id = sbid_03_config,
+      sources = 'src/sb_utils.R',
+      "out_data/reservoir_nml_values.json",
+      "out_data/reservoir_nml_files.zip")
   # 
   # 04_predictions_sb_xml:
   #   command: sb_render_post_xml(sbid_04_inputs,
@@ -115,7 +118,8 @@ targets:
       filename = target_name,
       sb_id = sbid_04_predictions,
       sources = 'src/sb_utils.R',
-      'out_data/reservoir_io_sntemp.csv')
+      'out_data/reservoir_io_sntemp.csv',
+      'out_data/reservoir_downstream_preds.csv')
   # 
   # out_xml/04_inputs_fgdc_metadata.xml:
   #   command: render(filename = target_name,
