@@ -12,6 +12,8 @@ targets:
   4_predictions:
     depends:
       - out_data/reservoir_io_sntemp.csv
+      - out_data/reservoir_downstream_preds.csv
+      - out_data/dwallin_stream_preds.csv.zip
 
   # file from delaware-model-prep/9_collaborator_data/res/
   out_data/reservoir_io_sntemp.csv:
