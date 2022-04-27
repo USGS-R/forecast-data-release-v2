@@ -12,7 +12,8 @@ targets:
   4_predictions:
     depends:
       - out_data/reservoir_io_sntemp.csv
-      - out_data/dwallin_stream_preds.csv
+      - out_data/reservoir_downstream_preds.csv
+      - out_data/dwallin_stream_preds.csv.zip
 
   # file from delaware-model-prep/9_collaborator_data/res/
   out_data/reservoir_io_sntemp.csv:
@@ -23,9 +24,9 @@ targets:
       
   out_data/reservoir_downstream_preds.csv:
     command: file.copy(from = 'in_data/downstream_preds.csv', to = target_name)
-      
-  #out_data/dwallin_stream_preds.csv:
-   # command: file.copy(from = '../delaware-model-prep/3_predictions/out/dwallin_stream_preds.csv', to = target_name)
+  
+  out_data/dwallin_stream_preds.csv.zip:
+    command: zip_obs(out_file = target_name, in_file = 'in_data/dwallin_stream_preds.csv')
     
   #out_data/forecast[2021-04-16_2021-07-16]_files.zip:
    # command: file.copy(from = 'in_data/forecast[2021-04-16_2021-07-16]_files.zip', to = target_name)
