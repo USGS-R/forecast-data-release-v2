@@ -15,15 +15,15 @@ sources:
 targets:
   1_spatial:
     depends:
-      #- river_metadata
-      #- out_data/study_stream_reaches.zip
-      #- out_data/study_reservoirs.zip
+      - river_metadata
+      - out_data/study_stream_reaches.zip
+      - out_data/study_reservoirs.zip
 
   # this first section should be the river network - one reach for 
   # each reach we are forecasting. This might be the whole DRB NHM network
   # or a subset. 
   modeled_network_sf:
-    command: retrieve_network(network_sf_fl = '../delaware-model-prep/1_network/out/network.rds')
+    command: retrieve_network(network_sf_fl = 'in_data/network.rds')
     
   river_metadata:
     command: extract_feature(modeled_network_sf)
@@ -39,15 +39,26 @@ targets:
   reservoir_modeling_site_ids:
     command: c(I(c(
       Pepacton = 'nhdhr_151957878',
-      Cannonsville = 'nhdhr_120022743')))
-      
+      Cannonsville = 'nhdhr_120022743', 
+      Neversink = 'nhdhr_149269381')))
+  #     
+  # reservoir_polygons:
+  #   command: fetch_filter_res_polygons(
+  #     out_rds = target_name,
+  #     in_ind = "canonical_lakes_sf.rds.ind",
+  #     in_repo = I('../lake-temperature-model-prep/'),
+  #     site_ids = reservoir_modeling_site_ids)
+  # 
+  # Reservoir polygons
   reservoir_polygons:
     command: fetch_filter_res_polygons(
       out_rds = target_name,
-      in_ind = "../lake-temperature-model-prep/1_crosswalk_fetch/out/canonical_lakes_sf.rds.ind",
-      in_repo = I('../lake-temperature-model-prep/'),
+      in_dat = "in_data/canonical_lakes_sf.rds",
+      in_repo = NULL,
       site_ids = reservoir_modeling_site_ids)
-      
+  
   reservoir_metadata:
     command: extract_feature(reservoir_polygons)
+    
+    
     
