@@ -17,13 +17,39 @@ targets:
   #out_data/placeholder_for_gefs_archive:
    # command: copy_files()
     
-  #out_data/palceholder_for_nldas:
-   # command: copy_files()
-   
+  # NLDAS Files
+  ## NLDAS_time[0.377900]_x[397]_y[136].csv
+  out_data/NLDAS_time[0.377900]_x[397]_y[136].csv:
+    command: file.copy(from = 'in_data/NLDAS_time[0.377900]_x[397]_y[136].csv',
+    to = target_name)
+  ## NLDAS_time[0.377900]_x[401]_y[136].csv
+  out_data/NLDAS_time[0.377900]_x[401]_y[136].csv:
+    command: file.copy(from = 'in_data/NLDAS_time[0.377900]_x[401]_y[136].csv',
+    to = target_name)
+  
+  ## NLDAS to reservoir meteo rds  
+  log/reservoir_meteo_files.yml:
+    command: fetch_meteo_files(
+      out_yml = target_name,
+      nml_rds = 'out_data/reservoir_nml_list.rds')
+  
+  # GEFS archive
+  out_data/met_drivers.zip:
+    command: utils::zip(files = 'in_data/met_drivers', zipfile = target_name)
+  
+  # Observed flow and temp at ins/outs of reservoirs for glm 
   out_data/reservoir_io_obs.csv:
     command: copy_filter_feather(
       out_csv = target_name,
       in_feather = 'in_data/res_io_obs.feather',
       site_ids = reservoir_modeling_site_ids)
+  
+  # modeled flow and temperature at ins/outs of reservoirs for GLM
+  out_data/reservoir_io_sntemp.csv:
+    command: copy_filter_feather(
+      out_csv = target_name,
+      in_feather = 'in_data/res_io_sntemp.feather',
+      site_ids = reservoir_modeling_site_ids)
+  
 
   

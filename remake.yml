@@ -128,6 +128,12 @@ targets:
   #     "in_text/text_04_inputs.yml",
   #     river_metadata2)
 
+  04_inputs_sb_meteo:
+    command: sb_replace_files(sbid_02_drivers,
+      "out_data/NLDAS_time[0.367700]_x[397]_y[136].csv",
+      "out_data/NLDAS_time[0.367700]_x[401]_y[136].csv",
+      file_hash = 'log/reservoir_meteo_files.yml')
+
 
   # 05_predictions_sb_xml:
   #   command: sb_render_post_xml(sbid_05_predictions,
