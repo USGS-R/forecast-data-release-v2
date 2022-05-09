@@ -16,7 +16,7 @@ targets:
       - out_data/dwallin_stream_preds.csv.zip
       - out_data/forecast_pgdl_da_outputs.zip
 
-  # reservoir outlet temperatures from GLM (files from delaware-model-prep/9_collaborator_data/res/)
+  # Reservoir outlet temperatures from GLM (files from delaware-model-prep/9_collaborator_data/res/)
   out_data/reservoir_io_sntemp.csv:
     command: copy_filter_feather(
       out_csv = target_name,
@@ -26,12 +26,16 @@ targets:
   out_data/reservoir_downstream_preds.csv:
     command: file.copy(from = 'in_data/downstream_preds.csv', to = target_name)
   
-  #DWALLIN
+  # DWALLIN
   out_data/dwallin_stream_preds.csv.zip:
     command: zip_obs(out_file = target_name, in_file = 'in_data/dwallin_stream_preds.csv')
     
-  # PGDL 
+  # PGDL-DA 
   out_data/forecast_pgdl_da_outputs.zip:
     command: utils::zip(files = 'in_data/PGDL-DA', zip = target_name)
+    
+  # Paired predictions  
+  out_data/all_mods_with_obs.rds:
+    command: file.copy(from = 'in_data/all_mods_with_obs.rds', to = target_name)
     
     

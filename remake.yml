@@ -73,14 +73,22 @@ targets:
       "out_data/study_reservoirs.zip",
       'out_xml/01_spatial_fgdc_metadata.xml')
       
+   # 01_spatial_sb_xml:
+  #   command: sb_render_post_xml(
+  #     sbid_01_spatial,
+  #     xml_file = I('01_spatial_sb.xml'),
+  #     "in_text/text_SHARED.yml",
+  #     "in_text/text_01_spatial.yml",
+  #     river_metadata_segs)
+      
   ## 2 driver
   out_xml/02_drivers_fgdc_metadata.xml:
     command: render(filename = target_name,
       "in_text/text_SHARED.yml",
       "in_text/text_02_drivers.yml",
       river_metadata_segs)
-  
-    ## Push all obs data + metadata xml to sb
+
+  ## Push all obs data + metadata xml to sb
   log/02_drivers_sb_data.csv:
     command: sb_replace_files(
       filename = target_name,
@@ -89,14 +97,22 @@ targets:
       'out_data/XX.csv',
       'out_xml/02_drivers_fgdc_metadata.xml')
 
+  ## original xml metadata target for spatial - Leaving out for now
+  # 02_observations_sb_xml:
+  #   command: sb_render_post_xml(sbid_02_observations,
+  #     xml_file = I('02_observations.xml'),
+  #     "in_text/text_SHARED.yml",
+  #     "in_text/text_02_observations.yml",
+  #     river_metadata_segs)
+
   ## 3 config
   out_xml/03_config_fgdc_metadata.xml:
     command: render(filename = target_name,
       "in_text/text_SHARED.yml",
       "in_text/text_03_config.yml",
       river_metadata_segs)
-  
-    ## Push all obs data + metadata xml to sb
+
+  ## Push all obs data + metadata xml to sb
   log/03_config_sb_data.csv:
     command: sb_replace_files(
       filename = target_name,
@@ -104,6 +120,13 @@ targets:
       sources = 'src/sb_utils.R',
       'out_data/XX.csv',
       'out_xml/03_config_fgdc_metadata.xml')
+  
+  ## 03_driver_sb_xml:
+  #   command: sb_render_post_xml(sbid_03_driver,
+  #     xml_file = I('03_driver.xml'),
+  #     "in_text/text_SHARED.yml",
+  #     "in_text/text_03_driver.yml")
+  #      river_metadata_verts
 
   ## 4 predictions
   out_xml/04_predictions_fgdc_metadata.xml:
@@ -112,8 +135,8 @@ targets:
       "in_text/text_04_predictions.yml",
       river_metadata_segs)
   
-    ## Push all obs data + metadata xml to sb
-  log/03_config_sb_data.csv:
+  ## Push all obs data + metadata xml to sb
+  log/04_predictions_sb_data.csv:
     command: sb_replace_files(
       filename = target_name,
       sb_id = sbid_04_predictions,
@@ -121,25 +144,13 @@ targets:
       'out_data/XX.csv',
       '04_predictions_fgdc_metadata.xml')
 
-  ## 5 evaluation
-  out_xml/05_evaluation_fgdc_metadata.xml:
-    command: render(filename = target_name,
-      "in_text/text_SHARED.yml",
-      "in_text/text_04_evaluation.yml",
-      river_metadata_segs)
+  ## 04_predictions_sb_xml:
+  #   command: sb_render_post_xml(sbid_03_driver,
+  #     xml_file = I('03_driver.xml'),
+  #     "in_text/text_SHARED.yml",
+  #     "in_text/text_03_driver.yml")
+  #      river_metadata_verts
   
-    ## Push all obs data + metadata xml to sb
-  log/03_config_sb_data.csv:
-    command: sb_replace_files(
-      filename = target_name,
-      sb_id = sbid_05_evaluation,
-      sources = 'src/sb_utils.R',
-      'out_data/XX.csv',
-      '05_evaluation_fgdc_metadata.xml')
-
-
-
-
 
   # 02_observations_sb_xml:
   #   command: sb_render_post_xml(sbid_02_observations,
