@@ -33,8 +33,8 @@ targets:
       sf_object = modeled_network_sf,
       layer_name = I('study_stream_reaches'))
       
-  # this section should include shapefiles of the 
-  # reservoirs that we modeled (Cannonsville and Pepacton)
+  # This section should include shapefiles of the 
+  # Reservoirs that we modeled (Cannonsville and Pepacton)
     # Define scope of reservoir modeling data in this repo
   reservoir_modeling_site_ids:
     command: c(I(c(

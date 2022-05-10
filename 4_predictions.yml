@@ -11,17 +11,19 @@ sources:
 targets:
   4_predictions:
     depends:
-      - out_data/reservoir_io_sntemp.csv
-      - out_data/reservoir_downstream_preds.csv
+      - out_data/reservoir_outlet_depth_preds.csv
       - out_data/dwallin_stream_preds.csv.zip
       - out_data/forecast_pgdl_da_outputs.zip
 
   # Reservoir outlet temperatures from GLM (files from delaware-model-prep/9_collaborator_data/res/)
-  out_data/reservoir_io_sntemp.csv:
-    command: copy_filter_feather(
-      out_csv = target_name,
-      in_feather = 'in_data/res_io_sntemp.feather',
-      site_ids = reservoir_modeling_site_ids)
+  out_data/reservoir_outlet_depth_preds.csv:
+    file.copy(from = 'in_data/outlet_depth_preds.csv', to = target_name)
+  
+  # out_data/reservoir_io_sntemp.csv:
+  #   command: copy_filter_feather(
+  #     out_csv = target_name,
+  #     in_feather = 'in_data/res_io_sntemp.feather',
+  #     site_ids = reservoir_modeling_site_ids)
       
   out_data/reservoir_downstream_preds.csv:
     command: file.copy(from = 'in_data/downstream_preds.csv', to = target_name)
