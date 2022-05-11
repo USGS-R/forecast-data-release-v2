@@ -9,6 +9,11 @@ retrieve_network <- function(network_sf_fl) {
   return(out)
 }
 
+filter_network_segments <- function(network_sf, filter_list, segid_col = 'segidnat'){
+  filtered_network_sf <- network_sf %>% filter(.data[[segid_col]] %in% filter_list) 
+  return(filtered_network_sf)
+}
+
 retrieve_vertices <- function(network_sf_fl) {
   network <- readRDS(network_sf_fl)
   out <- network$vertices
