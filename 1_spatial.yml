@@ -25,13 +25,19 @@ targets:
   # or a subset. 
   modeled_network_sf:
     command: retrieve_network(network_sf_fl = 'in_data/network.rds')
+  
+  filtered_segid_list:
+    command: readRDS('in_data/forecast_segs.rds')
+  
+  modeled_network_sf_filtered:
+    command: filter_network_segments(network_sf = modeled_network_sf, filter_list = filtered_segid_list, segid_col = 'segidnat')
     
   river_metadata:
-    command: extract_feature(modeled_network_sf)
-    
+    command: extract_feature(modeled_network_sf_filtered)
+  
   out_data/study_stream_reaches.zip:
     command: sf_to_zip(target_name,
-      sf_object = modeled_network_sf,
+      sf_object = modeled_network_sf_filtered,
       layer_name = I('study_stream_reaches'))
       
   # This section should include shapefiles of the 
