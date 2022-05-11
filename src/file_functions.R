@@ -169,7 +169,7 @@ combine_level_sources <- function(out_csv, nwis_levels, nyc_levels, hist_levels)
 }
 
 
-## transform simple rds to csv:
+## Transform simple rds to csv:
 
 # rds<- 'in_data/all_mods_with_obs_lst_yr.rds'
 # out_csv <- 'out_data/all_mods_with_obs.csv'
