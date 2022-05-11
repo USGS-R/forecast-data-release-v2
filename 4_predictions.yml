@@ -14,6 +14,7 @@ targets:
       - out_data/reservoir_outlet_depth_preds.csv
       - out_data/dwallin_stream_preds.csv.zip
       - out_data/forecast_pgdl_da_outputs.zip
+      - out_data/all_mods_with_obs.rds
 
   # Reservoir outlet temperatures from GLM (files from delaware-model-prep/9_collaborator_data/res/)
   # Not currently in caldera
