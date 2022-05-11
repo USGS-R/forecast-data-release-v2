@@ -1,5 +1,5 @@
 title: >-
-  Data to support network-wide 7-day ahead forecasting of water temperature in the Delaware River Basin: 3. model configurations
+  Data to support network-wide 7-day ahead forecasting of water temperature in the Delaware River Basin: 3) model configurations
 
 abstract: >-
   This dataset includes model parameters and metadata used to configure models.
@@ -26,13 +26,14 @@ entities:
       JSON file containing a nested list of reservoir parameters for input to GLM. 
       Top-level list elements are reservoirs, and fields within those elements are given as 
       attributes below.
+      Only Cannonsville and Pepacton Reservoir are included here. 
     attributes:
     -
       attr-label: site-id
       attr-def:  >-
         Reservoir identification number for this dataset. Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       
-        nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir, and nhdhr_149269381 is Neversink Reservoir.
+        nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir.
       attr-defs: http://nhd.usgs.gov/
       data-min: NA
       data-max: NA
