@@ -21,13 +21,12 @@ targets:
       - out_data/study_reservoirs.zip
 
   # this first section should be the river network - one reach for 
-  # each reach we are forecasting. This might be the whole DRB NHM network
-  # or a subset. 
+  # each reach we are forecasting. This might be the whole DRB NHM network or a subset. 
   modeled_network_sf:
     command: retrieve_network(network_sf_fl = 'in_data/network.rds')
   
   modeled_network_sf_filtered:
-    command: filter_network_segments(network_sf = modeled_network_sf, filter_list_rds = 'in_data/forecast_segs.rds', segid_col = 'segidnat')
+    command: filter_network_segments(network_sf = modeled_network_sf, filter_list_rds = 'in_data/forecast_segs.rds')
 
   river_metadata:
     command: extract_feature(modeled_network_sf_filtered)
@@ -45,7 +44,7 @@ targets:
       Pepacton = 'nhdhr_151957878',
       Cannonsville = 'nhdhr_120022743', 
       Neversink = 'nhdhr_149269381')))
-  #     
+       
   # reservoir_polygons:
   #   command: fetch_filter_res_polygons(
   #     out_rds = target_name,

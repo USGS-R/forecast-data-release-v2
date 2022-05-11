@@ -9,11 +9,12 @@ retrieve_network <- function(network_sf_fl) {
   return(out)
 }
 
-filter_network_segments <- function(network_sf, filter_list_rds, segid_col = 'segidnat'){
+filter_network_segments <- function(network_sf, filter_list_rds){
   
   filter_list <- readRDS(filter_list_rds)
   
-  filtered_network_sf <- network_sf %>% filter(.data[[segid_col]] %in% filter_list) 
+  ## If segidnat col is different, update in function. Scipiper did not accept it as a param. 
+  filtered_network_sf <- network_sf %>% filter(.data[['segidnat']] %in% filter_list) 
   return(filtered_network_sf)
 }
 
