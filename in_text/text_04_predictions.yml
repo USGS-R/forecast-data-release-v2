@@ -264,15 +264,15 @@ entities:
     -
       attr-label: issue_time
       attr-def: >-
-        Date issued
+        forecast issue time
       attr-defs: 
       data-min: 2022-XX-XX
       data-max: 2022-XX-XX
-      data-units: NA
+      data-units: days since 
     -
       attr-label: time
       attr-def: >-
-        Date
+        Forecast date
       attr-defs: This data release
       data-min: NA
       data-max: NA
