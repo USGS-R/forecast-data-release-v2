@@ -17,10 +17,9 @@ targets:
       - out_data/all_mods_with_obs.rds
 
   # Reservoir outlet temperatures from GLM (files from delaware-model-prep/9_collaborator_data/res/)
-  # Not currently in caldera
-  out_data/reservoir_outlet_depth_preds.csv:
-    file.copy(from = 'in_data/outlet_depth_preds.csv', to = target_name)
-
+  out_data/reservoir_downstream_preds.csv:
+    command: file.copy(from = 'in_data/downstream_preds.csv', to = target_name)
+    
   # DWALLIN
   out_data/dwallin_stream_preds.csv.zip:
     command: zip_obs(out_file = target_name, in_file = 'in_data/dwallin_stream_preds.csv')
@@ -38,6 +37,7 @@ targets:
   #     out_csv = target_name,
   #     in_feather = 'in_data/res_io_sntemp.feather',
   #     site_ids = reservoir_modeling_site_ids)
-      
-  # out_data/reservoir_downstream_preds.csv:
-  #   command: file.copy(from = 'in_data/downstream_preds.csv', to = target_name)
+
+  # # Not currently in caldera
+  # out_data/reservoir_outlet_depth_preds.csv:
+  #   file.copy(from = 'in_data/outlet_depth_preds.csv', to = target_name)
