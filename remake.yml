@@ -29,11 +29,11 @@ targets:
   all:
     depends:
       - log/00_parent_sb.csv
-      - log/01_spatial_sb.csv
-      - log/02_drivers_sb.csv
-      - log/03_config_sb.csv
-      - log/04_predictions_sb.csv
-      - log/05_evaluation_sb.csv      
+      - log/01_spatial_sb_data.csv
+      - log/02_drivers_sb_data.csv
+      - log/03_config_sb_data.csv
+      - log/04_predictions_sb_data.csv
+      #- log/05_evaluation_sb.csv      
 
 
 # in case you want to mess w/ the xml alone:
@@ -47,7 +47,7 @@ targets:
     command: render(filename = target_name,
       "in_text/text_SHARED.yml",
       "in_text/text_01_spatial.yml",
-      river_metadata2)
+      river_metadata)
 
   log/00_parent_sb.csv:
     command: sb_replace_files(
@@ -61,7 +61,7 @@ targets:
     command: render(filename = target_name,
       "in_text/text_SHARED.yml",
       "in_text/text_01_spatial.yml",
-      river_metadata_segs)
+      river_metadata)
 
   ## Push all spatial data + metadata xml to sb
   log/01_spatial_sb_data.csv:
@@ -86,15 +86,20 @@ targets:
     command: render(filename = target_name,
       "in_text/text_SHARED.yml",
       "in_text/text_02_drivers.yml",
-      river_metadata_segs)
+      river_metadata)
 
   ## Push all obs data + metadata xml to sb
+ # note, pointing to the files is not rebust?
   log/02_drivers_sb_data.csv:
     command: sb_replace_files(
       filename = target_name,
       sb_id = sbid_02_drivers,
       sources = 'src/sb_utils.R',
-      'out_data/XX.csv',
+      "out_data/reservoir_io_obs.csv",
+      "in_data/NLDAS_time[0.377900]_x[397]_y[136].csv",
+      "in_data/NLDAS_time[0.377900]_x[401]_y[136].csv",
+      "out_data/reservoir_io_sntemp.csv",
+      'out_data/noaagefs_meteo_driver_files.zip',
       'out_xml/02_drivers_fgdc_metadata.xml')
 
   ## original xml metadata target for spatial - Leaving out for now
@@ -110,7 +115,7 @@ targets:
     command: render(filename = target_name,
       "in_text/text_SHARED.yml",
       "in_text/text_03_config.yml",
-      river_metadata_segs)
+      reservoir_metadata)
 
   ## Push all obs data + metadata xml to sb
   log/03_config_sb_data.csv:
@@ -118,9 +123,10 @@ targets:
       filename = target_name,
       sb_id = sbid_03_config,
       sources = 'src/sb_utils.R',
-      'out_data/XX.csv',
+      "out_data/reservoir_nml_values.json",
+      "out_data/reservoir_nml_files.zip",
       'out_xml/03_config_fgdc_metadata.xml')
-  
+    
   ## 03_driver_sb_xml:
   #   command: sb_render_post_xml(sbid_03_driver,
   #     xml_file = I('03_driver.xml'),
@@ -133,7 +139,7 @@ targets:
     command: render(filename = target_name,
       "in_text/text_SHARED.yml",
       "in_text/text_04_predictions.yml",
-      river_metadata_segs)
+      reservoir_metadata)
   
   ## Push all obs data + metadata xml to sb
   log/04_predictions_sb_data.csv:
@@ -141,8 +147,19 @@ targets:
       filename = target_name,
       sb_id = sbid_04_predictions,
       sources = 'src/sb_utils.R',
-      'out_data/XX.csv',
-      '04_predictions_fgdc_metadata.xml')
+      'out_data/reservoir_downstream_preds.csv',
+      "out_data/dwallin_stream_preds.csv.zip",
+      'out_data/forecast_pgdl_da_outputs.zip',
+      'out_data/all_mods_with_obs.rds',
+      'out_xml/04_predictions_fgdc_metadata.xml')
+
+  04_inputs_sb_meteo:
+    command: sb_replace_files(sbid_02_drivers,
+      "out_data/NLDAS_time[0.367700]_x[397]_y[136].csv",
+      "out_data/NLDAS_time[0.367700]_x[401]_y[136].csv",
+      file_hash = 'log/reservoir_meteo_files.yml')
+
+
 
   ## 04_predictions_sb_xml:
   #   command: sb_render_post_xml(sbid_03_driver,
@@ -165,16 +182,6 @@ targets:
   #     "in_text/text_02_observations.yml",
   #     river_metadata2)
 
-  # note, pointing to the files is not rebust?
-  log/02_drivers_sb_data.csv:
-    command: sb_replace_files(
-      filename = target_name,
-      sb_id = sbid_02_drivers,
-      sources = 'src/sb_utils.R',
-      "out_data/reservoir_io_obs.csv",
-      "in_data/NLDAS_time[0.377900]_x[397]_y[136].csv",
-      "in_data/NLDAS_time[0.377900]_x[401]_y[136].csv")
-
   # 03_config_sb_xml:
   #   command: sb_render_post_xml(sbid_03_config,
   #     xml_file = I('03_config.xml'),
@@ -182,22 +189,20 @@ targets:
   #     "in_text/text_03_config.yml",
   #     reservoir_metadata)
   #     
-  out_xml/03_config_fgdc_metadata.xml:
-    command: render(filename = target_name,
-      "in_text/text_SHARED.yml",
-      "in_text/text_03_config.yml",
-      reservoir_metadata)
+  # out_xml/03_config_fgdc_metadata.xml:
+  #   command: render(filename = target_name,
+  #     "in_text/text_SHARED.yml",
+  #     "in_text/text_03_config.yml",
+  #     reservoir_metadata)
   # 
-  log/03_config_sb_data.csv:
-    command: sb_replace_files(
-      filename = target_name,
-      sb_id = sbid_03_config,
-      sources = 'src/sb_utils.R',
-      "out_data/reservoir_nml_values.json",
-      "out_data/reservoir_nml_files.zip")
+  # log/03_config_sb_data.csv:
+  #   command: sb_replace_files(
+  #     filename = target_name,
+  #     sb_id = sbid_03_config,
+  #     sources = 'src/sb_utils.R',
+  #     "out_data/reservoir_nml_values.json",
+  #     "out_data/reservoir_nml_files.zip")
       
-      
-  # 
   # 04_predictions_sb_xml:
   #   command: sb_render_post_xml(sbid_04_inputs,
   #     xml_file = I('04_inputs.xml'),
@@ -205,28 +210,21 @@ targets:
   #     "in_text/text_04_inputs.yml",
   #     river_metadata2)
   # 
-  log/04_predictions_sb_data.csv:
-    command: sb_replace_files(
-      filename = target_name,
-      sb_id = sbid_04_predictions,
-      sources = 'src/sb_utils.R',
-      'out_data/reservoir_io_sntemp.csv',
-      'out_data/reservoir_downstream_preds.csv',
-      "out_data/dwallin_stream_preds.csv.zip")
+  # log/04_predictions_sb_data.csv:
+  #   command: sb_replace_files(
+  #     filename = target_name,
+  #     sb_id = sbid_04_predictions,
+  #     sources = 'src/sb_utils.R',
+  #     'out_data/reservoir_io_sntemp.csv',
+  #     'out_data/reservoir_downstream_preds.csv',
+  #     "out_data/dwallin_stream_preds.csv.zip")
   # 
   # out_xml/04_inputs_fgdc_metadata.xml:
   #   command: render(filename = target_name,
   #     "in_text/text_SHARED.yml",
   #     "in_text/text_04_inputs.yml",
   #     river_metadata2)
-
-  04_inputs_sb_meteo:
-    command: sb_replace_files(sbid_02_drivers,
-      "out_data/NLDAS_time[0.367700]_x[397]_y[136].csv",
-      "out_data/NLDAS_time[0.367700]_x[401]_y[136].csv",
-      file_hash = 'log/reservoir_meteo_files.yml')
-
-
+  
   # 05_predictions_sb_xml:
   #   command: sb_render_post_xml(sbid_05_predictions,
   #     xml_file = I('05_predictions.xml'),

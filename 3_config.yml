@@ -30,7 +30,6 @@ targets:
       'in_data/glm3_cal_nhdhr_151957878.nml')
 
   ##### Archive of files from res-temperature-process-models #####
-
   # .nml files manually copied and renamed from res-temperature-process-models
   out_data/reservoir_nml_files.zip:
     command: zip_files(

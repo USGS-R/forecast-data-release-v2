@@ -76,10 +76,64 @@ cross-cites:
 
 entities:
   -
-    data-name: reservoir_outlet_depth_preds.csv
+    data-name: reservoir_io_sntemp.csv
+    data-description: PRMS-SNTemp predictions of water temperature for inflow and outflow reaches of the Pepacton and Cannonsville reservoirs. The file contains daily water temperature predictions for each reach.
+    attributes:
+    -
+      attr-label: res_id
+      attr-def: >-
+        Reservoir identification number for this dataset. Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
+      attr-defs: >-
+        http://nhd.usgs.gov/
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: seg_id_nat
+      attr-def: >-
+        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
+      attr-defs: >-
+        https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: date
+      attr-def: >-
+        Date of prediction
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: seg_outflow
+      attr-def:  >-
+        Predicted segment outflow.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: cubic meters per second
+    -
+      attr-label: seg_tave_water
+      attr-def: >-
+        Predicted water temperature.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: degrees Celsius
+    -
+      attr-label: direction
+      attr-def: >-
+        Direction of flow relative to reservoir -- inflow or outflow
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+  -
+    data-name: reservoir_downstream_preds.csv
     data-description: >-
-      In-reservoir predictions of water temperature at the depth of reservoir outlets on all days
-      (regardless of release volumes), generated from calibrated reservoir models built with GLM v3.1.
+      Predictions of outflow and water temperature for outflow reaches of the Pepacton and
+      Cannonsville reservoirs, generated from calibrated reservoir models built with GLM v3.1.
       Code used to generate these predictions can be found in the "res-temperature-process-models"
       in Zwart and others 2021 (https://doi.org/10.5281/zenodo.5164910).
     attributes:
@@ -103,35 +157,19 @@ entities:
     -
       attr-label: temp
       attr-def: >-
-        Predicted in-reservoir water temperature at depth of given reservoir outlet.
+        Predicted water temperature.
       attr-defs: This data release
       data-min: NA
       data-max: NA
       data-units: degrees Celsius
     -
-      attr-label: release_type
+      attr-label: flow
       attr-def:  >-
-        Type of reservoir releases that occur using given reservoir outlet.
+        Predicted outflow.
       attr-defs: This data release
       data-min: NA
       data-max: NA
-      data-units: NA
-    -
-      attr-label: reference
-      attr-def:  >-
-        Reference location (surface or bottom) for the given reservoir outlet.
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: z_out
-      attr-def:  >-
-        Elevation of given outlet as deviation from the defined reference location.
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: meters
+      data-units: cubic meters per second
   -
     data-name: dwallin_stream_preds.csv.zip
     data-description: >-
@@ -140,7 +178,6 @@ entities:
       See dwallin_functions.R for processing steps that were taken to calculate the DWALLIN stream temperature
       predictions.
   
-
       There a few site-dates with extremely high predicted stream temperature values.
       These high values are a product of the way PRMS-SNTemp v5.1.0_rc was coded and are likely
       a result of stream segments with little or no upstream inflow and very little in-stream

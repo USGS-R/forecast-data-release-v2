@@ -16,6 +16,7 @@ targets:
   1_spatial:
     depends:
       - river_metadata
+      - reservoir_metadata
       - out_data/study_stream_reaches.zip
       - out_data/study_reservoirs.zip
 
@@ -57,6 +58,12 @@ targets:
       in_repo = NULL,
       site_ids = reservoir_modeling_site_ids)
   
+  # output reservoir shp
+  out_data/study_reservoirs.zip:
+    command: sf_to_zip2(zip_filename = target_name,
+      sf_object = reservoir_polygons,
+      layer_name = I('study_reservoirs'))
+
   reservoir_metadata:
     command: extract_feature(reservoir_polygons)
     
