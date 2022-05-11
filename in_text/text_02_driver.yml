@@ -373,7 +373,9 @@ entities:
     -
       attr-label: flag
       attr-def: >-
-        Data quality flag
+        Data quality flags that have come from both the original providers and an outlier detection
+        routine. Flags can include: NA = no flags, o = potential outlier, P = provisional (from NWIS), Eqp = value affected by equipment malfunction (from NWIS),
+        Mnt = site under going maintenance (from NWIS), ef = flag with unknown definition (from EcoSHEDS).
       attr-defs: 
       data-min: NA
       data-max: NA
