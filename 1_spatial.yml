@@ -26,12 +26,9 @@ targets:
   modeled_network_sf:
     command: retrieve_network(network_sf_fl = 'in_data/network.rds')
   
-  filtered_segid_list:
-    command: readRDS('in_data/forecast_segs.rds')
-  
   modeled_network_sf_filtered:
-    command: filter_network_segments(network_sf = modeled_network_sf, filter_list = filtered_segid_list, segid_col = 'segidnat')
-    
+    command: filter_network_segments(network_sf = modeled_network_sf, filter_list_rds = 'in_data/forecast_segs.rds', segid_col = 'segidnat')
+
   river_metadata:
     command: extract_feature(modeled_network_sf_filtered)
   

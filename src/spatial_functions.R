@@ -9,7 +9,10 @@ retrieve_network <- function(network_sf_fl) {
   return(out)
 }
 
-filter_network_segments <- function(network_sf, filter_list, segid_col = 'segidnat'){
+filter_network_segments <- function(network_sf, filter_list_rds, segid_col = 'segidnat'){
+  
+  filter_list <- readRDS(filter_list_rds)
+  
   filtered_network_sf <- network_sf %>% filter(.data[[segid_col]] %in% filter_list) 
   return(filtered_network_sf)
 }
