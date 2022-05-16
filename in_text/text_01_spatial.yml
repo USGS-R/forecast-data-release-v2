@@ -4,7 +4,7 @@ title: >-
 abstract: >-
 
   This section provides spatial data files that describe the river network and reservoirs in the Delaware River Basin. One shapefile of polylines
-  describes the XXX river reaches that define the modeling network, and another shapefile of polygons includes
+  describes the 70 river reaches that define the modeling network, and another shapefile of polygons includes
   the three reservoirs (Pepacton, Cannonsville, and Neversink) for which data are included in this release.
   
 cross-cites:
@@ -24,7 +24,7 @@ cross-cites:
 entities:
   -
     data-name: study_stream_reaches.zip
-    data-description: GIS polylines data for the 456 stream segments included in this study
+    data-description: GIS polylines data for the 70 stream segments included in this study
     attributes:
     -
       attr-label: subsegid
