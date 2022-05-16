@@ -10,7 +10,7 @@ abstract: >-
   release that contains all data needed to build these models but only extends to MM DD, 2022 (Oliver et al. 2021). 
   Additionally, this release contains a tidy version of the model predictions with paired observations for easier reuse.
 
-  <br/>The data are organized into 4 child folders: 1) spatial information, 2) model driver data, 3) model configuration files </p>
+  <br/>The data are organized into 4 child folders: 1) Spatial information, 2) model driver data, 3) model configuration files, 4) model predictions data </p>
   <ol>
   <li><a href="https://www.sciencebase.gov/catalog/item/5f6a285d82ce38aaa244912e">1) Waterbody Information</a> - One shapefile of polylines for the 456 river segments in this study, and one shapefile metadata file of reservoir polygons for the Pepacton and Cannonsville reservoirs</li>
   <li><a href="https://www.sciencebase.gov/catalog/item/5f6a287382ce38aaa2449131">2) Model driver data </a> - Data used to drive predictive models (daily meteorology for river reaches and reservoirs). </li>
