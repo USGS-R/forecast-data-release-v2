@@ -3,9 +3,9 @@ title: >-
 
 abstract: >-
 
-  This section provides spatial data files that describe the river network and reservoirs in the Delaware River Basin. One shapefile of polylines
+  This section provides spatial data files that describe the river and reservoirs in the Delaware River Basin included in this release. One shapefile of polylines
   describes the 70 river reaches that define the modeling network, and another shapefile of polygons includes
-  the three reservoirs (Pepacton, Cannonsville, and Neversink) for which data are included in this release.
+  the two reservoirs (Pepacton, Cannonsville) for which data are included in this release.
   
 cross-cites:
   -
@@ -24,7 +24,10 @@ cross-cites:
 entities:
   -
     data-name: study_stream_reaches.zip
-    data-description: GIS polylines data for the 70 stream segments included in this study
+    data-description: >-
+      GIS polylines data for the 70 stream segments included in the Delaware River Basin that
+      have been included in this study. The stream network is originally dervied from
+      the USGS Geospatial Fabric v1.
     attributes:
     -
       attr-label: subsegid
@@ -32,7 +35,7 @@ entities:
         An alternative unique reach identifier which was created in order to split segments such that 
         segment start and endpoints were connected by one reach with no intersecting reaches. The ID was created
         using the seg_id from the Geospatial Fabric and an index from one to the number of splits (e.g., {subseg_id}_{index}). 
-        This feature corresponds to subseg_id in other files.
+        This feature corresponds to subseg_id in other files. There are 70 unique identifiers in this field.
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -41,7 +44,7 @@ entities:
       attr-label: subsegseg
       attr-def: >-
         An alternative reach identifier, which corresponds to seg_id in the Geospatial Fabric. 
-        This feature corresponds to subseg_seg in other files. 
+        This feature corresponds to subseg_seg in other files. There are 70 unique identifiers in this field.
       attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
       data-max: NA
@@ -84,7 +87,7 @@ entities:
       attr-def: >-
         National unique stream reach identifier. 
         This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
-        This feature corresponds to "seg_id_nat" in other data files.
+        This feature corresponds to "seg_id_nat" in other data files. There are 70 unique identifiers in this field.
       attr-defs: >-
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
@@ -92,15 +95,18 @@ entities:
       data-units: NA
   -
     data-name: study_reservoirs.zip
-    data-description: GIS polygon data for the Pepacton, Cannonsville, Neversink reservoirs
+    data-description: >- 
+      GIS polygon data for the Pepacton and Cannonsville reservoirs.
+      Polygons are from the National Hydrography Dataset High Resolution (NHDPlus HR).
     attributes:
     -
       attr-label: site_id
       attr-def: >-
         Reservoir identification number for this dataset. 
+        nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir.
+        This field corresponds to the Permanent_Identifier field in the NHDPlus HR with an added "nhdhr_" prefix.
         Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       
-        nhdhr_120022743 is Cannonsville Reservoir and nhdhr_151957878 is Pepacton Reservoir
       attr-defs: >-
         http://nhd.usgs.gov/
       data-min: NA
