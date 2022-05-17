@@ -112,7 +112,8 @@ entities:
       data-min: NA
       data-max: NA
       data-units: NA
-  # -
+
+  ## Left this here - confirming we do not need monitoring sites for this release.
   #   data-name: study_monitoring_sites.zip
   #   data-description: >-
   #     GIS point data for 2618 flow and temperature monitoring sites in the Delaware River Basin.
