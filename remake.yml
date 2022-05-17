@@ -4,7 +4,7 @@ include:
   - 2_drivers.yml
   - 3_config.yml
   - 4_predictions.yml
-  - 5_evaluation.yml
+#  - 5_evaluation.yml
 
 packages:
   - yaml
@@ -33,8 +33,6 @@ targets:
       - log/02_drivers_sb_data.csv
       - log/03_config_sb_data.csv
       - log/04_predictions_sb_data.csv
-      #- log/05_evaluation_sb.csv      
-
 
 # in case you want to mess w/ the xml alone:
   # out_xml/00_parent.xml:
