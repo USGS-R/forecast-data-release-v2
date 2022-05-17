@@ -9,20 +9,18 @@ sources:
 targets:
   2_observations:
     depends:
-      - out_data/NLDAS_time[0.377900]_x[397]_y[136].csv
-      - out_data/NLDAS_time[0.377900]_x[401]_y[136].csv
       - out_data/noaagefs_meteo_driver_files.zip
       - out_data/reservoir_io_obs.csv
       - out_data/reservoir_io_sntemp.csv
       
   # NLDAS Files
-  ## NLDAS_time[0.377900]_x[397]_y[136].csv
-  out_data/NLDAS_time[0.377900]_x[397]_y[136].csv:
-    command: file.copy(from = 'in_data/NLDAS_time[0.377900]_x[397]_y[136].csv', to = target_name)
-
-  ## NLDAS_time[0.377900]_x[401]_y[136].csv
-  out_data/NLDAS_time[0.377900]_x[401]_y[136].csv:
-    command: file.copy(from = 'in_data/NLDAS_time[0.377900]_x[401]_y[136].csv', to = target_name)
+  # ## NLDAS_time[0.377900]_x[397]_y[136].csv
+  # out_data/NLDAS_time[0.377900]_x[397]_y[136].csv:
+  #   command: file.copy(from = 'in_data/NLDAS_time[0.377900]_x[397]_y[136].csv', to = target_name)
+  # 
+  # ## NLDAS_time[0.377900]_x[401]_y[136].csv
+  # out_data/NLDAS_time[0.377900]_x[401]_y[136].csv:
+  #   command: file.copy(from = 'in_data/NLDAS_time[0.377900]_x[401]_y[136].csv', to = target_name)
   
   ## NLDAS to reservoir meteo rds  - Not clear on how to incorporate this
   log/reservoir_meteo_files.yml:
@@ -47,6 +45,3 @@ targets:
       out_csv = target_name,
       in_feather = 'in_data/res_io_sntemp.feather',
       site_ids = reservoir_modeling_site_ids)
-  
-
-  

@@ -37,16 +37,16 @@ targets:
 
 
 # in case you want to mess w/ the xml alone:
-  out_xml/00_parent.xml:
-    command: render(filename = target_name,
-      "in_text/text_SHARED.yml",
-      "in_text/text_00_parent.yml",
-      river_metadata2)
+  # out_xml/00_parent.xml:
+  #   command: render(filename = target_name,
+  #     "in_text/text_SHARED.yml",
+  #     "in_text/text_00_parent.yml",
+  #     river_metadata2)
   
   out_xml/00_parent_fgdc_metadata.xml:
     command: render(filename = target_name,
       "in_text/text_SHARED.yml",
-      "in_text/text_01_spatial.yml",
+      "in_text/text_00_parent.yml",
       river_metadata)
 
   log/00_parent_sb.csv:
