@@ -196,7 +196,7 @@ entities:
   #     data-units: meters
   #   -
   #     attr-label: segidnat
-  #     attr-def: >-
+  #      attr-def: >-
   #       The reach identifier of the matched stream reach. segidnat is the national unique stream
   #       reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
   #       This feature corresponds to "seg_id_nat" in other data files.
