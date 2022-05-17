@@ -21,12 +21,6 @@ targets:
   out_data/reservoir_downstream_preds.csv:
     command: file.copy(from = 'in_data/downstream_preds.csv', to = target_name)
     
-  # out_data/reservoir_io_sntemp.csv:
-  #   command: copy_filter_feather(
-  #     out_csv = target_name,
-  #     in_feather = 'in_data/res_io_sntemp.feather',
-  #     site_ids = reservoir_modeling_site_ids)
-
   # DWALLIN
   out_data/dwallin_stream_preds.csv.zip:
     command: zip_obs(out_file = target_name, in_file = 'in_data/dwallin_stream_preds_tmp.csv')
@@ -37,7 +31,7 @@ targets:
     
   # Paired predictions  
   out_data/all_mods_with_obs.csv:
-    command: rds_to_csv(in_rds = 'in_data/all_mods_with_obs_lst_yr.rds', out_csv = target_name)
+    command: rds_to_csv(in_rds = 'in_data/all_mods_with_obs.rds', out_csv = target_name)
 
   # # Not currently in caldera
   # out_data/reservoir_outlet_depth_preds.csv:
