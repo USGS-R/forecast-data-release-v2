@@ -82,7 +82,9 @@ entities:
     -
       attr-label: res_id
       attr-def: >-
-        Reservoir identification number for this dataset. Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
+        Reservoir identification number for this dataset.
+        nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir
+        The Prmnn_I is taken from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       attr-defs: >-
         http://nhd.usgs.gov/
       data-min: NA
@@ -91,7 +93,7 @@ entities:
     -
       attr-label: seg_id_nat
       attr-def: >-
-        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
+        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature corresponds to "segidnat" in other data files.
       attr-defs: >-
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
@@ -102,29 +104,29 @@ entities:
       attr-def: >-
         Date of prediction
       attr-defs: This data release
-      data-min: NA
-      data-max: NA
+      data-min: 19790101
+      data-max: 20220404
       data-units: NA
     -
       attr-label: seg_outflow
       attr-def:  >-
-        Predicted segment outflow.
+        Predicted segment outflow
       attr-defs: This data release
-      data-min: NA
+      data-min: 0
       data-max: NA
       data-units: cubic meters per second
     -
       attr-label: seg_tave_water
       attr-def: >-
-        Predicted water temperature.
+        Predicted water temperature
       attr-defs: This data release
-      data-min: NA
-      data-max: NA
+      data-min: 280.365
+      data-max: 25.9
       data-units: degrees Celsius
     -
       attr-label: direction
       attr-def: >-
-        Direction of flow relative to reservoir -- inflow or outflow
+        Direction of flow relative to reservoir. Either Inflow or Outflow
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -140,7 +142,8 @@ entities:
     -
       attr-label: res_id
       attr-def: >-
-        Reservoir identification number for this dataset. Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
+        Reservoir identification number for this dataset. nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir
+        Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       attr-defs: >-
         http://nhd.usgs.gov/
       data-min: NA
@@ -151,24 +154,24 @@ entities:
       attr-def: >-
         Date of prediction
       attr-defs: This data release
-      data-min: NA
-      data-max: NA
+      data-min: 19820401
+      data-max: 20220209
       data-units: NA
     -
       attr-label: temp
       attr-def: >-
-        Predicted water temperature.
+        Predicted water temperature
       attr-defs: This data release
-      data-min: NA
-      data-max: NA
+      data-min: -0.196
+      data-max: 23.461
       data-units: degrees Celsius
     -
       attr-label: flow
       attr-def:  >-
-        Predicted outflow.
+        Predicted outflow
       attr-defs: This data release
-      data-min: NA
-      data-max: NA
+      data-min: 0.131
+      data-max: 762.163
       data-units: cubic meters per second
   -
     data-name: dwallin_stream_preds.csv.zip
@@ -188,7 +191,7 @@ entities:
     -
       attr-label: seg_id_nat
       attr-def: >-
-        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
+        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature corresponds to "segidnat" in other data files.
       attr-defs: >-
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
@@ -199,16 +202,16 @@ entities:
       attr-def: >-
         Date of prediction
       attr-defs: This data release
-      data-min: NA
-      data-max: NA
+      data-min: 19820401
+      data-max: 20220209
       data-units: NA
     -
       attr-label: dwallin_temp_c
       attr-def: >-
         Predicted stream temperature
       attr-defs: This data release
-      data-min: NA
-      data-max: NA
+      data-min: -0.18
+      data-max: 43.18
       data-units: degrees Celsius
   -
     data-name: forecast_pgdl_da_outputs.zip
@@ -269,7 +272,7 @@ entities:
     -
       attr-label: seg_id_nat
       attr-def: >-
-        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
+        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature corresponds to "segidnat" in other data files.
       attr-defs: >-
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
@@ -284,7 +287,7 @@ entities:
       data-max: NA
       data-units: integer
   -
-    data-name: all_mods_with_obs.rds
+    data-name: all_mods_with_obs.csv
     data-description: >-
       Paired predictions and observations. XX 
     attributes:
@@ -303,16 +306,16 @@ entities:
       attr-def: >-
         forecast issue time
       attr-defs: 
-      data-min: 2022-XX-XX
-      data-max: 2022-XX-XX
+      data-min: 2022-XX-XX # will complete when we have latest vbersion of this dataset
+      data-max: 2022-XX-XX # will complete when we have latest vbersion of this dataset
       data-units: days since 
     -
       attr-label: time
       attr-def: >-
         Forecast date
       attr-defs: This data release
-      data-min: NA
-      data-max: NA
+      data-min: XX # will complete when we have latest vbersion of this dataset
+      data-max: XX # will complete when we have latest vbersion of this dataset
       data-units: degrees Celsius
     -
       attr-label: model_name
@@ -327,48 +330,48 @@ entities:
       attr-def:  >-
         Maximum temperature predicted in degrees C
       attr-defs: This data release
-      data-min: 6.4
-      data-max: 24.6
+      data-min: 6.4 # will update when we have latest vbersion of this dataset
+      data-max: 24.6 # will update when we have latest vbersion of this dataset
       data-units: degree C
     -
       attr-label: max_temp_l90
       attr-def:  >-
         XX
-      attr-defs: This data release
-      data-min: 5.86
-      data-max: 22.49
+      attr-defs: This data release 
+      data-min: 5.86 # will update when we have latest vbersion of this dataset
+      data-max: 22.49 # will update when we have latest vbersion of this dataset
       data-units: degree C
     -
       attr-label: max_temp_u90
       attr-def:  >-
         XX
       attr-defs: This data release
-      data-min: 8.03
-      data-max: 25.03
+      data-min: 8.03 # will update when we have latest vbersion of this dataset
+      data-max: 25.03 # will update when we have latest vbersion of this dataset
       data-units: degree C
     -
       attr-label: prob_exceed_75
       attr-def:  >-
         XX
       attr-defs: This data release
-      data-min: 0
-      data-max: 0.53
+      data-min: 0 # will update when we have latest vbersion of this dataset
+      data-max: 0.53 # will update when we have latest vbersion of this dataset
       data-units: degree C
     -
       attr-label: lead_time
       attr-def:  >-
         Number of days XX 
       attr-defs: This data release
-      data-min: 0
-      data-max: 7
+      data-min: 0 # will update when we have latest vbersion of this dataset
+      data-max: 7 # will update when we have latest vbersion of this dataset
       data-units: Time difference in days
     -
       attr-label: lead_time
       attr-def:  >-
         Number of days XX 
       attr-defs: This data release
-      data-min: 0
-      data-max: 7
+      data-min: 0 # will update when we have latest vbersion of this dataset
+      data-max: 7 # will update when we have latest vbersion of this dataset
       data-units: Time difference in days
     - 
       attr-label: max_temp_c
@@ -394,6 +397,16 @@ entities:
       data-min: NA
       data-max: NA
       data-units: NA
+      
+build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and linux. The open source languages R and Python was used on all systems.
+
+process-date: !expr format(Sys.time(),'%Y%m%d')
+indirect-spatial: U.S.A.
+latitude-res: 0.1
+longitude-res: 0.1
+
+file-format: CSV or NetCDF and XML files compressed into a zip file
+
   # -
   #   data-name: distance_matrix_{subset}.csv
   #   data-description: >-
@@ -1183,11 +1196,4 @@ entities:
   #     data-max: NA
   #     data-units: integer
 
-build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and linux. The open source languages R and Python was used on all systems.
 
-process-date: !expr format(Sys.time(),'%Y%m%d')
-indirect-spatial: U.S.A.
-latitude-res: 0.1
-longitude-res: 0.1
-
-file-format: NetCDF files compressed into a zip file
