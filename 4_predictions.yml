@@ -22,7 +22,7 @@ targets:
     
   # DWALLIN
   out_data/dwallin_stream_preds.csv.zip:
-    command: zip_obs(out_file = target_name, in_file = 'in_data/dwallin_stream_preds_tmp.csv')
+    command: zip_obs(out_file = target_name, in_file = 'in_data/dwallin_stream_preds.csv')
     
   # PGDL-DA 
   out_data/forecast_pgdl_da_outputs.zip:
