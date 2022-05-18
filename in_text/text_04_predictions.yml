@@ -289,7 +289,7 @@ entities:
       data-max: NA
       data-units: integer
   -
-    data-name: all_mods_with_obs.csv
+    data-name: paired_predicted_observed_temperatures
     data-description: >-
       Model predictions with paired observations from three models.
       Predictions from the deep learning with (DA) and without (no_DA)
