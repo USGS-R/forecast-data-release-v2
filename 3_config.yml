@@ -6,8 +6,8 @@ packages:
   - dplyr
   - RJSONIO
   - zip
-  - GLM3r 
-  - glmtools
+  #- GLM3r 
+  #- glmtools
 
 sources:
   - src/fetch_filter_functions.R
