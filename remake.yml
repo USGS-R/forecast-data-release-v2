@@ -153,8 +153,8 @@ targets:
 
   04_inputs_sb_meteo:
     command: sb_replace_files(sbid_02_drivers,
-      "out_data/NLDAS_time[0.367700]_x[397]_y[136].csv",
-      "out_data/NLDAS_time[0.367700]_x[401]_y[136].csv",
+      "in_data/NLDAS_time[0.377900]_x[397]_y[136].csv",
+      "in_data/NLDAS_time[0.367700]_x[401]_y[136].csv",
       file_hash = 'log/reservoir_meteo_files.yml')
 
   ## 04_predictions_sb_xml:
