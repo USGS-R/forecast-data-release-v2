@@ -93,7 +93,7 @@ entities:
     -
       attr-label: seg_id_nat
       attr-def: >-
-        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature corresponds to "segidnat" in other data files.
+        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature may correspond to "segidnat" in other data files.
       attr-defs: >-
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
@@ -191,7 +191,7 @@ entities:
     -
       attr-label: seg_id_nat
       attr-def: >-
-        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature corresponds to "segidnat" in other data files.
+        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature may correspond to "segidnat" in other data files.
       attr-defs: >-
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
@@ -272,7 +272,7 @@ entities:
     -
       attr-label: seg_id_nat
       attr-def: >-
-        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature corresponds to "segidnat" in other data files.
+        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature may correspond to "segidnat" in other data files.
       attr-defs: >-
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
@@ -395,7 +395,6 @@ entities:
         Either +0cfs or +100cfs
       attr-defs: This data release
       data-min: NA
-      data-max: NA
       data-units: NA
       
 build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and linux. The open source languages R and Python was used on all systems.
