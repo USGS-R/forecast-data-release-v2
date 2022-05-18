@@ -24,7 +24,7 @@ abstract: >-
   # based on representing key parts of the Delaware basin (mainstem, headwaters, reservoir-adjacent reaches), representing 
   # the distribution catchment attributes (e.g. fraction of impervious surfaces) and minimizing the number of observations 
   # within a 20 km distance along the network ('fish radius').
-  # 
+
 cross-cites:
   -
     authors: ['U.S. Geological Survey']

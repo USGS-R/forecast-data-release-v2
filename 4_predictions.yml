@@ -28,6 +28,6 @@ targets:
   out_data/forecast_pgdl_da_outputs.zip:
     command: zip_this(target_name, 'in_data/PGDL-DA')
     
-  # Paired predictions  - 
+  # Paired Predictions
   out_data/paired_predicted_observed_temperatures.csv:
     command: rds_to_csv(in_rds = 'in_data/all_mods_with_obs_lst_yr.rds', out_csv = target_name) #  all_mods_with_obs_lst_yr name will need to be updated when ready! 
