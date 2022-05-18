@@ -235,8 +235,8 @@ entities:
       prediction. When evaluating the performance of the persistence forecasts against the
       deep learning models, we use yesterday's maximum temperature value as the forecast for
       7 days into the future. See the evaluation code in the "evaluate-forecast" repository in
-      Zwart and others 2021 (https://doi.org/10.5281/zenodo.5164910) for this adjustment.
-      
+      Zwart and others 2021 (https://doi.org/10.5281/zenodo.5164910) for this adjustment [TO UPDATE with new Zenodo link]. 
+
       A general description of the attributes are provided below for all the nc forecasted nc files, no minimum and maximum values are given to capture all forecasted nc files. 
     attributes:
     -
@@ -291,13 +291,13 @@ entities:
   -
     data-name: all_mods_with_obs.csv
     data-description: >-
-      Paired predictions and observations. XX 
+        Paired predictions and observations. XX 
     attributes:
     -
       attr-label: seg_id_nat
       attr-def: >-
         Stream reach identification number for this dataset.
-        This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
+        This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature may correspond to "segidnat" in other data files.
       attr-defs: >-
         http://nhd.usgs.gov/
       data-min: NA
@@ -306,11 +306,11 @@ entities:
     -
       attr-label: issue_time
       attr-def: >-
-        forecast issue time
+        Forecast issue time
       attr-defs: 
-      data-min: 2022-XX-XX # will complete when we have latest vbersion of this dataset
-      data-max: 2022-XX-XX # will complete when we have latest vbersion of this dataset
-      data-units: days since 
+      data-min: XX # will complete when we have latest vbersion of this dataset
+      data-max: XX # will complete when we have latest version of this dataset
+      data-units: days since {forecast issue time}
     -
       attr-label: time
       attr-def: >-
@@ -322,7 +322,7 @@ entities:
     -
       attr-label: model_name
       attr-def:  >-
-        Model name. DA, no DA and persistence
+        Model name. Either DA, no DA and persistence
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -338,7 +338,7 @@ entities:
     -
       attr-label: max_temp_l90
       attr-def:  >-
-        XX
+        The lower end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
       attr-defs: This data release 
       data-min: 5.86 # will update when we have latest vbersion of this dataset
       data-max: 22.49 # will update when we have latest vbersion of this dataset
@@ -346,7 +346,7 @@ entities:
     -
       attr-label: max_temp_u90
       attr-def:  >-
-        XX
+        The upper end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
       attr-defs: This data release
       data-min: 8.03 # will update when we have latest vbersion of this dataset
       data-max: 25.03 # will update when we have latest vbersion of this dataset
@@ -354,7 +354,7 @@ entities:
     -
       attr-label: prob_exceed_75
       attr-def:  >-
-        XX
+        The predicted probability (in decimal fraction) of stream temperature exceeding 75 degrees F for a given segment and date. It's calculated as the fraction of ensemble predictions that exceeded 75 F.
       attr-defs: This data release
       data-min: 0 # will update when we have latest vbersion of this dataset
       data-max: 0.53 # will update when we have latest vbersion of this dataset
@@ -362,15 +362,7 @@ entities:
     -
       attr-label: lead_time
       attr-def:  >-
-        Number of days XX 
-      attr-defs: This data release
-      data-min: 0 # will update when we have latest vbersion of this dataset
-      data-max: 7 # will update when we have latest vbersion of this dataset
-      data-units: Time difference in days
-    -
-      attr-label: lead_time
-      attr-def:  >-
-        Number of days XX 
+        Number of days beyond the forecast issue_time for which a prediction was made. Calculated as `time` minus `issue_time` 
       attr-defs: This data release
       data-min: 0 # will update when we have latest vbersion of this dataset
       data-max: 7 # will update when we have latest vbersion of this dataset
