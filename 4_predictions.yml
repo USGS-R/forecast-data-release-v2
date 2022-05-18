@@ -12,7 +12,6 @@ targets:
   4_predictions:
     depends:
       - out_data/reservoir_downstream_preds.csv
-      # - out_data/reservoir_io_sntemp.csv
       - out_data/dwallin_stream_preds.csv.zip
       - out_data/forecast_pgdl_da_outputs.zip
       - out_data/all_mods_with_obs.rds
@@ -29,10 +28,6 @@ targets:
   out_data/forecast_pgdl_da_outputs.zip:
     command: zip_this(target_name, 'in_data/PGDL-DA')
     
-  # Paired predictions  
+  # Paired predictions  - 
   out_data/all_mods_with_obs.csv:
-    command: rds_to_csv(in_rds = 'in_data/all_mods_with_obs.rds', out_csv = target_name)
-
-  # # Not currently in caldera
-  # out_data/reservoir_outlet_depth_preds.csv:
-  #   file.copy(from = 'in_data/outlet_depth_preds.csv', to = target_name)
+    command: rds_to_csv(in_rds = 'in_data/all_mods_with_obs_lst_yr.rds', out_csv = target_name) #  all_mods_with_obs_lst_yr name will need to be updated when ready! 

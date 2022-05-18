@@ -236,6 +236,8 @@ entities:
       deep learning models, we use yesterday's maximum temperature value as the forecast for
       7 days into the future. See the evaluation code in the "evaluate-forecast" repository in
       Zwart and others 2021 (https://doi.org/10.5281/zenodo.5164910) for this adjustment.
+      
+      A general description of the attributes are provided below for all the nc forecasted nc files, no minimum and maximum values are given to capture all forecasted nc files. 
     attributes:
     -
       attr-label: max_temp

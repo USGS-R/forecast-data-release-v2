@@ -44,13 +44,6 @@ targets:
       Pepacton = 'nhdhr_151957878',
       Cannonsville = 'nhdhr_120022743'))
        
-  # reservoir_polygons:
-  #   command: fetch_filter_res_polygons(
-  #     out_rds = target_name,
-  #     in_ind = "canonical_lakes_sf.rds.ind",
-  #     in_repo = I('../lake-temperature-model-prep/'),
-  #     site_ids = reservoir_modeling_site_ids)
-  # 
   # Reservoir polygons
   reservoir_polygons:
     command: fetch_filter_res_polygons(

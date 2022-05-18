@@ -13,7 +13,7 @@ targets:
       - out_data/reservoir_io_obs.csv
       - out_data/reservoir_io_sntemp.csv
       
-  # NLDAS Files
+  # NLDAS Files - going directly to remake
   # ## NLDAS_time[0.377900]_x[397]_y[136].csv
   # out_data/NLDAS_time[0.377900]_x[397]_y[136].csv:
   #   command: file.copy(from = 'in_data/NLDAS_time[0.377900]_x[397]_y[136].csv', to = target_name)
