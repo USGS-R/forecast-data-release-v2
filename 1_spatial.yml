@@ -42,7 +42,7 @@ targets:
   reservoir_modeling_site_ids:
     command: c(I(c(
       Pepacton = 'nhdhr_151957878',
-      Cannonsville = 'nhdhr_120022743'))
+      Cannonsville = 'nhdhr_120022743')))
        
   # Reservoir polygons
   reservoir_polygons:

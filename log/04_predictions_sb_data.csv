@@ -2,5 +2,5 @@ filepath,sb_id,time_uploaded_to_sb
 out_data/reservoir_downstream_preds.csv,624f21fad34e21f82769a7b1,2022-05-11 20:41 UTC
 out_data/dwallin_stream_preds.csv.zip,624f21fad34e21f82769a7b1,2022-05-11 20:41 UTC
 out_data/forecast_pgdl_da_outputs.zip,624f21fad34e21f82769a7b1,2022-05-11 20:41 UTC
-out_data/all_mods_with_obs.rds,624f21fad34e21f82769a7b1,2022-05-11 20:41 UTC
-out_xml/04_predictions_fgdc_metadata.xml,624f21fad34e21f82769a7b1,2022-05-16 20:11 UTC
+out_data/paired_predicted_observed_temperatures.csv,624f21fad34e21f82769a7b1,2022-05-18 21:09 UTC
+out_xml/04_predictions_fgdc_metadata.xml,624f21fad34e21f82769a7b1,2022-05-18 21:09 UTC
