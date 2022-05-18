@@ -291,7 +291,15 @@ entities:
   -
     data-name: all_mods_with_obs.csv
     data-description: >-
-        Paired predictions and observations. XX 
+      Model predictions with paired observations from three models.
+      Predictions from the deep learning with (DA) and without (no_DA)
+      data assimilation had 3100 ensembles, and reported predictions
+      are the mean of the ensembles. The persistence model was generated
+      by propagating yesterday's observed maximum temperature 7 days into
+      the future. The DA and no_DA models were used to make predictions for
+      two scenarios: the observed researvoir release values (+0cfs) and
+      a scenario where a manager increased the releases by 100cfs (+100cfs).
+      For the +100 cfs scenario, we did not pair observervations with predictions.   
     attributes:
     -
       attr-label: seg_id_nat
@@ -299,22 +307,22 @@ entities:
         Stream reach identification number for this dataset.
         This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature may correspond to "segidnat" in other data files.
       attr-defs: >-
-        http://nhd.usgs.gov/
+        https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: issue_time
       attr-def: >-
-        Forecast issue time
-      attr-defs: 
+        Date that the forecast was issued.
+      attr-defs: This data release
       data-min: XX # will complete when we have latest vbersion of this dataset
       data-max: XX # will complete when we have latest version of this dataset
       data-units: days since {forecast issue time}
     -
       attr-label: time
       attr-def: >-
-        Forecast date
+        Valid date of forecast
       attr-defs: This data release
       data-min: XX # will complete when we have latest vbersion of this dataset
       data-max: XX # will complete when we have latest vbersion of this dataset
@@ -322,7 +330,9 @@ entities:
     -
       attr-label: model_name
       attr-def:  >-
-        Model name. Either DA, no DA and persistence
+        Model name. Which model was used to generate the predictions, either
+        the persistence model (persistence), the deep learning model with data assimalation (DA) or the
+        deep learning without data assimilation (no_DA).
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -330,11 +340,11 @@ entities:
     -
       attr-label: max_temp_c_predicted
       attr-def:  >-
-        Maximum temperature predicted in degrees C
+        Predicted maximum water temperature
       attr-defs: This data release
       data-min: 6.4 # will update when we have latest vbersion of this dataset
       data-max: 24.6 # will update when we have latest vbersion of this dataset
-      data-units: degree C
+      data-units: degree Celcius
     -
       attr-label: max_temp_l90
       attr-def:  >-
@@ -342,7 +352,7 @@ entities:
       attr-defs: This data release 
       data-min: 5.86 # will update when we have latest vbersion of this dataset
       data-max: 22.49 # will update when we have latest vbersion of this dataset
-      data-units: degree C
+      data-units: degree Celcius
     -
       attr-label: max_temp_u90
       attr-def:  >-
@@ -350,7 +360,7 @@ entities:
       attr-defs: This data release
       data-min: 8.03 # will update when we have latest vbersion of this dataset
       data-max: 25.03 # will update when we have latest vbersion of this dataset
-      data-units: degree C
+      data-units: degree Celcius
     -
       attr-label: prob_exceed_75
       attr-def:  >-
@@ -358,14 +368,14 @@ entities:
       attr-defs: This data release
       data-min: 0 # will update when we have latest vbersion of this dataset
       data-max: 0.53 # will update when we have latest vbersion of this dataset
-      data-units: degree C
+      data-units: degree Celcius
     -
       attr-label: lead_time
       attr-def:  >-
-        Number of days beyond the forecast issue_time for which a prediction was made. Calculated as `time` minus `issue_time` 
+        Number of days beyond the forecast issue_time for which a prediction was made. Calculated as the difference between `time` and `issue_time` 
       attr-defs: This data release
-      data-min: 0 # will update when we have latest vbersion of this dataset
-      data-max: 7 # will update when we have latest vbersion of this dataset
+      data-min: 0 # will update when we have latest vbersion of this dataset - likely the same
+      data-max: 7 # will update when we have latest vbersion of this dataset - likely the same
       data-units: Time difference in days
     - 
       attr-label: max_temp_c
@@ -374,11 +384,13 @@ entities:
       attr-defs: This data release
       data-min: 6.4
       data-max: 24.6
-      data-units: degree C
+      data-units: degree Celcius
     - 
       attr-label: site_name
       attr-def:  >-
-        One of 5 sites. "EBDR, Harvard ("EBDR @ Harvard"), WBDR, Hale Eddy ("WBDR @ Hale Eddy"), WBDR, Hancock ("WBDR @ Hancock"), DR, Lordville ("DR @ Lordville"), NR, Bridgeville ("NR @ Bridgeville")
+        Name of the site. One of the following: 
+        NR = Neversink River, EBDR = East Branch of the Delaware River, WBDR = West Branch of the Delaware River, DR = Delaware River
+        EBDR, Harvard = "EBDR @ Harvard", WBDR, Hale Eddy = "WBDR @ Hale Eddy", WBDR, Hancock = "WBDR @ Hancock", DR, Lordville = "DR @ Lordville", NR, Bridgeville = "NR @ Bridgeville"
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -386,7 +398,8 @@ entities:
     - 
       attr-label: scenario
       attr-def:  >-
-        Either +0cfs or +100cfs
+        Water release scenario that was used to generate the forecasts; scenarios included
+        the planned conservation release value (+0cfs) or the conservation release value plus 100 cfs (+100cfs)
       attr-defs: This data release
       data-min: NA
       data-units: NA

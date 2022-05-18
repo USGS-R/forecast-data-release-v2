@@ -136,7 +136,7 @@ entities:
   #   -
   #     attr-label: siteid
   #     attr-def: >-
-  #       Site identifier from the data provider. For USGS sites, this is the USGS site number with a "USGS-" prefix. This feature corresponds to "site_id" in other files.
+  #       Site identifier from the data provider. For USGS sites, this is the USGS site number with a "USGS-" prefix. This feature may correspond to "siteid" in other files.
   #     attr-defs: This data release
   #     data-min: NA
   #     data-max: NA

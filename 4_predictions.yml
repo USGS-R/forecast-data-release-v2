@@ -14,7 +14,7 @@ targets:
       - out_data/reservoir_downstream_preds.csv
       - out_data/dwallin_stream_preds.csv.zip
       - out_data/forecast_pgdl_da_outputs.zip
-      - out_data/all_mods_with_obs.rds
+      - out_data/paired_predicted_observed_temperatures.csv
 
   # Reservoir outlet temperatures from GLM (files from delaware-model-prep/9_collaborator_data/res/)
   out_data/reservoir_downstream_preds.csv:
@@ -29,5 +29,5 @@ targets:
     command: zip_this(target_name, 'in_data/PGDL-DA')
     
   # Paired predictions  - 
-  out_data/all_mods_with_obs.csv:
+  out_data/paired_predicted_observed_temperatures.csv:
     command: rds_to_csv(in_rds = 'in_data/all_mods_with_obs_lst_yr.rds', out_csv = target_name) #  all_mods_with_obs_lst_yr name will need to be updated when ready! 
