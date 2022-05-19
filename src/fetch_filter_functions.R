@@ -71,6 +71,16 @@ fetch_filter_nml <- function(out_json, in_ind, in_repo, site_ids) {
     write(out_json)
 }
 
+fetch_combine_nmls <- function(out_file, ...) {
+  
+  # read nml files and put in list
+  nml_files <- c(...)
+  out_list <- purrr::map(nml_files, glmtools::read_nml) %>%
+    RJSONIO::toJSON(pretty = TRUE) %>%
+    write(out_file)
+  
+}
+
 confirm_meteo_staged <- function(csv_file) {
   stopifnot(file.exists(csv_file))
 }
