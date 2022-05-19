@@ -75,13 +75,6 @@ funding-credits: >-
   This study was funded by the United States Geological Survey.
   This research used resources of the Core Science Analytics and Synthesis Advanced Research Computing program at the U.S. Geological Survey.
 
-process-description: >-
-  At the core of the modeling framework is a coupled hydrologic-thermodynamic model that uses inputs of reach-specific properties and local meteorology to estimate flow and water temperature.
-  Our chosen process-based stream model is the open source, Precipitation Runoff Modeling System (PRMS) with the coupled Stream Network Temperature Model (SNTemp) version 5.1.0 RC. PRMS is a
-  deterministic model that simulates watershed hydrology as a function of climate and land use, and the coupled SNTemp module simulates the change in stream temperature as a function of
-  changes in hydrology and energy. For reservoir modeling, our chosen model is the open source, General Lake Model (GLM) version 3.1. GLM is a one-dimensional dynamical model which simplifies lakes using a vertical approximation,
-  where horizontal variability is ignored. GLM uses a Lagrangian approach to layer structure where layers can split and combine based on changing vertical gradients.
-  GLM is a modern, implementation of other one-dimensional models. We used GLM to run individual lake simulations according to the processes described in Winslow and others 2017.
 
 distro-person: Samantha K. Oliver
 liability-statement: >-

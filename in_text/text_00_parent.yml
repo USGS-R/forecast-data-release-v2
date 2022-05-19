@@ -23,6 +23,8 @@ abstract: >-
 build-environment: Multiple computer operating systems were used to generate these data, including Windows, linux, OSX. The open source languages R and Python were used on all systems.
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
+process-description: >-
+    This is the landing page for the other data release sections; processing descriptions can be found on each child item.
 indirect-spatial: U.S.A.
 latitude-res: 0.1
 longitude-res: 0.1
@@ -34,4 +36,4 @@ entities:
   -
     data-name: Parent metadata landing page
     data-description: >-
-      This is the landing page for XX other data release units, described in the attributes section
+      This is the landing page for four other data release units, described in the attributes section
