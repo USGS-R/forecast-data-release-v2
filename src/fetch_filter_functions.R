@@ -59,7 +59,21 @@ fetch_filter_historical <- function(out_rds, in_dat, xwalk) {
     saveRDS(out_rds)
 }
 
-fetch_filter_nml <- function(out_json, in_ind, in_repo, site_ids) {
+## Function to fetch and filter nml and outputs json. full nml_list rds file needs to be downloaded and provided here 
+fetch_filter_nml <- function(out_json, in_rds, site_ids) {
+  #' @param out_json char path for output json name (e.g. out_data/reservoir_nml_values.json) 
+  #' @param in_rds char path to an nml_list.rds file
+  #' @param site_ids site ids to filter to - defined in 01_spatial.yml (e.g. reservoir_modeling_site_ids)
+  
+  # read and filter to just the specified sites
+  readRDS(in_rds) %>%
+    .[site_ids] %>%
+    RJSONIO::toJSON(pretty = TRUE) %>%
+    write(out_json)
+}
+
+## Same as above but nml if we are pulling rds from repo 
+fetch_filter_nml_from_repo <- function(out_json, in_ind, in_repo, site_ids) {
   # pull the data file down to that other repo
   # gd_get_elsewhere(gsub(in_repo, '', in_ind, fixed=TRUE), in_repo)
   
@@ -71,8 +85,10 @@ fetch_filter_nml <- function(out_json, in_ind, in_repo, site_ids) {
     write(out_json)
 }
 
-fetch_combine_nmls <- function(out_file, ...) {
-  
+
+
+fetch_combine_nmls <- function(out_file, nml_list, ...) {
+
   # read nml files and put in list
   nml_files <- c(...)
   out_list <- purrr::map(nml_files, glmtools::read_nml) %>%
