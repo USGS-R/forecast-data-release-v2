@@ -1,9 +1,12 @@
 title: >-
-  Data to support network-wide 7-day ahead forecasting of water temperature in the Delaware River Basin: 1 Spatial Data Files
+  Data to support network-wide 7-day ahead forecasting of water temperature in the Delaware River Basin: 1) Waterbody information for 70 river reaches and 2 reservoirs
 
 abstract: >-
-  XXThis dataset provides one shapefile of polylines for the 456 river segments in this study, and one shapefile of reservoir polygons for the Pepacton and Cannonsville reservoirs.
 
+  This section provides spatial data files that describe the river and reservoirs in the Delaware River Basin included in this release. One shapefile of polylines
+  describes the 70 river reaches that define the modeling network, and another shapefile of polygons includes
+  the two reservoirs (Pepacton, Cannonsville) for which data are included in this release.
+  
 cross-cites:
   -
     authors: ['Roland Viger', 'Andrew Bock']
@@ -17,11 +20,22 @@ cross-cites:
       Preliminary spatial parameters for PRMS based on the Geospatial Fabric, NLCD2001 and SSURGO
     pubdate: 2014
     link: http://dx.doi.org/doi:10.5066/F7WM1BF7
+  -
+    authors: ["U.S. Geological Survey"]
+    title: >-
+      NHDPlus high resolution: U.S. Geological Survey The National Map website
+    pubdate: 2018
+    link: https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
+
 
 entities:
   -
     data-name: study_stream_reaches.zip
-    data-description: GIS polylines data for the 456 stream segments included in this study
+    data-description: >-
+      GIS polylines data for the 70 stream segments included in the upper Delaware River Basin that
+      have been included in this study. Stream reaches include those on the East and West Branch of the 
+      Delaware River, mainstem Delaware River reaches above Lordville, New York, and the Neversink River.
+      The stream network is originally derived from the USGS Geospatial Fabric v1.
     attributes:
     -
       attr-label: subsegid
@@ -29,7 +43,7 @@ entities:
         An alternative unique reach identifier which was created in order to split segments such that 
         segment start and endpoints were connected by one reach with no intersecting reaches. The ID was created
         using the seg_id from the Geospatial Fabric and an index from one to the number of splits (e.g., {subseg_id}_{index}). 
-        This feature corresponds to subseg_id in other files.
+        This feature corresponds to subseg_id in other files. There are 70 unique identifiers in this field.
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -38,7 +52,7 @@ entities:
       attr-label: subsegseg
       attr-def: >-
         An alternative reach identifier, which corresponds to seg_id in the Geospatial Fabric. 
-        This feature corresponds to subseg_seg in other files. 
+        This feature corresponds to subseg_seg in other files. There are 70 unique identifiers in this field.
       attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
       data-max: NA
@@ -76,132 +90,44 @@ entities:
       data-min: NA
       data-max: NA
       data-units: NA
- 
     -
       attr-label: segidnat
       attr-def: >-
         National unique stream reach identifier. 
         This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
-        This feature corresponds to "seg_id_nat" in other data files.
+        This feature corresponds to "seg_id_nat" in other data files. There are 70 unique identifiers in this field.
       attr-defs: >-
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
       data-max: NA
       data-units: NA
   -
-    data-name: 01_study_reservoirs.zip
-    data-description: GIS polygon data for the Pepacton and Cannonsville reservoirs
+    data-name: study_reservoirs.zip
+    data-description: >- 
+      GIS polygon data for the Pepacton and Cannonsville reservoirs.
+      Polygons are from the National Hydrography Dataset High Resolution (NHDPlus HR).
     attributes:
     -
       attr-label: site_id
       attr-def: >-
         Reservoir identification number for this dataset. 
+        nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir.
+        This field corresponds to the Permanent_Identifier field in the NHDPlus HR with an added "nhdhr_" prefix.
         Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       
-        nhdhr_120022743 is Cannonsville Reservoir and nhdhr_151957878 is Pepacton Reservoir
       attr-defs: >-
         http://nhd.usgs.gov/
       data-min: NA
       data-max: NA
       data-units: NA
-  -
-    data-name: 01_study_monitoring_sites.zip
-    data-description: >- 
-      GIS point data for flow and temperature monitoring sites in the Delaware River Basin.
-      
-      
-      Sites represent all sites within the Delaware River Basin boundary that were retrieved from
-      EcoSHEDS, Water Quality Portal, or the National Water Information System. Sites were limited to those
-      that matched to our stream network and that met our distance critera (fish distance < 20,000 m and bird distance < 250 m).
-      Some sites are duplicated (multiple rows per site_id); these duplicated sites mean that the same site appeared
-      in more than one database.
-      
-      
-      Sites were matched to the closest river reach from the Geospatial Fabric v1.1, by Euclidean distance, 
-      from the monitoring site latitude and longitude.
-      Sites represent all sites within the Delaware River Basin boundary that were retrieved from
-      EcoSHEDS, Water Quality Portal, or the National Water Information System. Sites were limited to those
-      that matched to our stream network and that met our distance critera (fish distance < 20,000 m and bird distance < 250 m).
-      Once the original reach match was assigned, the matched segment was reassigned if the endpoint of the 
-      upstream reach was closer to the monitoring site (by river distance) than the endpoint of the matched reach.
-      If the upstream endpoint was closer, but there was a confluence directly upstream, then the original match
-      was kept.      
-      
-    attributes:
-    -
-      attr-label: siteid
-      attr-def: >-
-        Site identifier from the data provider. For USGS sites, this is the USGS site number with a "USGS-" prefix. This feature corresponds to "site_id" in other files.
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: sitetype
-      attr-def: >-
-        Site type from the data source. This includes site_tp_cd from NWIS. Site types include unclassified (blank), springs (SP), streams (ST), tidal streams (ST-TS), canals (ST-CA), ditches (ST-DCH).
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: source
-      attr-def: >-
-        one of four sources from which the temperature data were compiled, including NWIS (NWISdv and NWISuv), WQP, EcoSHEDS, and NorWeST      
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: origsource
-      attr-def: >-
-        WQP, EcoSHEDS, and NorWeST are compliations of temperature data from other sources. This identifies the original collection organization.
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: subsegid
-      attr-def: >-
-        The reach identifier of the matched stream reach. subsegid is an alternative unique reach identifier which was created in order to split segments such that 
-        segment start and endpoints were connected by one reach with no intersecting reaches. The ID was created
-        using the seg_id from the Geospatial Fabric and an index from one to the number of splits (e.g., {subseg_id}_{index}). 
-        This feature corresponds to subseg_id in other files.
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: fishdist
-      attr-def: >-
-        Distance along the stream between the monitoring site and the outlet of the matched stream reach.
-        Positive values indicate the monitoring site is upstream of the outlet of the matched stream reach.
-        Negative values indicate the monitoring site is downstream of the outlet of the matched stream reach.
-      attr-defs: This data release
-      data-min: -13835.68
-      data-max: 19985.95
-      data-units: meters
-    -
-      attr-label: birddist
-      attr-def: >-
-        The Euclidean distance from the monitoring site to the closest point of the matching segment.
-      attr-defs: This data release
-      data-min: 0
-      data-max: 310.2
-      data-units: meters
-    -
-      attr-label: segidnat
-      attr-def: >-
-        The reach identifier of the matched stream reach. segidnat is the national unique stream 
-        reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
-        This feature corresponds to "seg_id_nat" in other data files.
-      attr-defs: >-
-        https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
-      data-min: NA
-      data-max: NA
-      data-units: NA
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
+process-description: >-
+  The stream network is based on a lightly modified version of the National Geospatial Fabric v1, where some
+  modifications were made to meet the criteria that segment start and endpoints were connected by one reach with no intersecting reaches.
+  This stream network forms the basis for many other data products, including the summarization of driver data and tying observations
+  to the stream network.
+
 file-format: Shapefile
 
 indirect-spatial: U.S.A.

@@ -1,10 +1,18 @@
 title: >-
-  Data to support network-wide 7-day ahead forecasting of water temperature in the Delaware River Basin: 3 Model configurations
+  Data to support network-wide 7-day ahead forecasting of water temperature in the Delaware River Basin: 3) model configurations
 
 abstract: >-
-  This dataset includes model parameters and metadata used to configure models.
+  This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models
+  that makes predictions at 70 river reaches in the upper Delaware River Basin. This section includes model
+  parameters and metadata used to configure reservoir models.
 
 cross-cites:
+  -
+    authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
+    title: >-
+      XXSource code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation [UPDATE w/ link to zenodo]
+    pubdate: 2022
+    link: XX
   -
     authors: ['Matthew R. Hipsey', 'Louise C. Bruce', 'Casper Boon', 'Brendan Busch', 'Cayelan C. Carey', 'David P. Hamilton', 'Paul C. Hanson', 'Jordan S. Read', 'Eduardo de Sousa', 'Michael Weber', 'Luke A. Winslow']
     title: >-
@@ -19,7 +27,6 @@ cross-cites:
     pubdate: 2019
     link: https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
 
-
 entities:
   -
     data-name: reservoir_nml_values.json
@@ -27,13 +34,14 @@ entities:
       JSON file containing a nested list of reservoir parameters for input to GLM. 
       Top-level list elements are reservoirs, and fields within those elements are given as 
       attributes below.
+      Only Cannonsville and Pepacton Reservoir are included here. 
     attributes:
     -
       attr-label: site-id
       attr-def:  >-
         Reservoir identification number for this dataset. Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       
-        nhdhr_120022743 is Cannonsville Reservoir and nhdhr_151957878 is Pepacton Reservoir 
+        nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir.
       attr-defs: http://nhd.usgs.gov/
       data-min: NA
       data-max: NA
@@ -53,8 +61,8 @@ entities:
         Longitude, positive East
       attr-defs:  >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
-      data-min: -75.30163
-      data-max: -74.85719
+      data-min: -74.85719
+      data-max: -75.30163
       data-units: decimal degrees
     -
       attr-label: latitude
@@ -100,7 +108,7 @@ entities:
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 1.5
       data-max: 1.5
-      data-units: meters
+      data-units: meters X
     -
       attr-label: min_layer_thick
       attr-def: >-
@@ -109,7 +117,7 @@ entities:
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 0.2
       data-max: 0.2
-      data-units: meters
+      data-units: meters X
     -
       attr-label: meteo_fl
       attr-def: >-
@@ -126,7 +134,7 @@ entities:
       attr-defs: >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 0.4613866
-      data-max: 0.7610733
+      data-max: 0.5617906
       data-units: per meter
     -
       attr-label: A
@@ -149,7 +157,7 @@ entities:
   -
     data-name: reservoir_nml_files.zip
     data-description: >-
-      zip file of complete .nml files, with calculated and calibrated parameters, as input to the 
+      Zip file of complete .nml files, with calculated and calibrated parameters, as input to the 
       GLM runs that were used to produce the reservoir outlet predictions and DWALLIN dataset.
     attributes:
     -
@@ -164,6 +172,11 @@ entities:
 
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
+process-description: >-
+  The General Lake Model (GLM) version 3.1 is a one-dimensional dynamical model which simplifies lakes using a vertical approximation,
+  where horizontal variability is ignored. GLM uses a Lagrangian approach to layer structure where layers can split and combine based on changing vertical gradients.
+  GLM is a modern implementation of other one-dimensional models.
+
 indirect-spatial: U.S.A.
 latitude-res: 0.1
 longitude-res: 0.1

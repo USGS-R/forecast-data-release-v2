@@ -167,3 +167,17 @@ combine_level_sources <- function(out_csv, nwis_levels, nyc_levels, hist_levels)
   out_dat$surface_elevation_m <- round(out_dat$surface_elevation_m, 2)
   readr::write_csv(out_dat, out_csv)
 }
+
+
+## Transform simple rds to csv:
+
+# rds<- 'in_data/all_mods_with_obs_lst_yr.rds'
+# out_csv <- 'out_data/all_mods_with_obs.csv'
+
+rds_to_csv <- function(in_rds, out_csv){
+  
+  csv <- readr::write_csv(x = readRDS(in_rds), file = out_csv)
+         
+}
+
+#rds_to_csv(in_rds = rds, out_csv = out_csv)

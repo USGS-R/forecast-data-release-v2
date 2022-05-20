@@ -15,39 +15,51 @@ sources:
 targets:
   1_spatial:
     depends:
-      #- river_metadata
-      #- out_data/study_stream_reaches.zip
-      #- out_data/study_reservoirs.zip
+      - river_metadata
+      - reservoir_metadata
+      - out_data/study_stream_reaches.zip
+      - out_data/study_reservoirs.zip
 
   # this first section should be the river network - one reach for 
-  # each reach we are forecasting. This might be the whole DRB NHM network
-  # or a subset. 
+  # each reach we are forecasting. This might be the whole DRB NHM network or a subset. 
   modeled_network_sf:
-    command: retrieve_network(network_sf_fl = '../delaware-model-prep/1_network/out/network.rds')
-    
+    command: retrieve_network(network_sf_fl = 'in_data/network.rds')
+  
+  modeled_network_sf_filtered:
+    command: filter_network_segments(network_sf = modeled_network_sf, filter_list_rds = 'in_data/forecast_segs.rds')
+
   river_metadata:
-    command: extract_feature(modeled_network_sf)
-    
+    command: extract_feature(modeled_network_sf_filtered)
+  
   out_data/study_stream_reaches.zip:
     command: sf_to_zip(target_name,
-      sf_object = modeled_network_sf,
+      sf_object = modeled_network_sf_filtered,
       layer_name = I('study_stream_reaches'))
       
-  # this section should include shapefiles of the 
-  # reservoirs that we modeled (Cannonsville and Pepacton)
+  # This section should include shapefiles of the 
+  # Reservoirs that we modeled (Cannonsville and Pepacton)
     # Define scope of reservoir modeling data in this repo
   reservoir_modeling_site_ids:
     command: c(I(c(
       Pepacton = 'nhdhr_151957878',
       Cannonsville = 'nhdhr_120022743')))
-      
+       
+  # Reservoir polygons
   reservoir_polygons:
     command: fetch_filter_res_polygons(
       out_rds = target_name,
-      in_ind = "../lake-temperature-model-prep/1_crosswalk_fetch/out/canonical_lakes_sf.rds.ind",
-      in_repo = I('../lake-temperature-model-prep/'),
+      in_dat = "in_data/canonical_lakes_sf.rds",
+      in_repo = NULL,
       site_ids = reservoir_modeling_site_ids)
-      
+  
+  # output reservoir shp
+  out_data/study_reservoirs.zip:
+    command: sf_to_zip2(zip_filename = target_name,
+      sf_object = reservoir_polygons,
+      layer_name = I('study_reservoirs'))
+
   reservoir_metadata:
     command: extract_feature(reservoir_polygons)
+    
+    
     
