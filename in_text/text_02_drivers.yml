@@ -12,9 +12,9 @@ cross-cites:
   -
     authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
     title: >-
-      XXSource code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
+      XXSource code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation [UPDATE w/ link to zenodo]
     pubdate: 2022
-    link: XX
+    link: XX [UPDATE]
   -
     authors: ['Kenneth E. Mitchell','Dag Lohmann','Paul R. Houser','Eric F. Wood','John C. Schaake','Alan Robock','Brian A. Cosgrove','Justin Sheffield','Qingyun Duan','Lifeng Luo','R. Wayne Higgins','Rachel T. Pinker','J. Dan Tarpley','Dennis P. Lettenmaier','Curtis H. Marshall','Jared K. Entin','Ming Pan','Wei Shi','Victor Koren','Jesse Meng','Bruce H. Ramsay','Andrew A. Bailey']
     title: >-
