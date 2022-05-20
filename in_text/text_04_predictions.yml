@@ -47,7 +47,7 @@ entities:
       Predictions of outflow and water temperature for outflow reaches of the Pepacton and
       Cannonsville reservoirs, generated from calibrated reservoir models built with GLM v3.1.
       Code used to generate these predictions can be found in the "res-temperature-process-models"
-      in Zwart et. al (2022).
+      in Zwart et. al (2022; XX link to zenodo).
     attributes:
     -
       attr-label: res_id
@@ -88,7 +88,7 @@ entities:
     data-description: >-
       Stream temperature predictions from the distance-weighted-average lotic-lentic input network (DWALLIN).
       Predictions were generated from a combination of lotic (from PRMS-SNTemp) and lentic (GLM) models.
-      See dwallin_functions.R for processing steps that were taken to calculate the DWALLIN stream temperature
+      See Oliver et al. 2021 for processing steps that were taken to calculate the DWALLIN stream temperature
       predictions.
   
       There a few site-dates with extremely high predicted stream temperature values.
@@ -96,7 +96,7 @@ entities:
       a result of stream segments with little or no upstream inflow and very little in-stream
       flow for that particular day leading to extreamly high temperature predictions under those conditions.
       Subsequent versions of PRMS-SNTemp will resolve these extreme values, and we suggest against using
-      stream temperature predictions above 35 degrees C, which occurs 7 times in this dataset.
+      stream temperature predictions above 35 degrees C, which occurs 4 times in this dataset.
     attributes:
     -
       attr-label: seg_id_nat
@@ -132,13 +132,13 @@ entities:
       Forecasts were generated with a 1) persistence model that used the most recent observed daily
       maximum temperature as the 7-day ahead forecast, 2) a deep learning model, and a 3) deep learning
       model with data assimilation. Code that trained the deep learning models can be found in the "run-pgdl-da " repository,
-      and code that generated the forecasts can be found in the "forecast-pgdl-da" repository in Zwart and others 2021 (https://doi.org/10.5281/zenodo.5164910).
+      and code that generated the forecasts can be found in the "forecast-pgdl-da" repository in Zwart et al. 2022 (XX link to zenodo).
       
-      The zipped folder contains 60 files per issue date named forecast[{YYYY-MM-DD}]_files.zip.
+      The zipped folder contains 12 files per issue date named forecast[{YYYY-MM-DD}]_files.zip.
       Each issue date has two file types (a forecast .nc netCDF file and a .xml metadata file) for each model 
-      (DA, no_DA, persistence {model}), stream segment (1571, 1573, 1641, 1565, 1450 {seg_id_nat}),
-      and reservoir release scenario (0cfs or 100cfs {scenario}) such that files are named
-      lstm_seg_id_nat_[{seg_id_nat}]_{model}_forecast_[{YYYY-MM-DD}]_release[{scenario}].
+      (DA, no_DA, persistence {model}) and reservoir release scenario (0cfs or 100cfs {scenario}). The file name
+      includes a hash of the model instance, such that files are named
+      {hash}_{model}_forecast_[{YYYY-MM-DD}]_release[{scenario}].
       
       Since observations of daily maximum stream temperature were not available when we issued
       the forecast, the persistence forecast files have NA's for the daily maximum stream temperature

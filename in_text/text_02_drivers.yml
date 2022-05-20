@@ -133,15 +133,15 @@ entities:
   -
     data-name: noaagefs_meteo_driver_files.zip
     data-description: >-
-      NOAA Global Ensemble Forecasting System v12.0 0.25-degree operational model output for the 00 UTC forecast cycle from 2022-MM-DD to 2022-MM-DD.
+      NOAA Global Ensemble Forecasting System v12.0 0.25-degree operational model output for the 00 UTC forecast cycle from 2021-04-25 to 2022-04-18.
       These data are aggregated to the daily scale and NOAA GEFS grid cells are matched to the centroid of the target stream segment. The target stream segment
       seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
-      The noaagefs_meteo_driver_files zipped folder contains one NetCDF file per forecast issue date evaluated in Zwart and others 2021, such
+      The noaagefs_meteo_driver_files zipped folder contains one NetCDF file per forecast issue date evaluated in Zwart et al. 2022, such
       that the file name is final_noaa_gefs_{extent}_{YYYY-MM-DD}_00_forecast_segments.segments.nc. Archiving of the NOAA GEFS
       product was changed from USGS NGWOS priority basins early in the record (extent = NGWOS) to the continental U.S. starting
       on 2021-05-26 which is reflected in the name change (extent = CONUS).
-      Example code for how read the NOAA GEFS .nc files can be found in the "forecast-pgdl-da" repository in Zwart and others 2022 (XX).
+      Example code for how read the NOAA GEFS .nc files can be found in the "forecast-pgdl-da" repository in Zwart and others 2022 (XXlink to zenodo).
     attributes:
     -
       attr-label: time
