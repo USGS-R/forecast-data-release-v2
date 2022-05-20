@@ -22,10 +22,10 @@ targets:
   # nml values in a nested list with one top-level element per site, saved as JSON for readability
   # reading in with RJSONIO::fromJSON() - package should be loaded
   out_data/reservoir_nml_values.json:
-    command: fetch_combine_nmls(
-      out_file = target_name,
-      'in_data/glm3_cal_nhdhr_120022743.nml',
-      'in_data/glm3_cal_nhdhr_151957878.nml')
+    command: fetch_filter_nml(
+      out_json = target_name,
+      in_rds = 'in_data/nml_list_052022.rds',
+      site_ids = reservoir_modeling_site_ids)
 
   # .nml files manually copied and renamed from res-temperature-process-models
   out_data/reservoir_nml_files.zip:

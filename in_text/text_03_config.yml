@@ -55,8 +55,8 @@ entities:
         Longitude, positive East
       attr-defs:  >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
-      data-min: -75.30163
-      data-max: -74.85719
+      data-min: -74.85719
+      data-max: -75.30163
       data-units: decimal degrees
     -
       attr-label: latitude
@@ -128,7 +128,7 @@ entities:
       attr-defs: >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 0.4613866
-      data-max: 0.7610733
+      data-max: 0.5617906
       data-units: per meter
     -
       attr-label: A
