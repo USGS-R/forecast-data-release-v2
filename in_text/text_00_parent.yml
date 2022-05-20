@@ -2,13 +2,17 @@ title: >-
   Data to support network-wide 7-day ahead forecasting of water temperature in the Delaware River Basin
 
 abstract: >-
-  <p>Daily temperature predictions in the Delaware River Basin (DRB) can inform decision makers who can use cold-water reservoir releases to maintain thermal habitat for sensitive fish and mussel species. 
-  This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models that made real-time predictions in the
-  Delaware River Basin during 2022. The model is driven by weather forecasts and observed reservoir releases and produces maximum water temperature forecasts
-  for the issue day (day 0) and 7 days into the future (days 1-7) at five sites.
+  <p>Daily maximum water temperature predictions in the Delaware River Basin (DRB) can inform decision
+  makers who can use cold-water reservoir releases to maintain thermal habitat for sensitive fish species. 
+  This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models
+  that makes predictions at 70 river reaches in the upper Delaware River Basin. The modeling approach
+  include process-guided deep learning and data assimilation (Zwart et al., 2022). The model is driven by weather forecasts and observed reservoir releases and produces maximum water temperature forecasts
+  for the issue day (day 0) and 7 days into the future (days 1-7).
   
-  This data release captures the entire forecasting period that is reported in Zwart et al. 2022, and is an extension of a previous data
-  release that contains all data needed to build these models but only extends to MM DD, 2022 (Oliver et al. 2021). 
+  In combination with data provided in Oliver et al. (2022), this release contains all data used to train and validate
+  the water temperature forecast models. This includes a process-based model pre-trainer, forecasted gridded weather data,
+  reservoir releases, and water temperature data. Additionally, this release contains predictions from three models: a
+  deep learning model, a deep learning model with data assimilation, and a persistence model. 
   Additionally, this release contains a tidy version of the model predictions with paired observations for easier reuse.
 
   <br/>The data are organized into 4 child folders: 1) Spatial information, 2) model driver data, 3) model configuration files, 4) model predictions data </p>
