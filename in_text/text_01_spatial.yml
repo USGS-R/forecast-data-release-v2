@@ -20,6 +20,13 @@ cross-cites:
       Preliminary spatial parameters for PRMS based on the Geospatial Fabric, NLCD2001 and SSURGO
     pubdate: 2014
     link: http://dx.doi.org/doi:10.5066/F7WM1BF7
+  -
+    authors: ["U.S. Geological Survey"]
+    title: >-
+      NHDPlus high resolution: U.S. Geological Survey The National Map website
+    pubdate: 2018
+    link: https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
+
 
 entities:
   -

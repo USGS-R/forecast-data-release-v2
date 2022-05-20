@@ -2,8 +2,13 @@ title: >-
   Data to support network-wide 7-day ahead forecasting of water temperature in the Delaware River Basin: 4) model predictions
 
 abstract: >-
-  XX [Modify] This dataset includes model inputs including gridded weather data, a stream network distance matrix,
-  stream reach attributes and metadata, and reservoir characteristics.
+  This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models
+  that makes predictions at 70 river reaches in the upper Delaware River Basin. This section includes
+  predictions from several models, including a model pre-trainer that is predictions from a distance-weighted-average
+  lotic-lentic input network (DWALLIN) model, reservoir outlet temperature predictions from a process-based model,
+  and three data-driven water temperature forecast models.
+  
+
 cross-cites:
   -
     authors: ['Steven L. Markstrom']
@@ -13,27 +18,7 @@ cross-cites:
     pudate: 2012
     form: publication
     link: https://doi.org/10.3133/ofr20121116
-  -
-    authors: ['John T. Abatzoglou']
-    title: >-
-      Development of gridded surface meteorological data for ecological applications and modelling
-    pubdate: 2013
-    form: publication
-    link: https://doi.org/10.1002/joc.3413
-  -
-    authors: ['Kenneth E. Mitchell','Dag Lohmann','Paul R. Houser','Eric F. Wood','John C. Schaake','Alan Robock','Brian A. Cosgrove','Justin Sheffield','Qingyun Duan','Lifeng Luo','R. Wayne Higgins','Rachel T. Pinker','J. Dan Tarpley','Dennis P. Lettenmaier','Curtis H. Marshall','Jared K. Entin','Ming Pan','Wei Shi','Victor Koren','Jesse Meng','Bruce H. Ramsay','Andrew A. Bailey']
-    title: >-
-      The multi-institution North American Land Data Assimilation System (NLDAS): Utilizing multiple GCIP products and partners in a continental distributed hydrological modeling system
-    pubdate: 2004
-    form: publication
-    link: http://dx.doi.org/10.1029/2003JD003823
-  -
-    authors: ['Luke A. Winslow','Gretchen J.A. Hansen','Jordan S. Read','Michael Notaro']
-    title: >-
-      Large-scale modeled contemporary and future water temperature estimates for 10,774 Midwestern U.S. Lakes
-    pubdate: 2017
-    form: publication
-    link: http://dx.doi.org/10.1038/sdata.2017.53
+    
   -
     authors: ['Matthew R. Hipsey', 'Louise C. Bruce', 'Casper Boon', 'Brendan Busch', 'Cayelan C. Carey', 'David P. Hamilton', 'Paul C. Hanson', 'Jordan S. Read', 'Eduardo de Sousa', 'Michael Weber', 'Luke A. Winslow']
     title: >-
@@ -42,102 +27,21 @@ cross-cites:
     form: publication
     link: https://doi.org/10.5194/gmd-12-473-2019
   -
-    authors: ["Bernhard Lehner", "Catherine Reidy Liermann", "Carmen Revenga", "Charles Vorosmarty", "Balazs Fekete", "Philippe Crouzet", "Petra Doll", "Marcel Endejan", "Karen Frenken", "Jun Magome", "Christer Nilsson", "James C Robertson", "Raimund Rodel", "Nikolai Sindorf", "Dominik Wisser"]
-    title: >-
-      High-resolution mapping of the world's reservoirs and dams for sustainable river-flow management
-    pubdate: 2011
-    form: publication
-    link: >-
-      https://doi.org/10.1890/100125
-  -
     authors: ['Roland Viger', 'Andrew Bock']
     title: >-
       GIS Features of the Geospatial Fabric for National Hydrologic Modeling
     pubdate: 2014
     link: http://dx.doi.org/doi:10.5066/F7542KMD
-  -
-    authors: ['Roland Viger']
-    title: >-
-      Preliminary spatial parameters for PRMS based on the Geospatial Fabric, NLCD2001 and SSURGO
-    pubdate: 2014
-    link: http://dx.doi.org/doi:10.5066/F7WM1BF7
-  -
-    authors: ['Elizabeth A. Nystrom']
-    title: >-
-      Bathymetry of Ashokan, Cannonsville, Neversink, Pepacton, Rondout, and Schoharie Reservoirs, New York
-    pubdate: 2018
-    link: https://doi.org/10.3133/sir20175064
-  -
-    authors: ['NA']
-    title: >-
-      National Oceanic and Atmospheric Administration Global Ensemble Forecast System
-    pubdate: 2020
-    link: https://www.emc.ncep.noaa.gov/emc/pages/numerical_forecast_systems/gefs.php
+
 
 entities:
-  -
-    data-name: reservoir_io_sntemp.csv
-    data-description: PRMS-SNTemp predictions of water temperature for inflow and outflow reaches of the Pepacton and Cannonsville reservoirs. The file contains daily water temperature predictions for each reach.
-    attributes:
-    -
-      attr-label: res_id
-      attr-def: >-
-        Reservoir identification number for this dataset.
-        nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir
-        The Prmnn_I is taken from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
-      attr-defs: >-
-        http://nhd.usgs.gov/
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: seg_id_nat
-      attr-def: >-
-        National unique stream reach identifier. This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling. This feature may correspond to "segidnat" in other data files.
-      attr-defs: >-
-        https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
-      attr-label: date
-      attr-def: >-
-        Date of prediction
-      attr-defs: This data release
-      data-min: 19790101
-      data-max: 20220404
-      data-units: NA
-    -
-      attr-label: seg_outflow
-      attr-def:  >-
-        Predicted segment outflow
-      attr-defs: This data release
-      data-min: 0
-      data-max: NA
-      data-units: cubic meters per second
-    -
-      attr-label: seg_tave_water
-      attr-def: >-
-        Predicted water temperature
-      attr-defs: This data release
-      data-min: 280.365
-      data-max: 25.9
-      data-units: degrees Celsius
-    -
-      attr-label: direction
-      attr-def: >-
-        Direction of flow relative to reservoir. Either Inflow or Outflow
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: NA
   -
     data-name: reservoir_downstream_preds.csv
     data-description: >-
       Predictions of outflow and water temperature for outflow reaches of the Pepacton and
       Cannonsville reservoirs, generated from calibrated reservoir models built with GLM v3.1.
       Code used to generate these predictions can be found in the "res-temperature-process-models"
-      in Zwart and others 2021 (https://doi.org/10.5281/zenodo.5164910).
+      in Zwart et. al (2022).
     attributes:
     -
       attr-label: res_id
@@ -235,7 +139,7 @@ entities:
       prediction. When evaluating the performance of the persistence forecasts against the
       deep learning models, we use yesterday's maximum temperature value as the forecast for
       7 days into the future. See the evaluation code in the "evaluate-forecast" repository in
-      Zwart and others 2021 (https://doi.org/10.5281/zenodo.5164910) for this adjustment [TO UPDATE with new Zenodo link]. 
+      Zwart et al. (2022; XX add link) for this adjustment. 
 
       A general description of the attributes are provided below for all the nc forecasted nc files, no minimum and maximum values are given to capture all forecasted nc files. 
     attributes:
@@ -291,9 +195,9 @@ entities:
   -
     data-name: paired_predicted_observed_temperatures
     data-description: >-
-      Model predictions with paired observations from three models.
+      A tabular version of model predictions with paired observations from three models.
       Predictions from the deep learning with (DA) and without (no_DA)
-      data assimilation had 3100 ensembles, and reported predictions
+      data assimilation had 3100XX ensembles, and reported predictions
       are the mean of the ensembles. The persistence model was generated
       by propagating yesterday's observed maximum temperature 7 days into
       the future. The DA and no_DA models were used to make predictions for
@@ -415,7 +319,7 @@ process-description: >-
   deterministic model that simulates watershed hydrology as a function of climate and land use, and the coupled SNTemp module simulates the change in stream temperature as a function of
   changes in hydrology and energy. The reservoir model is the open source General Lake Model (GLM) version 3.1. GLM is a one-dimensional dynamical model which simplifies lakes using a vertical approximation,
   where horizontal variability is ignored. GLM uses a Lagrangian approach to layer structure where layers can split and combine based on changing vertical gradients.
-  GLM is a modern, implementation of other one-dimensional models. We used GLM to run individual lake simulations according to the processes described in Winslow and others 2017.
+  GLM is a modern, implementation of other one-dimensional models.
 
 indirect-spatial: U.S.A.
 latitude-res: 0.1
