@@ -312,6 +312,7 @@ entities:
         the planned conservation release value (+0cfs) or the conservation release value plus 100 cfs (+100cfs)
       attr-defs: This data release
       data-min: NA
+      data-max: NA
       data-units: NA
       
 build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and linux. The open source languages R and Python was used on all systems.
