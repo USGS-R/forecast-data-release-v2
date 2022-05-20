@@ -12,12 +12,13 @@ build-environment: >-
 # ----associated publication----
 larger-cites:
   -
-    authors: ["Jacob Zwart", "Samantha Oliver", "David Watkins", "Jeffrey Sadler", "Alison Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
+    authors: ["Jacob Zwart", 'Jeremy Diaz', 'Scott Hamshaw', 'Samantha Oliver', 'Jesse Ross', 'Margaux Sleckman', 
+    'Alison Appling', 'Hayley Corson-Dosch', 'Xiaowei Jia', 'Jordan Read', 'Jeffrey Sadler', 'Theodore Thompson', 'David Watkins', 'Elaheh White']
     title: >-
-      XXNear-term forecasts of stream temperature using process-guided deep learning and data assimilation
+      Stream network forecasts of water temperature using a recurrent graph convolutional neural network and data assimilation 
     form: publication
-    pubdate: 2021
-    link: https://doi.org/10.31223/X55K7G
+    pubdate: 2022
+    link: XX
 
 
 # ----supporting publications----
@@ -25,9 +26,9 @@ cross-cites:
   -
     authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
     title: >-
-      XX [Maybe include data processing code here] Source code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
-    pubdate: 2021
-    link: https://doi.org/10.5281/zenodo.5164910
+      XXSource code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
+    pubdate: 2022
+    link: XX
   -
     authors: ["Xiaowei Jia", "Jacob Zwart", "Jeffrey Sadler", 'Alison Appling', 'Samantha Oliver', 'Steven Markstrom', "Jared Willard", 'Shaoming Xu', 'Michael Steinbach', "Jordan Read", 'Vipin Kumar']
     title: >-
