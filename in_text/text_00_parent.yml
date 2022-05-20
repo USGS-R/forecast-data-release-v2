@@ -6,7 +6,8 @@ abstract: >-
   makers who can use cold-water reservoir releases to maintain thermal habitat for sensitive fish species. 
   This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models
   that makes predictions at 70 river reaches in the upper Delaware River Basin. The modeling approach
-  include process-guided deep learning and data assimilation (Zwart et al., 2022). The model is driven by weather forecasts and observed reservoir releases and produces maximum water temperature forecasts
+  include process-guided deep learning and data assimilation (Zwart et al., 2022). The model is
+  driven by weather forecasts and observed reservoir releases and produces maximum water temperature forecasts
   for the issue day (day 0) and 7 days into the future (days 1-7).
   
   In combination with data provided in Oliver et al. (2022), this release contains all data used to train and validate

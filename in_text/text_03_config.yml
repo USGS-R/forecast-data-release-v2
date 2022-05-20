@@ -8,6 +8,12 @@ abstract: >-
 
 cross-cites:
   -
+    authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
+    title: >-
+      XXSource code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
+    pubdate: 2022
+    link: XX
+  -
     authors: ['Matthew R. Hipsey', 'Louise C. Bruce', 'Casper Boon', 'Brendan Busch', 'Cayelan C. Carey', 'David P. Hamilton', 'Paul C. Hanson', 'Jordan S. Read', 'Eduardo de Sousa', 'Michael Weber', 'Luke A. Winslow']
     title: >-
       A General Lake Model (GLM 3.0) for linking with high-frequency sensor data from the Global Lake Ecological Observatory Network (GLEON).

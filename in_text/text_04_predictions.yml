@@ -11,6 +11,12 @@ abstract: >-
 
 cross-cites:
   -
+    authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
+    title: >-
+      XXSource code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
+    pubdate: 2022
+    link: XX
+  -
     authors: ['Steven L. Markstrom']
     title: >-
       P2S-Coupled simulation with the Precipitation-Runoff Modeling

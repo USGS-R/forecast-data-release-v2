@@ -8,8 +8,13 @@ abstract: >-
   process-based pre-trainer, gridded weather and forecasted weather data, and flow and temperature
   for reservoir inlets and outlets. 
   
-
 cross-cites:
+  -
+    authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
+    title: >-
+      XXSource code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
+    pubdate: 2022
+    link: XX
   -
     authors: ['Kenneth E. Mitchell','Dag Lohmann','Paul R. Houser','Eric F. Wood','John C. Schaake','Alan Robock','Brian A. Cosgrove','Justin Sheffield','Qingyun Duan','Lifeng Luo','R. Wayne Higgins','Rachel T. Pinker','J. Dan Tarpley','Dennis P. Lettenmaier','Curtis H. Marshall','Jared K. Entin','Ming Pan','Wei Shi','Victor Koren','Jesse Meng','Bruce H. Ramsay','Andrew A. Bailey']
     title: >-
@@ -41,17 +46,16 @@ cross-cites:
     title: >-
       P2S-Coupled simulation with the Precipitation-Runoff Modeling
       System (PRMS) and the Stream Temperature Network (SNTemp) Models
-    pudate: 2012
+    pubdate: 2012
     form: publication
     link: https://doi.org/10.3133/ofr20121116
   -
     authors: ['Michael J. Sanders', 'Steven L. Markstrom', 'R. Steven Regan', 'R. Dwight Atkinson']
     title: >-
-      Documentation of a Daily Mean Stream Temperature Module—An Enhancement to the Precipitation-Runoff Modeling System
-    pudate: 2017
+      Documentation of a Daily Mean Stream Temperature Module - An Enhancement to the Precipitation-Runoff Modeling System
+    pubdate: 2017
     form: publication
     link: https://doi.org/10.3133/tm6D4
-
 
 entities:
   -
@@ -137,8 +141,7 @@ entities:
       that the file name is final_noaa_gefs_{extent}_{YYYY-MM-DD}_00_forecast_segments.segments.nc. Archiving of the NOAA GEFS
       product was changed from USGS NGWOS priority basins early in the record (extent = NGWOS) to the continental U.S. starting
       on 2021-05-26 which is reflected in the name change (extent = CONUS).
-      Example code for how read the NOAA GEFS .nc files can be found in the "forecast-pgdl-da" repository in Zwart and others 2021 (https://doi.org/10.5281/zenodo.5164910).
-      
+      Example code for how read the NOAA GEFS .nc files can be found in the "forecast-pgdl-da" repository in Zwart and others 2022 (XX).
     attributes:
     -
       attr-label: time
@@ -158,7 +161,6 @@ entities:
       data-min: NA
       data-max: NA
       data-units: dimensionless
-  
     -
       attr-label: RH
       attr-def: >-
@@ -316,7 +318,6 @@ entities:
     data-description: >-
       Daily water temperature and flow observations for inflow and outflow reaches of the Pepacton, Cannonsville reservoirs.
       These data are from NWIS (USGS, 2016) and are a subset of flow and temperature observations reported in Oliver et al. 2022.
-    
     attributes:
     -
       attr-label: res_id
@@ -387,7 +388,6 @@ entities:
       data-min: NA
       data-max: NA
       data-units: NA
-
     -
       attr-label: location
       attr-def: >-
@@ -398,7 +398,8 @@ entities:
       data-units: NA
   -
     data-name: reservoir_io_sntemp.csv
-    data-description: PRMS-SNTemp predictions of water temperature for inflow and outflow reaches of the Pepacton and Cannonsville reservoirs.
+    data-description: >-
+      PRMS-SNTemp predictions of water temperature for inflow and outflow reaches of the Pepacton and Cannonsville reservoirs.
     attributes:
     -
       attr-label: res_id
@@ -451,8 +452,22 @@ entities:
       data-max: NA
       data-units: NA
 
-
 process-date: !expr format(Sys.time(),'%Y%m%d')
+process-description: >-
+  Stream observations and driver data were combined from multiple sources to achieve the most complete temporal coverage possible
+  from 1980-2022. Historical weather driver data from NLDAS, GridMET, and NOAA GEFS (in this release and Oliver et al. 2022) were used to
+  train the models, while forecasted weather data (NOAA GEFS) was used to evaluate real-time forecasts. Gridded weather
+  drivers were were aggregated to our reservoir polygons
+  and stream polylines either using grid-to-point intersection or weighted averages of grids that intersected
+  a stream reach's hydrologic response units (HRUs).
+  
+  
+  The modeled flow and temperature in reservoir inlets and outlets (reservoir_io_sntemp.csv) were generated
+  using a coupled hydrologic-thermodynamic model that uses inputs of reach-specific properties and local meteorology to estimate flow and water temperature.
+  Our chosen process-based stream model is the open source, Precipitation Runoff Modeling System (PRMS) with the coupled Stream Network Temperature Model (SNTemp) version 5.1.0 RC. PRMS is a
+  deterministic model that simulates watershed hydrology as a function of climate and land use, and the coupled SNTemp module simulates the change in stream temperature as a function of
+  changes in hydrology and energy.
+  
 file-format: comma-delimited files (some compressed into zip files)
 
 indirect-spatial: U.S.A.
