@@ -42,3 +42,11 @@ entities:
     data-name: Parent metadata landing page
     data-description: >-
       This is the landing page for four other data release units, described in the attributes section
+
+cross-cites:
+  -
+    authors: ["Samantha K. Oliver", " Margaux Sleckman", "Alison P. Appling", "Hayley Corson-Dosch", "Theodore Thompson", "Lauren Koenig", "Ellie White", "David Watkins", "Lindsay Platt", "Julie Padilla", "Jeffrey M. Sadler"]
+    title: >-
+        Data to support water quality modeling efforts in the Delaware River Basin
+    pubdate: 2022
+    link: https://doi.org/10.5066/P9GUHX1U
