@@ -59,9 +59,9 @@ cross-cites:
 
 entities:
   -
-    data-name: NLDAS_time[0.367700]_x[{x}]_y[{y}].csv
+    data-name: NLDAS_time[0.377900]_x[{x}]_y[{y}].csv
     data-description: >-
-      A csv file for each reservoir with input meteorological data. Files are named "NLDAS_time[0.367700]_x{x}_y{y}.csv" where the x and y locations are longitude and latitude indices from NLDAS
+      A csv file for each reservoir with input meteorological data. Files are named "NLDAS_time[0.377900]_x{x}_y{y}.csv" where the x and y locations are longitude and latitude indices from NLDAS
       of the individual meteorological data cell (data are from Mitchell and others 2004).
       The filename of the NLDAS file associated with each reservoir is listed in the "meteo_fl" fields in reservoir_nml_values.json, which is in the 3_config child item.
     attributes:
