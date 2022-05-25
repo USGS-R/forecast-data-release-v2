@@ -121,7 +121,7 @@ entities:
       attr-defs: This data release
       data-min: 0
       data-max: NA
-      data-units: NA
+      data-units: NA 
     -
       attr-label: Snow
       attr-def: >-
