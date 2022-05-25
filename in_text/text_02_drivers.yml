@@ -421,7 +421,7 @@ entities:
       attr-def: >-
         Reservoir identification number for this dataset. Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       attr-defs: >-
-        http://nhd.usgs.gov/
+        https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
       data-min: NA
       data-max: NA
       data-units: NA
@@ -439,8 +439,8 @@ entities:
       attr-def: >-
         Date of prediction
       attr-defs: NA
-      data-min: NA
-      data-max: NA
+      data-min: 1979-01-01
+      data-max: 	2022-04-04
       data-units: NA
     -
       attr-label: seg_outflow
