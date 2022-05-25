@@ -440,7 +440,7 @@ entities:
         Date of prediction
       attr-defs: NA
       data-min: 1979-01-01
-      data-max: 	2022-04-04
+      data-max: 2022-04-04
       data-units: NA
     -
       attr-label: seg_outflow
