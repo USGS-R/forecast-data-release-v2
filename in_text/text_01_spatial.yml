@@ -69,7 +69,7 @@ entities:
       attr-label: fromsegs
       attr-def: >-
         Reach identifier (subsegseg) of the upstream segment. NA indicates a headwater stream with no upstream segments.
-        Multiple upstream segments are seperated with a semicolon.
+        Multiple upstream segments are separated with a semicolon.
       attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
       data-max: NA
