@@ -117,7 +117,7 @@ entities:
     -
       attr-label: Rain
       attr-def: >-
-        Daily rate of rain reaching the reservoir surface in a day as described in Winslow and others 2017; rate as determined by Hipsey and others 2019.
+        Daily rate of rain reaching the reservoir surface in a day as described in Winslow and others 2017; rate as determined by Hipsey and others 2019. 
       attr-defs: This data release
       data-min: 0
       data-max: NA
