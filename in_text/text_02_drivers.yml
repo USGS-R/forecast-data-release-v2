@@ -107,7 +107,7 @@ entities:
       data-max: 100
       data-units: NA
     -
-      attr-label: Windspeed
+      attr-label: WindSpeed
       attr-def: >-
         Speed of the wind above the reservoir, calculated to a daily number using the methods described in Winslow and others 2017.
       attr-defs: This data release
