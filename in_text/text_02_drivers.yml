@@ -129,7 +129,7 @@ entities:
       attr-defs: This data release
       data-min: 0
       data-max: NA
-      data-units: m day minus one
+      data-units: meters per day
   -
     data-name: noaagefs_meteo_driver_files.zip
     data-description: >-
