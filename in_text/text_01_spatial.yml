@@ -110,13 +110,13 @@ entities:
     -
       attr-label: site_id
       attr-def: >-
-        Reservoir identification number for this dataset. 
+        Reservoir identification number for this dataset.
         nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir.
         This field corresponds to the Permanent_Identifier field in the NHDPlus HR with an added "nhdhr_" prefix.
         Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       
       attr-defs: >-
-        http://nhd.usgs.gov/
+        https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
       data-min: NA
       data-max: NA
       data-units: NA
