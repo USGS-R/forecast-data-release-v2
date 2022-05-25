@@ -81,7 +81,7 @@ entities:
       attr-defs: This data release
       data-min: NA
       data-max: NA
-      data-units: Watts per meter squared
+      data-units: W/m^2
     -
       attr-label: LongWave
       attr-def: >-
@@ -89,7 +89,7 @@ entities:
       attr-defs: This data release
       data-min: NA
       data-max: NA
-      data-units: Watts per meter squared
+      data-units: W/m^2
     -
       attr-label: AirTemp
       attr-def: >-
@@ -166,16 +166,16 @@ entities:
       attr-def: >-
         Relative humidity
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
-      data-min: NA
-      data-max: NA
+      data-min: 0
+      data-max: 1
       data-units: decimal fraction
     -
       attr-label: TCDC
       attr-def: >-
         Total cloud cover
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
-      data-min: NA
-      data-max: NA
+      data-min: 0
+      data-max: 1
       data-units: decimal fraction
     -
       attr-label: TMP
@@ -192,7 +192,7 @@ entities:
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
       data-min: NA
       data-max: NA
-      data-units: Watts per meter squared
+      data-units: W/m^2
     -
       attr-label: WS
       attr-def: >-
@@ -200,7 +200,23 @@ entities:
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
       data-min: NA
       data-max: NA
-      data-units: meters per second
+      data-units: m/s
+    -
+      attr-label: RHMAX
+      attr-def: >-
+        Maximum relative humidity
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: 0
+      data-max: 1
+      data-units: decimal fraction
+    -
+      attr-label: RHMIN
+      attr-def: >-
+        Minimum relative humidity
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: 0
+      data-max: 1
+      data-units: decimal fraction
     -
       attr-label: TMAX
       attr-def: >-
@@ -236,7 +252,7 @@ entities:
     -
       attr-label: DLWRF
       attr-def: >-
-         Downward Long-Wave Rad. Flux
+         Downward Long-Wave Radiation Flux
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
       data-min: NA
       data-max: NA
@@ -272,7 +288,7 @@ entities:
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
       data-min: NA
       data-max: NA
-      data-units: integer
+      data-units: kilograms per meter squared
     -
       attr-label: SHTFL
       attr-def: >-
