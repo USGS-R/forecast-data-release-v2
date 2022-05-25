@@ -315,7 +315,7 @@ entities:
       data-max: NA
       data-units: NA
       
-build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and linux. The open source languages R and Python was used on all systems.
+build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and Linux. The open source languages R and Python was used on all systems.
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
 process-description: >-
