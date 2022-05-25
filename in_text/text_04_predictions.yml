@@ -135,7 +135,7 @@ entities:
       and code that generated the forecasts can be found in the "forecast-pgdl-da" repository in Zwart et al. 2022 (XX link to zenodo).
       
       The zipped folder contains 12 files per issue date named forecast[{YYYY-MM-DD}]_files.zip.
-      Each issue date has two file types (a forecast .nc netCDF file and a .xml metadata file) for each model 
+      Each issue date has two file types (a forecast .nc netCDF file and a .xml metadata file) for each model
       (DA, no_DA, persistence {model}) and reservoir release scenario (0cfs or 100cfs {scenario}). The file name
       includes a hash of the model instance, such that files are named
       {hash}_{model}_forecast_[{YYYY-MM-DD}]_release[{scenario}].
@@ -147,7 +147,7 @@ entities:
       7 days into the future. See the evaluation code in the "evaluate-forecast" repository in
       Zwart et al. (2022; XX [UPDATE w/ link]) for this adjustment. 
 
-      A general description of the attributes are provided below for all the nc forecasted nc files, no minimum and maximum values are given to capture all forecasted nc files. 
+      A general description of the attributes is provided below for all the forecasted nc files. No minimum and maximum values are given to capture all forecasted nc files. 
     attributes:
     -
       attr-label: max_temp
@@ -164,7 +164,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: integer
+      data-units: NA
     -
       attr-label: issue_time
       attr-def: >-
@@ -172,7 +172,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: days since {forecast issue time}
+      data-units: days since {forecast issue time} 
     -
       attr-label: time
       attr-def: >-
@@ -180,7 +180,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: 1 day
+      data-units: NA
     -
       attr-label: seg_id_nat
       attr-def: >-
@@ -189,7 +189,7 @@ entities:
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
       data-max: NA
-      data-units: dimensionless
+      data-units: NA
     -
       attr-label: ensemble
       attr-def: >-
@@ -197,7 +197,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: integer
+      data-units: NA
   -
     data-name: paired_predicted_observed_temperatures.csv
     data-description: >-
