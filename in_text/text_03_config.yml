@@ -157,7 +157,7 @@ entities:
   -
     data-name: reservoir_nml_files.zip
     data-description: >-
-      Zip file of complete .nml files, with calculated and calibrated parameters, as input to the 
+      Zip file of complete .nml files, with calculated and calibrated parameters, as input to the
       GLM runs that were used to produce the reservoir outlet predictions and DWALLIN dataset.
     attributes:
     -
