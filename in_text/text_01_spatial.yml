@@ -33,7 +33,7 @@ entities:
     data-name: study_stream_reaches.zip
     data-description: >-
       GIS polylines data for the 70 stream segments included in the upper Delaware River Basin that
-      have been included in this study. Stream reaches include those on the East and West Branch of the 
+      have been included in this study. Stream reaches include those on the East and West Branch of the
       Delaware River, mainstem Delaware River reaches above Lordville, New York, and the Neversink River.
       The stream network is originally derived from the USGS Geospatial Fabric v1.
     attributes:
