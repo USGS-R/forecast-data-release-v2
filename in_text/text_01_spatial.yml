@@ -40,9 +40,9 @@ entities:
     -
       attr-label: subsegid
       attr-def: >-
-        An alternative unique reach identifier which was created in order to split segments such that 
+        An alternative unique reach identifier which was created in order to split segments such that
         segment start and endpoints were connected by one reach with no intersecting reaches. The ID was created
-        using the seg_id from the Geospatial Fabric and an index from one to the number of splits (e.g., {subseg_id}_{index}). 
+        using the seg_id from the Geospatial Fabric and an index from one to the number of splits (e.g., {seg_id}_{index}). 
         This feature corresponds to subseg_id in other files. There are 70 unique identifiers in this field.
       attr-defs: This data release
       data-min: NA
@@ -51,7 +51,7 @@ entities:
     -
       attr-label: subsegseg
       attr-def: >-
-        An alternative reach identifier, which corresponds to seg_id in the Geospatial Fabric. 
+        An alternative reach identifier, which corresponds to seg_id in the Geospatial Fabric.
         This feature corresponds to subseg_seg in other files. There are 70 unique identifiers in this field.
       attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
