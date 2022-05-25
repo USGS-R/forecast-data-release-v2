@@ -129,8 +129,8 @@ entities:
       Forecasts of daily maximum stream temperature for five select locations in the Delaware River Basin issued from 2022-XX-XX to 2022-XXXX.
       The target stream segment seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
-      Forecasts were generated with a 1) persistence model that used the most recent observed daily
-      maximum temperature as the 7-day ahead forecast, 2) a deep learning model, and a 3) deep learning
+      Forecasts were generated with a 1) persistence model that propagating the most recent observed maximum temperature 7 days into
+      the future, 2) a deep learning model, and a 3) deep learning
       model with data assimilation. Code that trained the deep learning models can be found in the "run-pgdl-da " repository,
       and code that generated the forecasts can be found in the "forecast-pgdl-da" repository in Zwart et al. 2022 (XX link to zenodo).
       
@@ -207,7 +207,7 @@ entities:
       are the mean of the ensembles. The persistence model was generated
       by propagating yesterday's observed maximum temperature 7 days into
       the future. The DA and no_DA models were used to make predictions for
-      two scenarios: the observed researvoir release values (+0cfs) and
+      two scenarios: the observed reservoir release values (+0cfs) and
       a scenario where a manager increased the releases by 100cfs (+100cfs).
       For the +100 cfs scenario, we did not pair observervations with predictions.   
     attributes:
@@ -228,7 +228,7 @@ entities:
       attr-defs: This data release
       data-min: XX # will complete when we have latest vbersion of this dataset
       data-max: XX # will complete when we have latest version of this dataset
-      data-units: days since {forecast issue time}
+      data-units: NA
     -
       attr-label: time
       attr-def: >-
@@ -236,7 +236,7 @@ entities:
       attr-defs: This data release
       data-min: XX # will complete when we have latest vbersion of this dataset
       data-max: XX # will complete when we have latest vbersion of this dataset
-      data-units: degrees Celsius
+      data-units: NA
     -
       attr-label: model_name
       attr-def:  >-
@@ -270,7 +270,7 @@ entities:
       attr-defs: This data release
       data-min: 8.03 # will update when we have latest vbersion of this dataset
       data-max: 25.03 # will update when we have latest vbersion of this dataset
-      data-units: degree Celcius
+      data-units: NA
     -
       attr-label: prob_exceed_75
       attr-def:  >-
@@ -278,7 +278,7 @@ entities:
       attr-defs: This data release
       data-min: 0 # will update when we have latest vbersion of this dataset
       data-max: 0.53 # will update when we have latest vbersion of this dataset
-      data-units: degree Celcius
+      data-units: NA
     -
       attr-label: lead_time
       attr-def:  >-
