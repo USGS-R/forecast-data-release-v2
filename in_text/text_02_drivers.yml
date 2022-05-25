@@ -342,14 +342,14 @@ entities:
         
         nhdhr_120022743 is Cannonsville Reservoir and nhdhr_151957878 is Pepacton Reservoir 
       attr-defs: >- 
-        http://nhd.usgs.gov/
+        https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: site_id
       attr-def: >-
-        Site identifier from the data provider.
+        Site identifier from the data provider. 
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -367,23 +367,23 @@ entities:
       attr-def: >-
         Discharge, in cubic meters per second
       attr-defs: This data release
-      data-min: 0.002831685
-      data-max: 784.3767
+      data-min: 0.003
+      data-max: 784.377
       data-units: cubic meters per second
     -
       attr-label: mean_temp_degC
       attr-def: >-
         Mean daily observed temperature
       attr-defs: This data release
-      data-min: 0.1
-      data-max: 27
+      data-min: -0.4
+      data-max: 26.2
       data-units: degrees C
     -
       attr-label: min_temp_degC
       attr-def: >-
         Minimum daily observed temperature
       attr-defs: This data release
-      data-min: 0.1
+      data-min: -0.4
       data-max: 30.5
       data-units: degrees C
     -
@@ -391,15 +391,14 @@ entities:
       attr-def: >-
         Maximum daily observed temperature
       attr-defs: This data release
-      data-min: 0.1
+      data-min: -0.4
       data-max: 30.5
       data-units: degrees C
     -
       attr-label: flag
       attr-def: >-
         Data quality flags that have come from both the original providers and an outlier detection
-        routine. Flags can include: NA = no flags, o = potential outlier, P = provisional (from NWIS), Eqp = value affected by equipment malfunction (from NWIS),
-        Mnt = site under going maintenance (from NWIS), ef = flag with unknown definition (from EcoSHEDS).
+        routine. Flags can include: NA = no flags, o = potential outlier, P = provisional (from NWIS). Multiple flags may be present, separated by a '; '.
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -407,7 +406,7 @@ entities:
     -
       attr-label: location
       attr-def: >-
-        Location relative to reservoir flow direction -- inflow or outflow.
+        Location relative to reservoir -- inflow or outflow.
       attr-defs: This data release
       data-min: NA
       data-max: NA
