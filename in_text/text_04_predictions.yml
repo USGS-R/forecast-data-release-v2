@@ -52,10 +52,10 @@ entities:
     -
       attr-label: res_id
       attr-def: >-
-        Reservoir identification number for this dataset. nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir
+        Reservoir identification number for this dataset. nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir.
         Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       attr-defs: >-
-        http://nhd.usgs.gov/
+        https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
       data-min: NA
       data-max: NA
       data-units: NA
@@ -88,13 +88,13 @@ entities:
     data-description: >-
       Stream temperature predictions from the distance-weighted-average lotic-lentic input network (DWALLIN).
       Predictions were generated from a combination of lotic (from PRMS-SNTemp) and lentic (GLM) models.
-      See Oliver et al. 2021 for processing steps that were taken to calculate the DWALLIN stream temperature
+      See Oliver et al. 2021 for processing steps that were taken to calculate the DWALLIN stream temperature 
       predictions.
   
-      There a few site-dates with extremely high predicted stream temperature values.
+      There were a few site-dates with extremely high predicted stream temperature values.
       These high values are a product of the way PRMS-SNTemp v5.1.0_rc was coded and are likely
       a result of stream segments with little or no upstream inflow and very little in-stream
-      flow for that particular day leading to extreamly high temperature predictions under those conditions.
+      flow for that particular day leading to extremely high temperature predictions under those conditions.
       Subsequent versions of PRMS-SNTemp will resolve these extreme values, and we suggest against using
       stream temperature predictions above 35 degrees C, which occurs 4 times in this dataset.
     attributes:
