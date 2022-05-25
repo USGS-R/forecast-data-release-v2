@@ -469,7 +469,7 @@ entities:
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
 process-description: >-
-  Stream observations and driver data were combined from multiple sources to achieve the most complete temporal coverage possible
+   Stream observations and driver data were combined from multiple sources to achieve the most complete temporal coverage possible
   from 1980-2022. Historical weather driver data from NLDAS, GridMET, and NOAA GEFS (in this release and Oliver et al. 2022) were used to
   train the models, while forecasted weather data (NOAA GEFS) was used to evaluate real-time forecasts. Gridded weather
   drivers were aggregated to the reservoir polygons
