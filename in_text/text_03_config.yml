@@ -139,7 +139,7 @@ entities:
     -
       attr-label: A
       attr-def: >-
-        Comma-separated list of lake areas 
+        Comma-separated list of area values (A) of the reservoir for each elevation value (H), describing the hypsography of the lake. Further information and an example can be found in https://aed.see.uwa.edu.au/research/models/GLM/configuration.html#tab4
       attr-defs:  >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 11.0551
@@ -148,7 +148,7 @@ entities:
     -
       attr-label: H
       attr-def: >-
-        Comma-separated list of lake elevations 
+        Comma-separated list of elevations values (H) of the reservoir for each area value (A), describing the hypsography of the lake. Further information and an example can be found in https://aed.see.uwa.edu.au/research/models/GLM/configuration.html#tab4
       attr-defs:  >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 306.2021
