@@ -28,10 +28,10 @@ targets:
       out_yml = target_name,
       nml_rds = 'out_data/reservoir_nml_list.rds')
   
-  # # GEFS archive
+  ## GEFS archive
   out_data/noaagefs_meteo_driver_files.zip:
     command: zip_this(target_name, 'in_data/noaagefs_meteo_driver_files')
-  # 
+   
   # Observed flow and temp at ins/outs of reservoirs for glm 
   out_data/reservoir_io_obs.csv:
     command: copy_filter_feather(

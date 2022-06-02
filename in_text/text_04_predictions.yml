@@ -2,7 +2,7 @@ title: >-
   Data to support network-wide 7-day ahead forecasting of water temperature in the Delaware River Basin: 4) model predictions
 
 abstract: >-
-  This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models
+  This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models 
   that makes predictions at 70 river reaches in the upper Delaware River Basin. This section includes
   predictions from several models, including a model pre-trainer that is predictions from a distance-weighted-average
   lotic-lentic input network (DWALLIN) model, reservoir outlet temperature predictions from a process-based model,
@@ -52,10 +52,10 @@ entities:
     -
       attr-label: res_id
       attr-def: >-
-        Reservoir identification number for this dataset. nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir
+        Reservoir identification number for this dataset. nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir.
         Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       attr-defs: >-
-        http://nhd.usgs.gov/
+        https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
       data-min: NA
       data-max: NA
       data-units: NA
@@ -88,13 +88,13 @@ entities:
     data-description: >-
       Stream temperature predictions from the distance-weighted-average lotic-lentic input network (DWALLIN).
       Predictions were generated from a combination of lotic (from PRMS-SNTemp) and lentic (GLM) models.
-      See Oliver et al. 2021 for processing steps that were taken to calculate the DWALLIN stream temperature
+      See Oliver et al. 2021 for processing steps that were taken to calculate the DWALLIN stream temperature 
       predictions.
   
-      There a few site-dates with extremely high predicted stream temperature values.
+      There were a few site-dates with extremely high predicted stream temperature values.
       These high values are a product of the way PRMS-SNTemp v5.1.0_rc was coded and are likely
       a result of stream segments with little or no upstream inflow and very little in-stream
-      flow for that particular day leading to extreamly high temperature predictions under those conditions.
+      flow for that particular day leading to extremely high temperature predictions under those conditions.
       Subsequent versions of PRMS-SNTemp will resolve these extreme values, and we suggest against using
       stream temperature predictions above 35 degrees C, which occurs 4 times in this dataset.
     attributes:
@@ -129,13 +129,13 @@ entities:
       Forecasts of daily maximum stream temperature for five select locations in the Delaware River Basin issued from 2022-XX-XX to 2022-XXXX.
       The target stream segment seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
-      Forecasts were generated with a 1) persistence model that used the most recent observed daily
-      maximum temperature as the 7-day ahead forecast, 2) a deep learning model, and a 3) deep learning
+      Forecasts were generated with a 1) persistence model that propagating the most recent observed maximum temperature 7 days into
+      the future, 2) a deep learning model, and a 3) deep learning
       model with data assimilation. Code that trained the deep learning models can be found in the "run-pgdl-da " repository,
       and code that generated the forecasts can be found in the "forecast-pgdl-da" repository in Zwart et al. 2022 (XX link to zenodo).
       
       The zipped folder contains 12 files per issue date named forecast[{YYYY-MM-DD}]_files.zip.
-      Each issue date has two file types (a forecast .nc netCDF file and a .xml metadata file) for each model 
+      Each issue date has two file types (a forecast .nc netCDF file and a .xml metadata file) for each model
       (DA, no_DA, persistence {model}) and reservoir release scenario (0cfs or 100cfs {scenario}). The file name
       includes a hash of the model instance, such that files are named
       {hash}_{model}_forecast_[{YYYY-MM-DD}]_release[{scenario}].
@@ -147,7 +147,7 @@ entities:
       7 days into the future. See the evaluation code in the "evaluate-forecast" repository in
       Zwart et al. (2022; XX [UPDATE w/ link]) for this adjustment. 
 
-      A general description of the attributes are provided below for all the nc forecasted nc files, no minimum and maximum values are given to capture all forecasted nc files. 
+      A general description of the attributes is provided below for all the forecasted nc files. No minimum and maximum values are given to capture all forecasted nc files. 
     attributes:
     -
       attr-label: max_temp
@@ -164,7 +164,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: integer
+      data-units: NA
     -
       attr-label: issue_time
       attr-def: >-
@@ -172,7 +172,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: days since {forecast issue time}
+      data-units: days since {forecast issue time} 
     -
       attr-label: time
       attr-def: >-
@@ -180,7 +180,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: 1 day
+      data-units: NA
     -
       attr-label: seg_id_nat
       attr-def: >-
@@ -189,7 +189,7 @@ entities:
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
       data-max: NA
-      data-units: dimensionless
+      data-units: NA
     -
       attr-label: ensemble
       attr-def: >-
@@ -197,7 +197,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: integer
+      data-units: NA
   -
     data-name: paired_predicted_observed_temperatures.csv
     data-description: >-
@@ -207,7 +207,7 @@ entities:
       are the mean of the ensembles. The persistence model was generated
       by propagating yesterday's observed maximum temperature 7 days into
       the future. The DA and no_DA models were used to make predictions for
-      two scenarios: the observed researvoir release values (+0cfs) and
+      two scenarios: the observed reservoir release values (+0cfs) and
       a scenario where a manager increased the releases by 100cfs (+100cfs).
       For the +100 cfs scenario, we did not pair observervations with predictions.   
     attributes:
@@ -228,7 +228,7 @@ entities:
       attr-defs: This data release
       data-min: XX # will complete when we have latest vbersion of this dataset
       data-max: XX # will complete when we have latest version of this dataset
-      data-units: days since {forecast issue time}
+      data-units: NA
     -
       attr-label: time
       attr-def: >-
@@ -236,7 +236,7 @@ entities:
       attr-defs: This data release
       data-min: XX # will complete when we have latest vbersion of this dataset
       data-max: XX # will complete when we have latest vbersion of this dataset
-      data-units: degrees Celsius
+      data-units: NA
     -
       attr-label: model_name
       attr-def:  >-
@@ -270,7 +270,7 @@ entities:
       attr-defs: This data release
       data-min: 8.03 # will update when we have latest vbersion of this dataset
       data-max: 25.03 # will update when we have latest vbersion of this dataset
-      data-units: degree Celcius
+      data-units: NA
     -
       attr-label: prob_exceed_75
       attr-def:  >-
@@ -278,7 +278,7 @@ entities:
       attr-defs: This data release
       data-min: 0 # will update when we have latest vbersion of this dataset
       data-max: 0.53 # will update when we have latest vbersion of this dataset
-      data-units: degree Celcius
+      data-units: NA
     -
       attr-label: lead_time
       attr-def:  >-
@@ -315,7 +315,7 @@ entities:
       data-max: NA
       data-units: NA
       
-build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and linux. The open source languages R and Python was used on all systems.
+build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and Linux. The open source languages R and Python was used on all systems.
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
 process-description: >-
