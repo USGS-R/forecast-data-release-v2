@@ -139,7 +139,7 @@ entities:
     -
       attr-label: A
       attr-def: >-
-        Comma-separated list of lake areas 
+        Comma-separated list of lake areas
       attr-defs:  >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 11.0551
