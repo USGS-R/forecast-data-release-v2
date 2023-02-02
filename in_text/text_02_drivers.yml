@@ -488,7 +488,7 @@ process-description: >-
   train the models, while forecasted weather data (NOAA GEFS) was used to evaluate real-time forecasts. Gridded weather
   drivers were aggregated to the reservoir polygons
   and stream polylines included in this release either using grid-to-point intersection or weighted averages of grids that intersected
-  a stream reach's hydrologic response units (HRUs). 
+  a stream reach's hydrologic response units (HRUs).
   
   
   The modeled flow and temperature in reservoir inlets and outlets (reservoir_io_sntemp.csv) were generated
