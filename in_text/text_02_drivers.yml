@@ -490,7 +490,6 @@ process-description: >-
   and stream polylines included in this release either using grid-to-point intersection or weighted averages of grids that intersected
   a stream reach's hydrologic response units (HRUs).
   
-  
   The modeled flow and temperature in reservoir inlets and outlets (reservoir_io_sntemp.csv) were generated
   using a coupled hydrologic-thermodynamic model that uses inputs of reach-specific properties and local meteorology to estimate flow and water temperature.
   Our chosen process-based stream model is the open source, Precipitation Runoff Modeling System (PRMS) with the coupled Stream Network Temperature Model (SNTemp) version 5.1.0 RC. PRMS is a
