@@ -5,7 +5,7 @@ abstract: >-
   <p>Daily maximum water temperature predictions in the Delaware River Basin (DRB) can inform decision
   makers who can use cold-water reservoir releases to maintain thermal habitat for sensitive fish species. 
   This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models
-  that makes predictions at 70 river reaches in the upper Delaware River Basin. The modeling approach
+  that makes predictions at 70 river reaches in the upper DRB. The modeling approach
   includes process-guided deep learning and data assimilation (Zwart et al., 2022). The model is
   driven by weather forecasts and observed reservoir releases and produces maximum water temperature forecasts
   for the issue day (day 0) and 7 days into the future (days 1-7).
