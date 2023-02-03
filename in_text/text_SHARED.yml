@@ -20,7 +20,7 @@ larger-cites:
       Stream network forecasts of water temperature using a recurrent graph convolutional neural network and data assimilation 
     form: publication
     pubdate: 2022
-    link: XX
+    link: 
 
 
 # ----supporting publications----
@@ -30,16 +30,16 @@ start-date: 19790101
 end-date: 20220515 
 
 update: none planned
-themekeywords: ["XX", "machine learning", "deep learning", "hybrid modeling", "water","temperature","reservoirs","streams","forecast","modeling"]
+themekeywords: ["machine learning", "deep learning", "hybrid modeling", "water","temperature","reservoirs","streams","forecast","modeling"]
 
 usage-rules: >-
   These data are subject to change and are not citable until reviewed and approved for official publication by the USGS
 
-descgeog: "XXThe Delaware River Basin. River reach polylines as defined by the Geospatial Fabric for National Hydrologic Modeling. Reservoir polygons as defined by the national hydrography dataset high resolution"
+descgeog: "The Delaware River Basin. River reach polylines as defined by the Geospatial Fabric for National Hydrologic Modeling. Reservoir polygons as defined by the national hydrography dataset high resolution"
 data-publisher: U.S. Geological Survey
 
 # ----contacts----
-contact-person: XXSamantha K. Oliver
+contact-person: Samantha K. Oliver
 contact-phone: 608-821-3824
 contact-email: soliver@usgs.gov
 contact-position: Data Scientist

@@ -13,9 +13,9 @@ cross-cites:
   -
     authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
     title: >-
-      XXSource code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
+      Source code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
     pubdate: 2022
-    link: XX
+    link: https://zenodo.org/record/7382575#.Y9xTV3bMKiM
   -
     authors: ['Steven L. Markstrom']
     title: >-
@@ -47,7 +47,7 @@ entities:
       Predictions of outflow and water temperature for outflow reaches of the Pepacton and
       Cannonsville reservoirs, generated from calibrated reservoir models built with GLM v3.1.
       Code used to generate these predictions can be found in the "res-temperature-process-models"
-      in Zwart et. al (2022; XX [UPDATE w/ link to zenodo]).
+      in Zwart et al. 2022.
     attributes:
     -
       attr-label: res_id
@@ -132,7 +132,7 @@ entities:
       Forecasts were generated with a 1) persistence model that propagating the most recent observed maximum temperature 7 days into
       the future, 2) a deep learning model, and a 3) deep learning
       model with data assimilation. Code that trained the deep learning models can be found in the "run-pgdl-da " repository,
-      and code that generated the forecasts can be found in the "forecast-pgdl-da" repository in Zwart et al. 2022 (XX link to zenodo).
+      and code that generated the forecasts can be found in the "forecast-pgdl-da" repository in Zwart et al. 2022.
       
       The zipped folder contains 12 files per issue date named forecast[{YYYY-MM-DD}]_files.zip.
       Each issue date has two file types (a forecast .nc netCDF file and a .xml metadata file) for each model
@@ -145,7 +145,7 @@ entities:
       prediction. When evaluating the performance of the persistence forecasts against the
       deep learning models, we use yesterday's maximum temperature value as the forecast for
       7 days into the future. See the evaluation code in the "evaluate-forecast" repository in
-      Zwart et al. (2022; XX [UPDATE w/ link]) for this adjustment. 
+      Zwart et al. 2022, for this adjustment. 
 
       A general description of the attributes is provided below for all the forecasted nc files. No minimum and maximum values are given to capture all forecasted nc files. 
     attributes:
