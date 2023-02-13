@@ -12,9 +12,9 @@ cross-cites:
   -
     authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
     title: >-
-      XXSource code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation [UPDATE w/ link to zenodo]
+      Source code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
     pubdate: 2022
-    link: XX [UPDATE]
+    link: https://zenodo.org/record/7382575#.Y9xTV3bMKiM
   -
     authors: ['Kenneth E. Mitchell','Dag Lohmann','Paul R. Houser','Eric F. Wood','John C. Schaake','Alan Robock','Brian A. Cosgrove','Justin Sheffield','Qingyun Duan','Lifeng Luo','R. Wayne Higgins','Rachel T. Pinker','J. Dan Tarpley','Dennis P. Lettenmaier','Curtis H. Marshall','Jared K. Entin','Ming Pan','Wei Shi','Victor Koren','Jesse Meng','Bruce H. Ramsay','Andrew A. Bailey']
     title: >-
@@ -56,12 +56,26 @@ cross-cites:
     pubdate: 2017
     form: publication
     link: https://doi.org/10.3133/tm6D4
+  -
+    authors: ['Luke A. Winslow','Gretchen J.A. Hansen','Jordan S. Read','Michael Notaro']
+    title: >-
+      Large-scale modeled contemporary and future water temperature estimates for 10,774 Midwestern U.S. Lakes
+    pubdate: 2017
+    form: publication
+    link: http://dx.doi.org/10.1038/sdata.2017.53
+  -
+    authors: ['Matthew R. Hipsey', 'Louise C. Bruce', 'Casper Boon', 'Brendan Busch', 'Cayelan C. Carey', 'David P. Hamilton', 'Paul C. Hanson', 'Jordan S. Read', 'Eduardo de Sousa', 'Michael Weber', 'Luke A. Winslow']
+    title: >-
+      A General Lake Model (GLM 3.0) for linking with high-frequency sensor data from the Global Lake Ecological Observatory Network (GLEON).
+    pubdate: 2019
+    form: publication
+    link: https://doi.org/10.5194/gmd-12-473-2019
 
 entities:
   -
-    data-name: NLDAS_time[0.367700]_x[{x}]_y[{y}].csv
+    data-name: NLDAS_time[0.377900]_x[{x}]_y[{y}].csv
     data-description: >-
-      A csv file for each reservoir with input meteorological data. Files are named "NLDAS_time[0.367700]_x{x}_y{y}.csv" where the x and y locations are longitude and latitude indices from NLDAS
+      A csv file for each reservoir with input meteorological data. Files are named "NLDAS_time[0.377900]_x{x}_y{y}.csv" where the x and y locations are longitude and latitude indices from NLDAS
       of the individual meteorological data cell (data are from Mitchell and others 2004).
       The filename of the NLDAS file associated with each reservoir is listed in the "meteo_fl" fields in reservoir_nml_values.json, which is in the 3_config child item.
     attributes:
@@ -81,7 +95,7 @@ entities:
       attr-defs: This data release
       data-min: NA
       data-max: NA
-      data-units: Watts per meter squared
+      data-units: W/m^2
     -
       attr-label: LongWave
       attr-def: >-
@@ -89,7 +103,7 @@ entities:
       attr-defs: This data release
       data-min: NA
       data-max: NA
-      data-units: Watts per meter squared
+      data-units: W/m^2
     -
       attr-label: AirTemp
       attr-def: >-
@@ -107,7 +121,7 @@ entities:
       data-max: 100
       data-units: NA
     -
-      attr-label: Windspeed
+      attr-label: WindSpeed
       attr-def: >-
         Speed of the wind above the reservoir, calculated to a daily number using the methods described in Winslow and others 2017.
       attr-defs: This data release
@@ -121,7 +135,7 @@ entities:
       attr-defs: This data release
       data-min: 0
       data-max: NA
-      data-units: NA
+      data-units: NA 
     -
       attr-label: Snow
       attr-def: >-
@@ -129,7 +143,7 @@ entities:
       attr-defs: This data release
       data-min: 0
       data-max: NA
-      data-units: m day minus one
+      data-units: meters per day
   -
     data-name: noaagefs_meteo_driver_files.zip
     data-description: >-
@@ -138,7 +152,7 @@ entities:
       seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
       The noaagefs_meteo_driver_files zipped folder contains one NetCDF file per forecast issue date evaluated in Zwart et al. 2022, such
-      that the file name is final_noaa_gefs_{extent}_{YYYY-MM-DD}_00_forecast_segments.segments.nc. Archiving of the NOAA GEFS
+      that the file name is final_noaa_gefs_{extent}_{YYYY-MM-DD}_00_forecast_segments.nc. Archiving of the NOAA GEFS
       product was changed from USGS NGWOS priority basins early in the record (extent = NGWOS) to the continental U.S. starting
       on 2021-05-26 which is reflected in the name change (extent = CONUS).
       Example code for how read the NOAA GEFS .nc files can be found in the "forecast-pgdl-da" repository in Zwart and others 2022 (XXlink to zenodo).
@@ -166,16 +180,16 @@ entities:
       attr-def: >-
         Relative humidity
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
-      data-min: NA
-      data-max: NA
+      data-min: 0
+      data-max: 1
       data-units: decimal fraction
     -
       attr-label: TCDC
       attr-def: >-
         Total cloud cover
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
-      data-min: NA
-      data-max: NA
+      data-min: 0
+      data-max: 1
       data-units: decimal fraction
     -
       attr-label: TMP
@@ -192,7 +206,7 @@ entities:
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
       data-min: NA
       data-max: NA
-      data-units: Watts per meter squared
+      data-units: W/m^2
     -
       attr-label: WS
       attr-def: >-
@@ -200,7 +214,23 @@ entities:
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
       data-min: NA
       data-max: NA
-      data-units: meters per second
+      data-units: m/s
+    -
+      attr-label: RHMAX
+      attr-def: >-
+        Maximum relative humidity
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: 0
+      data-max: 1
+      data-units: decimal fraction
+    -
+      attr-label: RHMIN
+      attr-def: >-
+        Minimum relative humidity
+      attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
+      data-min: 0
+      data-max: 1
+      data-units: decimal fraction
     -
       attr-label: TMAX
       attr-def: >-
@@ -236,7 +266,7 @@ entities:
     -
       attr-label: DLWRF
       attr-def: >-
-         Downward Long-Wave Rad. Flux
+         Downward Long-Wave Radiation Flux
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
       data-min: NA
       data-max: NA
@@ -272,7 +302,7 @@ entities:
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
       data-min: NA
       data-max: NA
-      data-units: integer
+      data-units: kilograms per meter squared
     -
       attr-label: SHTFL
       attr-def: >-
@@ -326,14 +356,14 @@ entities:
         
         nhdhr_120022743 is Cannonsville Reservoir and nhdhr_151957878 is Pepacton Reservoir 
       attr-defs: >- 
-        http://nhd.usgs.gov/
+        https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
       data-min: NA
       data-max: NA
       data-units: NA
     -
       attr-label: site_id
       attr-def: >-
-        Site identifier from the data provider.
+        Site identifier from the data provider. 
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -351,23 +381,23 @@ entities:
       attr-def: >-
         Discharge, in cubic meters per second
       attr-defs: This data release
-      data-min: 0.002831685
-      data-max: 784.3767
+      data-min: 0.003
+      data-max: 784.377
       data-units: cubic meters per second
     -
       attr-label: mean_temp_degC
       attr-def: >-
         Mean daily observed temperature
       attr-defs: This data release
-      data-min: 0.1
-      data-max: 27
+      data-min: -0.4
+      data-max: 26.2
       data-units: degrees C
     -
       attr-label: min_temp_degC
       attr-def: >-
         Minimum daily observed temperature
       attr-defs: This data release
-      data-min: 0.1
+      data-min: -0.4
       data-max: 30.5
       data-units: degrees C
     -
@@ -375,15 +405,14 @@ entities:
       attr-def: >-
         Maximum daily observed temperature
       attr-defs: This data release
-      data-min: 0.1
+      data-min: -0.4
       data-max: 30.5
       data-units: degrees C
     -
       attr-label: flag
       attr-def: >-
         Data quality flags that have come from both the original providers and an outlier detection
-        routine. Flags can include: NA = no flags, o = potential outlier, P = provisional (from NWIS), Eqp = value affected by equipment malfunction (from NWIS),
-        Mnt = site under going maintenance (from NWIS), ef = flag with unknown definition (from EcoSHEDS).
+        routine. Flags can include: NA = no flags, o = potential outlier, P = provisional (from NWIS). Multiple flags may be present, separated by a '; '.
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -391,7 +420,7 @@ entities:
     -
       attr-label: location
       attr-def: >-
-        Location relative to reservoir flow direction -- inflow or outflow.
+        Location relative to reservoir -- inflow or outflow.
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -406,7 +435,7 @@ entities:
       attr-def: >-
         Reservoir identification number for this dataset. Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       attr-defs: >-
-        http://nhd.usgs.gov/
+        https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
       data-min: NA
       data-max: NA
       data-units: NA
@@ -424,8 +453,8 @@ entities:
       attr-def: >-
         Date of prediction
       attr-defs: NA
-      data-min: NA
-      data-max: NA
+      data-min: 1979-01-01
+      data-max: 2022-04-04
       data-units: NA
     -
       attr-label: seg_outflow
@@ -454,13 +483,12 @@ entities:
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
 process-description: >-
-  Stream observations and driver data were combined from multiple sources to achieve the most complete temporal coverage possible
+   Stream observations and driver data were combined from multiple sources to achieve the most complete temporal coverage possible
   from 1980-2022. Historical weather driver data from NLDAS, GridMET, and NOAA GEFS (in this release and Oliver et al. 2022) were used to
   train the models, while forecasted weather data (NOAA GEFS) was used to evaluate real-time forecasts. Gridded weather
-  drivers were were aggregated to our reservoir polygons
-  and stream polylines either using grid-to-point intersection or weighted averages of grids that intersected
+  drivers were aggregated to the reservoir polygons
+  and stream polylines included in this release either using grid-to-point intersection or weighted averages of grids that intersected
   a stream reach's hydrologic response units (HRUs).
-  
   
   The modeled flow and temperature in reservoir inlets and outlets (reservoir_io_sntemp.csv) were generated
   using a coupled hydrologic-thermodynamic model that uses inputs of reach-specific properties and local meteorology to estimate flow and water temperature.

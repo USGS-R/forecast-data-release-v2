@@ -10,9 +10,9 @@ cross-cites:
   -
     authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
     title: >-
-      XXSource code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation [UPDATE w/ link to zenodo]
+      Source code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
     pubdate: 2022
-    link: XX
+    link: https://zenodo.org/record/7382575#.Y9xTV3bMKiM
   -
     authors: ['Matthew R. Hipsey', 'Louise C. Bruce', 'Casper Boon', 'Brendan Busch', 'Cayelan C. Carey', 'David P. Hamilton', 'Paul C. Hanson', 'Jordan S. Read', 'Eduardo de Sousa', 'Michael Weber', 'Luke A. Winslow']
     title: >-
@@ -32,12 +32,12 @@ entities:
     data-name: reservoir_nml_values.json
     data-description: >- 
       JSON file containing a nested list of reservoir parameters for input to GLM. 
-      Top-level list elements are reservoirs, and fields within those elements are given as 
+      Top-level list elements are reservoirs, and fields within those elements are given as
       attributes below.
       Only Cannonsville and Pepacton Reservoir are included here. 
     attributes:
     -
-      attr-label: site-id
+      attr-label: site_id
       attr-def:  >-
         Reservoir identification number for this dataset. Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       
@@ -74,7 +74,7 @@ entities:
       data-max: 42.09674
       data-units: decimal degrees
     -
-      attr-label: bsn_wid
+      attr-label: bsn_wid 
       attr-def: >-
         Width of the lake basin, at crest height
       attr-defs:  >-
@@ -103,25 +103,25 @@ entities:
     -
       attr-label: max_layer_thick
       attr-def: >-
-        Maximum thickness of a layer
+        Maximum thickness of a layer 
       attr-defs: >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 1.5
       data-max: 1.5
-      data-units: meters X
+      data-units: meters X 
     -
       attr-label: min_layer_thick
       attr-def: >-
-        Minimum thickness of a layer
+        Minimum thickness of a layer 
       attr-defs: >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 0.2
       data-max: 0.2
-      data-units: meters X
+      data-units: meters X 
     -
       attr-label: meteo_fl
       attr-def: >-
-        Filename of the meterological file
+        Filename of the meteorological file
       attr-defs: >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: NA
@@ -139,7 +139,7 @@ entities:
     -
       attr-label: A
       attr-def: >-
-        Comma-separated list of lake areas
+        Comma-separated list of area values (A) of the reservoir for each elevation value (H), describing the hypsography of the lake. Further information and an example can be found in https://aed.see.uwa.edu.au/research/models/GLM/configuration.html#tab4
       attr-defs:  >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 11.0551
@@ -148,7 +148,7 @@ entities:
     -
       attr-label: H
       attr-def: >-
-        Comma-separated list of lake elevations
+        Comma-separated list of elevations values (H) of the reservoir for each area value (A), describing the hypsography of the lake. Further information and an example can be found in https://aed.see.uwa.edu.au/research/models/GLM/configuration.html#tab4
       attr-defs:  >-
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 306.2021
@@ -157,7 +157,7 @@ entities:
   -
     data-name: reservoir_nml_files.zip
     data-description: >-
-      Zip file of complete .nml files, with calculated and calibrated parameters, as input to the 
+      Zip file of complete .nml files, with calculated and calibrated parameters, as input to the
       GLM runs that were used to produce the reservoir outlet predictions and DWALLIN dataset.
     attributes:
     -
