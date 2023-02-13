@@ -2,7 +2,7 @@ title: >-
   Data to support network-wide 7-day ahead forecasting of water temperature in the Delaware River Basin: 4) model predictions
 
 abstract: >-
-  This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models 
+  This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models
   that makes predictions at 70 river reaches in the upper Delaware River Basin. This section includes
   predictions from several models, including a model pre-trainer that is predictions from a distance-weighted-average
   lotic-lentic input network (DWALLIN) model, reservoir outlet temperature predictions from a process-based model,
