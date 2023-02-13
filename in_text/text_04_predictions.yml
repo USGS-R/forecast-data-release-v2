@@ -11,11 +11,17 @@ abstract: >-
 
 cross-cites:
   -
-    authors: ["Jacob A. Zwart", "Samantha K. Oliver", "David D. Watkins", "Jeffrey Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
+    authors: ["Jacob A. Zwart", "Samantha K. Oliver", "William D. Watkins", "Jeffrey M. Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
     title: >-
       Source code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
     pubdate: 2022
     link: https://zenodo.org/record/7382575#.Y9xTV3bMKiM
+  -
+    authors: ["Samantha K. Oliver", "Alison P. Appling", "Rasha A Atshan", "William D. Watkins", "Jeffrey M. Sadler", "Hayley Corson-Dosch", "Jacob A. Zwart", "Jordan S. Read"]
+    title: >-
+      Predicting water temperature in the Delaware River Basin: U.S. Geological Survey data release
+    pubdate: 2021
+    link: https://doi.org/10.5066/P9GD8I7A
   -
     authors: ['Steven L. Markstrom']
     title: >-
@@ -38,6 +44,10 @@ cross-cites:
       GIS Features of the Geospatial Fabric for National Hydrologic Modeling
     pubdate: 2014
     link: http://dx.doi.org/doi:10.5066/F7542KMD
+    
+    
+    
+    
 
 
 entities:
