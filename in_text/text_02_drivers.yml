@@ -155,7 +155,7 @@ entities:
       that the file name is final_noaa_gefs_{extent}_{YYYY-MM-DD}_00_forecast_segments.nc. Archiving of the NOAA GEFS
       product was changed from USGS NGWOS priority basins early in the record (extent = NGWOS) to the continental U.S. starting
       on 2021-05-26 which is reflected in the name change (extent = CONUS).
-      Example code for how read the NOAA GEFS .nc files can be found in the "forecast-pgdl-da" repository in Zwart and others 2022 (XXlink to zenodo).
+      Example code for how read the NOAA GEFS .nc files can be found in the "forecast-pgdl-da" repository in Zwart and others, 2022.
     attributes:
     -
       attr-label: time
