@@ -30,4 +30,4 @@ targets:
     
   # Paired Predictions
   out_data/paired_predicted_observed_temperatures.csv:
-    command: rds_to_csv(in_rds = 'in_data/all_mods_with_obs.rds', out_csv = target_name)
+    command: feather_to_csv(in_feather = 'in_data/all_mods_with_obs.feather', out_csv = target_name)

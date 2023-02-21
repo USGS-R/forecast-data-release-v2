@@ -139,6 +139,8 @@ fetch_meteo_files <- function(out_yml, nml_rds) {
   
 }
 
+#' feather to csv 
+
 #' Read a feather file from another repo, filter it to the specified site_ids, and write a copy locally. This function blindly assumes the source file is up to date in the other repo, no checking
 copy_filter_feather <- function(out_csv, in_feather, site_ids) {
   # read and filter to just the specified sites

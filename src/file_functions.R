@@ -171,13 +171,16 @@ combine_level_sources <- function(out_csv, nwis_levels, nyc_levels, hist_levels)
 
 ## Transform simple rds to csv:
 
-# rds<- 'in_data/all_mods_with_obs_lst_yr.rds'
-# out_csv <- 'out_data/all_mods_with_obs.csv'
-
 rds_to_csv <- function(in_rds, out_csv){
   
   csv <- readr::write_csv(x = readRDS(in_rds), file = out_csv)
          
 }
 
-#rds_to_csv(in_rds = rds, out_csv = out_csv)
+## Transform feather to csv
+
+feather_to_csv <- function(in_feather, out_csv){
+  fthr <- arrow::read_feather(in_feather)
+  readr::write_csv(x = fthr, file = out_csv)
+}
+

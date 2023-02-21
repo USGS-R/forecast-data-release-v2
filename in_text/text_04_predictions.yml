@@ -222,46 +222,48 @@ entities:
       For the +100 cfs scenario, we did not pair observervations with predictions.   
     attributes:
     -
-      attr-label: model_name
+      attr-label: model_type
       attr-def: >-
+        Model type. Type of model was used to generate the predictions, either lstm, rgcn or NA.
         XX
-      attr-defs: XX
-      data-min: XX
-      data-max: XX
-      data-units: XX
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
     -
       attr-label: forecaste_type
       attr-def: >-
-        Forecaste type used to generate the predictions.The deep learning model with data assimalation (DA) is the only forecaste type used for the paired preductions of observed temperature.  
-      attr-defs: XX
-      data-min: XX
-      data-max: XX
-      data-units: XX
+        Forecast type used to generate the predictions, either either the persistence model (persistence), the deep learning model with data assimalation (DA) or the
+        deep learning without data assimilation (no_DA).
+        XX
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
     -
       attr-label: hash
       attr-def: >-
         XX
-      attr-defs: XX
-      data-min: XX
-      data-max: XX
-      data-units: XX   
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA   
     -
       attr-label: seed
       attr-def: >-
         XX
-      attr-defs: XX
-      data-min: XX
-      data-max: XX
-      data-units: XX
+      attr-defs: This data release
+      data-min: 1
+      data-max: 4
+      data-units: NA
     -
       attr-label: pred_period
       attr-def: >-
-        XX
-      attr-defs: XX
-      data-min: XX
-      data-max: XX
-      data-units: XX
-
+        XX. Either `VAL` for XX or `TEST` for XX.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
     -
       attr-label: seg_id_nat
       attr-def: >-
@@ -277,81 +279,80 @@ entities:
       attr-def: >-
         Date that the forecast was issued.
       attr-defs: This data release
-      data-min: XX # will complete when we have latest vbersion of this dataset
-      data-max: XX # will complete when we have latest version of this dataset
-      data-units: NA
+      data-min: 2019-01-03 
+      data-max: 2022-09-22 
+      data-units: date
     -
       attr-label: time
       attr-def: >-
         Valid date of forecast
       attr-defs: This data release
-      data-min: XX # will complete when we have latest vbersion of this dataset
-      data-max: XX # will complete when we have latest vbersion of this dataset
-      data-units: NA
+      data-min: 2019-01-03 
+      data-max: 2022-09-29 
+      data-units: date UTC
     -
       attr-label: max_temp_c_predicted
       attr-def:  >-
         Predicted maximum water temperature
       attr-defs: This data release
-      data-min: 6.4 # will update when we have latest vbersion of this dataset
-      data-max: 24.6 # will update when we have latest vbersion of this dataset
+      data-min: -0.82 
+      data-max: 44.49 
       data-units: degree Celcius
     -
       attr-label: max_temp_sd
       attr-def:  >-
         The standard deviation of the predicted maximum water temperature
       attr-defs: This data release
-      data-min: XX
-      data-max: XX 
+      data-min: 0.19
+      data-max: 610.78 
       data-units: degree Celcius
     -
-    
       attr-label: max_temp_l90
       attr-def:  >-
-        The lower end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
+        The upper end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
       attr-defs: This data release 
-      data-min: 5.86 # will update when we have latest vbersion of this dataset
-      data-max: 22.49 # will update when we have latest vbersion of this dataset
+      data-min: -931.05 
+      data-max: 27.81 
       data-units: degree Celcius
     -
       attr-label: max_temp_u90
       attr-def:  >-
-        The upper end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
+        The lower end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
       attr-defs: This data release
-      data-min: 8.03 # will update when we have latest vbersion of this dataset
-      data-max: 25.03 # will update when we have latest vbersion of this dataset
-      data-units: NA
+      data-min: 0.54
+      data-max: 903.31
+      data-units: degree Celcius
     -
       attr-label: prob_exceed_75
       attr-def:  >-
         The predicted probability (in decimal fraction) of stream temperature exceeding 75 degrees F for a given segment and date. It's calculated as the fraction of ensemble predictions that exceeded 75 F.
       attr-defs: This data release
-      data-min: 0 # will update when we have latest vbersion of this dataset
-      data-max: 0.53 # will update when we have latest vbersion of this dataset
+      data-min: 0 
+      data-max: 1
       data-units: NA
     -
       attr-label: crps
       attr-def:  >-
         XX
-      attr-defs: XX
-      data-min:  XX
-      data-max:  XX
+      attr-defs: This data release
+      data-min:  0.062
+      data-max:  47.531
       data-units: XX
     -
       attr-label: lead_time
       attr-def:  >-
         Number of days beyond the forecast issue_time for which a prediction was made. Calculated as the difference between `time` and `issue_time` 
       attr-defs: This data release
-      data-min: 0 # will update when we have latest vbersion of this dataset - likely the same
-      data-max: 7 # will update when we have latest vbersion of this dataset - likely the same
+      data-min: 0 
+      data-max: 7 
       data-units: Time difference in days
     - 
       attr-label: max_temp_c
       attr-def:  >-
         Maximum temperature
       attr-defs: This data release
-      data-min: 6.4
-      data-max: 24.6
+      data-min: -0.2
+      data-max: 33.2
       data-units: degree Celcius
     - 
       attr-label: scenario
@@ -375,17 +376,19 @@ entities:
     - 
       attr-label: n_obs
       attr-def:  >-
-      attr-defs: XX
-      data-min: XX
-      data-max: XX
-      data-units: XX
+        XX
+      attr-defs: This data release
+      data-min: 0
+      data-max: 13088
+      data-units: count
     -
       attr-label: gaged_ungaged
       attr-def:  >-
-      attr-defs: XX
-      data-min: XX
-      data-max: XX
-      data-units: XX
+        XX
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
       
 build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and Linux. The open source languages R and Python was used on all systems.
 
