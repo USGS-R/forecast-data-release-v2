@@ -222,6 +222,47 @@ entities:
       For the +100 cfs scenario, we did not pair observervations with predictions.   
     attributes:
     -
+      attr-label: model_name
+      attr-def: >-
+        XX
+      attr-defs: XX
+      data-min: XX
+      data-max: XX
+      data-units: XX
+    -
+      attr-label: forecaste_type
+      attr-def: >-
+        Forecaste type used to generate the predictions.The deep learning model with data assimalation (DA) is the only forecaste type used for the paired preductions of observed temperature.  
+      attr-defs: XX
+      data-min: XX
+      data-max: XX
+      data-units: XX
+    -
+      attr-label: hash
+      attr-def: >-
+        XX
+      attr-defs: XX
+      data-min: XX
+      data-max: XX
+      data-units: XX   
+    -
+      attr-label: seed
+      attr-def: >-
+        XX
+      attr-defs: XX
+      data-min: XX
+      data-max: XX
+      data-units: XX
+    -
+      attr-label: pred_period
+      attr-def: >-
+        XX
+      attr-defs: XX
+      data-min: XX
+      data-max: XX
+      data-units: XX
+
+    -
       attr-label: seg_id_nat
       attr-def: >-
         Stream reach identification number for this dataset.
@@ -248,16 +289,6 @@ entities:
       data-max: XX # will complete when we have latest vbersion of this dataset
       data-units: NA
     -
-      attr-label: model_name
-      attr-def:  >-
-        Model name. Which model was used to generate the predictions, either
-        the persistence model (persistence), the deep learning model with data assimalation (DA) or the
-        deep learning without data assimilation (no_DA).
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: NA
-    -
       attr-label: max_temp_c_predicted
       attr-def:  >-
         Predicted maximum water temperature
@@ -266,6 +297,15 @@ entities:
       data-max: 24.6 # will update when we have latest vbersion of this dataset
       data-units: degree Celcius
     -
+      attr-label: max_temp_sd
+      attr-def:  >-
+        The standard deviation of the predicted maximum water temperature
+      attr-defs: This data release
+      data-min: XX
+      data-max: XX 
+      data-units: degree Celcius
+    -
+    
       attr-label: max_temp_l90
       attr-def:  >-
         The lower end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
@@ -290,6 +330,14 @@ entities:
       data-max: 0.53 # will update when we have latest vbersion of this dataset
       data-units: NA
     -
+      attr-label: crps
+      attr-def:  >-
+        XX
+      attr-defs: XX
+      data-min:  XX
+      data-max:  XX
+      data-units: XX
+    -
       attr-label: lead_time
       attr-def:  >-
         Number of days beyond the forecast issue_time for which a prediction was made. Calculated as the difference between `time` and `issue_time` 
@@ -306,6 +354,15 @@ entities:
       data-max: 24.6
       data-units: degree Celcius
     - 
+      attr-label: scenario
+      attr-def:  >-
+        Water release scenario that was used to generate the forecasts; scenarios included
+        the planned conservation release value (+0cfs) or the conservation release value plus 100 cfs (+100cfs)
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    - 
       attr-label: site_name
       attr-def:  >-
         Name of the site. One of the following: 
@@ -316,14 +373,19 @@ entities:
       data-max: NA
       data-units: NA      
     - 
-      attr-label: scenario
+      attr-label: n_obs
       attr-def:  >-
-        Water release scenario that was used to generate the forecasts; scenarios included
-        the planned conservation release value (+0cfs) or the conservation release value plus 100 cfs (+100cfs)
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: NA
+      attr-defs: XX
+      data-min: XX
+      data-max: XX
+      data-units: XX
+    -
+      attr-label: gaged_ungaged
+      attr-def:  >-
+      attr-defs: XX
+      data-min: XX
+      data-max: XX
+      data-units: XX
       
 build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and Linux. The open source languages R and Python was used on all systems.
 
