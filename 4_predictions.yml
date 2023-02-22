@@ -13,7 +13,8 @@ targets:
     depends:
       - out_data/reservoir_downstream_preds.csv
       - out_data/dwallin_stream_preds.csv.zip
-      - out_data/forecast_pgdl_da_outputs.zip
+      - out_data/forecast_pgdl_da_outputs_rgcn.zip
+      - out_data/forecast_pgdl_da_outputs_lstm.zip
       - out_data/paired_predicted_observed_temperatures.csv
 
   # Reservoir outlet temperatures from GLM (files from delaware-model-prep/9_collaborator_data/res/)
@@ -24,9 +25,22 @@ targets:
   out_data/dwallin_stream_preds.csv.zip:
     command: zip_obs(out_file = target_name, in_file = 'in_data/dwallin_stream_preds.csv')
     
-  # PGDL-DA 
-  out_data/forecast_pgdl_da_outputs.zip:
-    command: zip_this(target_name, 'in_data/PGDL-DA-old/')
+  # PGDL-DA
+  # out_data/forecast_pgdl_da_outputs.zip:
+  #   command: zip_this(target_name, 'in_data/PGDL-DA-old/')
+  # RGCN  
+  out_data/forecast_pgdl_da_outputs_rgcn.zip:
+    command: zip_files(target_name, list.files('in_data/PGDL-DA/', pattern = 'rgcn', full.names = TRUE)
+  
+  # LSTM
+  out_data/forecast_pgdl_da_outputs_lstm.zip:
+    command: zip_files(target_name, list.files('in_data/PGDL-DA/', pattern = 'lstm', full.names = TRUE)
+  
+  # zip_files('out_data/forecast_pgdl_da_outputs_rgcn.zip', list.files('in_data/PGDL-DA/', pattern = 'rgcn', full.names = TRUE)
+  # 
+  # zip_files('out_data/forecast_pgdl_da_outputs_lstm.zip', list.files('in_data/PGDL-DA/', pattern = 'lstm', full.names = TRUE)
+
+  
     
   # Paired Predictions
   out_data/paired_predicted_observed_temperatures.csv:
