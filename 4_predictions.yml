@@ -14,8 +14,8 @@ targets:
     depends:
       - out_data/reservoir_downstream_preds.csv
       - out_data/dwallin_stream_preds.csv.zip
-      - out_data/forecast_pgdl_da_outputs_rgcn.zip
-      - out_data/forecast_pgdl_da_outputs_lstm.zip
+#      - out_data/forecast_pgdl_da_outputs_rgcn.zip
+#      - out_data/forecast_pgdl_da_outputs_lstm.zip
       - out_data/paired_predicted_observed_temperatures.csv
 
   # Reservoir outlet temperatures from GLM (files from delaware-model-prep/9_collaborator_data/res/)
