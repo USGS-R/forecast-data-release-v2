@@ -26,7 +26,7 @@ targets:
     
   # PGDL-DA 
   out_data/forecast_pgdl_da_outputs.zip:
-    command: zip_this(target_name, 'in_data/PGDL-DA')
+    command: zip_this(target_name, 'in_data/PGDL-DA-old/')
     
   # Paired Predictions
   out_data/paired_predicted_observed_temperatures.csv:
