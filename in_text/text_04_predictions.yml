@@ -136,29 +136,23 @@ entities:
   -
     data-name: forecast_pgdl_da_outputs_{}.zip
     data-description: >-
-      Forecasts of daily maximum stream temperature for 70 locations in the upper Delaware River Basin issued from 2019-01-03 to 2019-12-23.
-      Two zip folders comprise the forecasts, split by model type - either lstm or rgcn.
+      Forecasts of daily maximum stream temperature for 70 locations in the upper Delaware River Basin issued from 2019-01-03 to 2019-12-23 for the validation period and 
+      2021-04-18 to 2022-09-22 for the testing period. 
+      Five zip folders comprise the forecasts, split by model type - either lstm-DA, lstm-noDA, rgcn-DA, or rgcn-noDA.
       The target stream segment seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
       Forecasts were generated with a 1) persistence model that propagating the most recent observed maximum temperature 7 days into
       the future, 2) a deep learning model, and a 3) deep learning
-      model with data assimilation. Code that trained the deep learning models can be found in the "run-pgdl-da " repository,
-      and code that generated the forecasts can be found in the "forecast-pgdl-da" repository in Zwart et al. 2022.
+      model with data assimilation. Code that trained the deep learning models and 
+      generated the forecasts can be found in the "run-pgdl-da " repository in Zwart et al. 2023.
       
-      The zipped folder contains 12 files per issue date named forecast[{YYYY-MM-DD}]_files.zip.
-      Each issue date has two file types (a forecast .nc netCDF file and a .xml metadata file) for each model
-      (DA, no_DA, persistence {model}) and reservoir release scenario (0cfs or 100cfs {scenario}). The file name
-      includes a hash of the model instance, such that files are named
-      {hash}_{model}_forecast_[{YYYY-MM-DD}]_release[{scenario}].
-      
-      Since observations of daily maximum stream temperature were not available when we issued
-      the forecast, the persistence forecast files have NA's for the daily maximum stream temperature
-      prediction. When evaluating the performance of the persistence forecasts against the
-      deep learning models, we use yesterday's maximum temperature value as the forecast for
-      7 days into the future. See the evaluation code in the "evaluate-forecast" repository in
-      Zwart et al. 2022, for this adjustment. 
+      The zipped files contain 50 or 52 files per model type named {hash}_{model-type}_GMM_{seed}_{val-or-test}_forecast.{nc-or-xml}.
+      Each file has two file types (a forecast .nc netCDF file and a .xml metadata file) for each hash, model type, seed, and 
+      validation or test period. The hash indicates what spatial cross-validation fold the output is for and the seed 
+      represents the random seed used to initialize model training / forecasting. 
 
-      A general description of the attributes is provided below for all the forecasted nc files. No minimum and maximum values are given to capture all forecasted nc files. 
+      A general description of the attributes is provided below for all the forecasted nc files. 
+      No minimum and maximum values are given to capture all forecasted nc files. 
     attributes:
     -
       attr-label: max_temp
