@@ -14,8 +14,12 @@ targets:
     depends:
       - out_data/reservoir_downstream_preds.csv
       - out_data/dwallin_stream_preds.csv.zip
-#      - out_data/forecast_pgdl_da_outputs_rgcn.zip
-#      - out_data/forecast_pgdl_da_outputs_lstm.zip
+      - out_data/forecast_pgdl_da_outputs_rgcn_DA.zip
+      - out_data/forecast_pgdl_da_outputs_lstm_DA.zip
+      - out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip
+      - out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip
+      - out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip
+      - out_data/forecast_pgdl_da_outputs_lstm_persistence.zip
       - out_data/paired_predicted_observed_temperatures.csv
 
   # Reservoir outlet temperatures from GLM (files from delaware-model-prep/9_collaborator_data/res/)
@@ -30,48 +34,36 @@ targets:
   # out_data/forecast_pgdl_da_outputs.zip:
   #   command: zip_this(target_name, 'in_data/PGDL-DA-old/')
   
-  # forecast_pgdl_da_outputs_files:
-  #   command: list.files('in_data/PGDL-DA') 
-  #   
+  forecast_pgdl_da_outputs_files:
+    command: list.files('in_data/PGDL-DA')
+
   # in_data/PGDL-DA-zip:
-  #   command: zip_files_frm_list(out_folder = target_name, in_folder = in_data/PGDL-DA, list_of_files = forecast_pgdl_da_outputs_files, suffix_to_rm = '.txt|.xml')
-  # 
-  # 
-  # # RGCN-DA  
-  # out_data/forecast_pgdl_da_outputs_rgcn_DA.zip:
-  #   command: zip_files(target_name, list.files('in_data/PGDL-DA_zip', pattern = 'rgcn_DA', full.names = TRUE)
-  # 
-  # # LSTM-DA
-  # out_data/forecast_pgdl_da_outputs_lstm_DA.zip:
-  #   command: zip_files(target_name, list.files('in_data/PGDL-DA/', pattern = 'lstm_DA', full.names = TRUE)
-  # 
-  #   # RGCN-no_DA  
-  # out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip:
-  #   command: zip_files(target_name, list.files('in_data/PGDL-DA_zip', pattern = 'rgcn_no_DA', full.names = TRUE)
-  # 
-  # # LSTM-no_DA
-  # out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip:
-  #   command: zip_files(target_name, list.files('in_data/PGDL-DA/', pattern = 'lstm_no_DA', full.names = TRUE)
-  #   
-  # # RGCN-pers
-  # out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip:
-  #   command: zip_files(target_name, list.files('in_data/PGDL-DA_zip', pattern = 'rgcn_persistence', full.names = TRUE)
-  # 
-  # # LSTM-pers
-  # out_data/forecast_pgdl_da_outputs_lstm_persistence.zip:
-  #   command: zip_files(target_name, list.files('in_data/PGDL-DA/', pattern = 'lstm_persistence', full.names = TRUE)
-  # 
-    
-  
+  #   command: zip_files_frm_list(out_folder = target_name, in_folder = in_data/PGDL-DA, list_of_files = forecast_pgdl_da_outputs_files, suffix_to_rm = '.nc$|.xml$')
 
+  # RGCN-DA
+  out_data/forecast_pgdl_da_outputs_rgcn_DA.zip:
+    command: zip_files(target_name, list.files('in_data/PGDL-DA-zip', pattern = 'rgcn_DA', full.names = TRUE)
 
-  
-  # zip_files('out_data/forecast_pgdl_da_outputs_rgcn.zip', list.files('in_data/PGDL-DA/', pattern = 'rgcn', full.names = TRUE)
-  # 
-  # zip_files('out_data/forecast_pgdl_da_outputs_lstm.zip', list.files('in_data/PGDL-DA/', pattern = 'lstm', full.names = TRUE)
+  # LSTM-DA
+  out_data/forecast_pgdl_da_outputs_lstm_DA.zip:
+    command: zip_files(target_name, list.files('in_data/PGDL-DA-zip', pattern = 'lstm_DA', full.names = TRUE)
 
-  
-    
+    # RGCN-no_DA
+  out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip:
+    command: zip_files(target_name, list.files('in_data/PGDL-DA-zip', pattern = 'rgcn_no_DA', full.names = TRUE)
+
+  # LSTM-no_DA
+  out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip:
+    command: zip_files(target_name, list.files('in_data/PGDL-DA-zip', pattern = 'lstm_no_DA', full.names = TRUE)
+
+  # RGCN-pers
+  out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip:
+    command: zip_files(target_name, list.files('in_data/PGDL-DA-zip', pattern = 'rgcn_persistence', full.names = TRUE)
+
+  # LSTM-pers
+  out_data/forecast_pgdl_da_outputs_lstm_persistence.zip:
+    command: zip_files(target_name, list.files('in_data/PGDL-DA-zip', pattern = 'lstm_persistence', full.names = TRUE)
+
   # Paired Predictions
   out_data/paired_predicted_observed_temperatures.csv:
     command: feather_to_csv(in_feather = 'in_data/all_mods_with_obs.feather', out_csv = target_name)
