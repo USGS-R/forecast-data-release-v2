@@ -218,7 +218,6 @@ entities:
       attr-label: model_type
       attr-def: >-
         Model type. Type of model was used to generate the predictions, either lstm, rgcn or NA.
-        XX
       attr-defs: This data release
       data-min: NA
       data-max: NA
