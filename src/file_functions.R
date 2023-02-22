@@ -29,6 +29,20 @@ zip_files <- function(out_file, ...) {
   zip_this(out_file, files)
 }
 
+zip_files_frm_list <- function(out_folder, in_folder, list_of_files, suffix_to_rm){
+  
+  lst <- list_of_files |> stringr::str_replace(suffix_to_rm,'') |> unique()
+  
+  lapply(lst, function(x){
+    print(paste('zipping',x))
+    zip_files(file.path(out_folder, paste0(x,'.zip')), list.files(in_folder, pattern = x, full.names = T))
+    print(paste('done with',x))
+  })
+  return(out_folder)
+}
+
+# zip_files_frm_list(out_folder = 'in_data/PGDL-DA_zip', in_folder = 'in_data/new_data/PGDL-DA-test', list_of_files = list.files('in_data/new_data/PGDL-DA-test'), suffix_to_rm = '.txt|.xml')  
+
 get_distance_matrix <- function(out_file, in_file) {
   distance <- readRDS(in_file)
   from <- rownames(distance$updown)
