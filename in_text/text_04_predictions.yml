@@ -259,7 +259,7 @@ entities:
     -
       attr-label: pred_period
       attr-def: >-
-        XX. Either `VAL` for XX or `TEST` for XX.
+        Prediction period. Either `VAL` for XX or `TEST` for XX.
       attr-defs: This data release
       data-min: NA
       data-max: NA
