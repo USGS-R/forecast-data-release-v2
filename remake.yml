@@ -122,7 +122,7 @@ targets:
       'out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip',
       'out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip',
       'out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip',
-      'out_data/forecast_pgdl_da_outputs_lstm_persistence.zip'
+      'out_data/forecast_pgdl_da_outputs_lstm_persistence.zip',
       'out_data/paired_predicted_observed_temperatures.csv',
       'out_xml/04_predictions_fgdc_metadata.xml')
 
