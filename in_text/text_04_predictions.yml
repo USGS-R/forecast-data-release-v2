@@ -204,17 +204,15 @@ entities:
       data-max: NA
       data-units: NA
   -
-    data-name: paired_predicted_observed_temperatures.csv
+    data-name: all_mods_with_obs.feather
     data-description: >-
       A tabular version of model predictions with paired observations from three models.
       Predictions from the deep learning with (DA) and without (no_DA)
-      data assimilation had 3100XX [UPDATE] ensembles, and reported predictions
+      data assimilation had approximately 1000 ensembles, and reported predictions
       are the mean of the ensembles. The persistence model was generated
       by propagating yesterday's observed maximum temperature 7 days into
-      the future. The DA and no_DA models were used to make predictions for
-      two scenarios: the observed reservoir release values (+0cfs) and
-      a scenario where a manager increased the releases by 100cfs (+100cfs).
-      For the +100 cfs scenario, we did not pair observervations with predictions.   
+      the future. The DA and no_DA models were used to make predictions for one future 
+      reservoir release scenario using the observed reservoir release values (+0cfs).    
     attributes:
     -
       attr-label: model_type
