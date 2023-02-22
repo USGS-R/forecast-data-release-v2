@@ -34,55 +34,6 @@ targets:
   # out_data/forecast_pgdl_da_outputs.zip:
   #   command: zip_this(target_name, 'in_data/PGDL-DA-old/')
   
-  #forecast_pgdl_da_outputs_files:
-  #  command: list.files('in_data/PGDL-DA')
-  
-  # in_data/PGDL-DA-zip:
-  #   command: zip_files_frm_list(out_folder = target_name, in_folder = in_data/PGDL-DA, list_of_files = forecast_pgdl_da_outputs_files, suffix_to_rm = '.nc$|.xml$')
-
-  
-  forecast_pgdl_da_outputs_rgcn_DA:
-    command: list.files('in_data/PGDL-DA-zip', pattern = 'rgcn_DA', full.names = TRUE)
-  
-  forecast_pgdl_da_outputs_lstm_DA:
-    command: list.files('in_data/PGDL-DA-zip', pattern = 'lstm_DA', full.names = TRUE)
-  
-  forecast_pgdl_da_outputs_rgcn_no_DA: 
-    command: list.files('in_data/PGDL-DA-zip', pattern = 'rgcn_no_DA', full.names = TRUE)
-    
-  forecast_pgdl_da_outputs_lstm_no_DA:
-    command: list.files('in_data/PGDL-DA-zip', pattern = 'lstm_no_DA', full.names = TRUE)
-    
-  forecast_pgdl_da_outputs_rgcn_persistence:
-    command: list.files('in_data/PGDL-DA-zip', pattern = 'rgcn_persistence', full.names = TRUE)
-    
-  forecast_pgdl_da_outputs_lstm_persistence:
-    command: list.files('in_data/PGDL-DA-zip', pattern = 'lstm_persistence', full.names = TRUE)
-
-  # RGCN-DA
-  out_data/forecast_pgdl_da_outputs_rgcn_DA.zip:
-    command: zip_files(target_name, forecast_pgdl_da_outputs_rgcn_DA)
-
-  # LSTM-DA
-  out_data/forecast_pgdl_da_outputs_lstm_DA.zip:
-    command: zip_files(target_name, forecast_pgdl_da_outputs_lstm_DA)
-
-    # RGCN-no_DA
-  out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip:
-    command: zip_files(target_name, forecast_pgdl_da_outputs_rgcn_no_DA)
-
-  # LSTM-no_DA
-  out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip:
-    command: zip_files(target_name, forecast_pgdl_da_outputs_lstm_no_DA)
-
-  # RGCN-pers
-  out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip:
-    command: zip_files(target_name, forecast_pgdl_da_outputs_rgcn_persistence)
-
-  # LSTM-pers
-  out_data/forecast_pgdl_da_outputs_lstm_persistence.zip:
-    command: zip_files(target_name, forecast_pgdl_da_outputs_lstm_persistence)
-
   # Paired Predictions
   out_data/paired_predicted_observed_temperatures.csv:
     command: feather_to_csv(in_feather = 'in_data/all_mods_with_obs.feather', out_csv = target_name)
