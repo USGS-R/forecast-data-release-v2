@@ -136,7 +136,7 @@ entities:
   -
     data-name: forecast_pgdl_da_outputs_{}.zip
     data-description: >-
-      Forecasts of daily maximum stream temperature for five select locations in the Delaware River Basin issued from 2022-XX-XX to 2022-XXXX.
+      Forecasts of daily maximum stream temperature for 70 locations in the upper Delaware River Basin issued from 2019-01-03 to 2019-12-23.
       Two zip folders comprise the forecasts, split by model type - either lstm or rgcn.
       The target stream segment seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
