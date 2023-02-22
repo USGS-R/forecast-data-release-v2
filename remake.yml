@@ -117,7 +117,7 @@ targets:
       sources = 'src/sb_utils.R',
       'out_data/reservoir_downstream_preds.csv',
       "out_data/dwallin_stream_preds.csv.zip",
-      'forecast_pgdl_da_outputs_rgcn_DA.zip',
+      'out_data/forecast_pgdl_da_outputs_rgcn_DA.zip',
       'out_data/paired_predicted_observed_temperatures.csv',
       'out_xml/04_predictions_fgdc_metadata.xml')
 
