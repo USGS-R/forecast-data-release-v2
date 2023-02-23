@@ -227,7 +227,6 @@ entities:
       attr-def: >-
         Forecast type used to generate the predictions, either either the persistence model (persistence), the deep learning model with data assimalation (DA) or the
         deep learning without data assimilation (no_DA).
-        XX
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -235,7 +234,7 @@ entities:
     -
       attr-label: hash
       attr-def: >-
-        XX
+        Model hash. Indicator for the spatial cross validation fold used in the validation or testing period. 
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -243,15 +242,16 @@ entities:
     -
       attr-label: seed
       attr-def: >-
-        XX
+        Model seed. Represents the random seed used to initialize model training and forecasting.
       attr-defs: This data release
-      data-min: 1
+      data-min: 0
       data-max: 4
       data-units: NA
     -
       attr-label: pred_period
       attr-def: >-
-        Prediction period. Either `VAL` for XX or `TEST` for XX.
+        Prediction period. Either `VAL` for the validation period from 2019-01-03 to 2019-12-23 or 
+        `TEST` for the testing period from 2021-04-18 to 2022-09-22.
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -325,11 +325,12 @@ entities:
     -
       attr-label: crps
       attr-def:  >-
-        XX
+        Continuous Rank Probability Score (CRPS). CRPS measures both the accuracy and precision of the full distribution of
+        ensemble predictions (interpreted as a probabilistic forecast), where lower values indicate a better model performance. 
       attr-defs: This data release
       data-min:  0.062
       data-max:  47.531
-      data-units: XX
+      data-units: degree Celcius
     -
       attr-label: lead_time
       attr-def:  >-
@@ -341,7 +342,7 @@ entities:
     - 
       attr-label: max_temp_c
       attr-def:  >-
-        Maximum temperature
+        Observed maximum temperature
       attr-defs: This data release
       data-min: -0.2
       data-max: 33.2
@@ -350,7 +351,7 @@ entities:
       attr-label: scenario
       attr-def:  >-
         Water release scenario that was used to generate the forecasts; scenarios included
-        the planned conservation release value (+0cfs) or the conservation release value plus 100 cfs (+100cfs)
+        the planned conservation release value (+0cfs). 
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -368,7 +369,7 @@ entities:
     - 
       attr-label: n_obs
       attr-def:  >-
-        XX
+        Number of observations for a given segment, model hash, seed, and validation or test period. 
       attr-defs: This data release
       data-min: 0
       data-max: 13088
@@ -376,7 +377,7 @@ entities:
     -
       attr-label: gaged_ungaged
       attr-def:  >-
-        XX
+        Gaged or ungaged. Whether the segment had observations during training (gaged) or not (ungaged) 
       attr-defs: This data release
       data-min: NA
       data-max: NA
