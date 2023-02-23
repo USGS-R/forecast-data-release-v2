@@ -94,7 +94,7 @@ entities:
       data-max: 762.163
       data-units: cubic meters per second
   -
-    data-name: dwallin_stream_preds.csv.zip
+    data-name: dwallin_stream_preds_csv.zip
     data-description: >-
       Stream temperature predictions from the distance-weighted-average lotic-lentic input network (DWALLIN).
       Predictions were generated from a combination of lotic (from PRMS-SNTemp) and lentic (GLM) models.

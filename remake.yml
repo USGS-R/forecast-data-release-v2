@@ -116,7 +116,7 @@ targets:
       sb_id = sbid_04_predictions,
       sources = 'src/sb_utils.R',
       'out_data/reservoir_downstream_preds.csv',
-      "out_data/dwallin_stream_preds.csv.zip",
+      "out_data/dwallin_stream_preds_csv.zip",
       'out_data/forecast_pgdl_da_outputs_rgcn_DA.zip',
       'out_data/forecast_pgdl_da_outputs_lstm_DA.zip',
       'out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip',
