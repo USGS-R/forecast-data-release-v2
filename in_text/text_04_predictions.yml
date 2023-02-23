@@ -7,7 +7,6 @@ abstract: >-
   predictions from several models, including a model pre-trainer that is predictions from a distance-weighted-average
   lotic-lentic input network (DWALLIN) model, reservoir outlet temperature predictions from a process-based model,
   and three data-driven water temperature forecast models.
-  
 
 cross-cites:
   -
@@ -44,11 +43,6 @@ cross-cites:
       GIS Features of the Geospatial Fabric for National Hydrologic Modeling
     pubdate: 2014
     link: http://dx.doi.org/doi:10.5066/F7542KMD
-    
-    
-    
-    
-
 
 entities:
   -
