@@ -133,7 +133,6 @@ entities:
       Forecasts of daily maximum stream temperature for 70 locations in the upper Delaware River Basin issued from 2019-01-03 to 2019-12-23 for the validation period and 
       2021-04-18 to 2022-09-22 for the testing period. 
       Six zip folders comprise the different forecasts (DA, no_DA, persistence), split by model type (lstm or rgcn) - either lstm_DA, lstm_noDA, rgcn_DA, or rgcn_noDA, rgcn_persistence, lstm_persistence.
-      Each zip contains at least 25 output netcdf files. The rgcn outputs each include an addition `_TEST_` output file.
       The target stream segment seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
       Forecasts were generated with a 1) persistence model that propagating the most recent observed maximum temperature 7 days into
@@ -141,7 +140,7 @@ entities:
       model with data assimilation (DA). Code that trained the deep learning models and 
       generated the forecasts can be found in the "run-pgdl-da " repository in Zwart et al. 2023.
       
-      The zipped files contain 50 or 52 files per model type named {hash}_{model-type}_GMM_{seed}_{val-or-test}_forecast.{nc-or-xml}.
+      The zipped files contain 50 or 52 files (25 or 26 when zipped) per model type named {hash}_{model-type}_GMM_{seed}_{val-or-test}_forecast.{nc-or-xml}.
       Each file has two file types (a forecast .nc netCDF file and a .xml metadata file) for each hash, model type, seed, and 
       validation or test period. The hash indicates what spatial cross-validation fold the output is for and the seed 
       represents the random seed used to initialize model training / forecasting. 
