@@ -16,7 +16,7 @@ zip_this <- function(out_file, .object){
 
 zip_obs <- function(out_file, in_file){
   if (grepl('csv', in_file)) {
-    zip_this(out_file, .object = readr::read_csv(in_file))
+    zip_this(out_file, .object = suppressMessages(readr::read_csv(in_file, )))
   } else if (grepl('rds', in_file)) {
     zip_this(out_file, .object = readRDS(in_file))
   } else {
@@ -28,6 +28,20 @@ zip_files <- function(out_file, ...) {
   files <- c(...)
   zip_this(out_file, files)
 }
+
+zip_files_frm_list <- function(out_folder, in_folder, list_of_files, suffix_to_rm){
+  
+  lst <- list_of_files |> stringr::str_replace(suffix_to_rm,'') |> unique()
+  
+  lapply(lst, function(x){
+    print(paste('zipping',x))
+    zip_files(file.path(out_folder, paste0(x,'.zip')), list.files(in_folder, pattern = x, full.names = T))
+    print(paste('done with',x))
+  })
+  return(out_folder)
+}
+
+# zip_files_frm_list(out_folder = 'in_data/PGDL-DA_zip', in_folder = 'in_data/new_data/PGDL-DA-test', list_of_files = list.files('in_data/new_data/PGDL-DA-test'), suffix_to_rm = '.txt|.xml')  
 
 get_distance_matrix <- function(out_file, in_file) {
   distance <- readRDS(in_file)
@@ -171,13 +185,16 @@ combine_level_sources <- function(out_csv, nwis_levels, nyc_levels, hist_levels)
 
 ## Transform simple rds to csv:
 
-# rds<- 'in_data/all_mods_with_obs_lst_yr.rds'
-# out_csv <- 'out_data/all_mods_with_obs.csv'
-
 rds_to_csv <- function(in_rds, out_csv){
   
   csv <- readr::write_csv(x = readRDS(in_rds), file = out_csv)
          
 }
 
-#rds_to_csv(in_rds = rds, out_csv = out_csv)
+## Transform feather to csv
+
+feather_to_csv <- function(in_feather, out_csv){
+  fthr <- arrow::read_feather(in_feather)
+  readr::write_csv(x = fthr, file = out_csv)
+}
+
