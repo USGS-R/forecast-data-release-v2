@@ -285,7 +285,8 @@ entities:
     -
       attr-label: max_temp_c_predicted
       attr-def:  >-
-        Predicted maximum water temperature
+        Predicted maximum water temperature. There are NA's for the persistence forecast 
+        when there were not observations on issue_time -1 with which to generate forecasts. 
       attr-defs: This data release
       data-min: -0.82 
       data-max: 44.49 
