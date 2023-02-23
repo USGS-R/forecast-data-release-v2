@@ -134,11 +134,11 @@ entities:
       data-max: 43.18
       data-units: degrees Celsius
   -
-    data-name: forecast_pgdl_da_outputs_{}.zip
+    data-name: forecast_pgdl_da_outputs_{model-type_forcast-type}.zip
     data-description: >-
       Forecasts of daily maximum stream temperature for 70 locations in the upper Delaware River Basin issued from 2019-01-03 to 2019-12-23 for the validation period and 
       2021-04-18 to 2022-09-22 for the testing period. 
-      Five zip folders comprise the forecasts (DA, no_DA, persistence), split by model type (lstm or rgcn), either lstm_DA, lstm_noDA, rgcn_DA, or rgcn_noDA, rgcn_persistence, lstm_persistence.
+      Six zip folders comprise the different forecasts (DA, no_DA, persistence), split by model type (lstm or rgcn) - either lstm_DA, lstm_noDA, rgcn_DA, or rgcn_noDA, rgcn_persistence, lstm_persistence.
       The target stream segment seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
       Forecasts were generated with a 1) persistence model that propagating the most recent observed maximum temperature 7 days into
@@ -204,7 +204,7 @@ entities:
       data-max: NA
       data-units: NA
   -
-    data-name: all_mods_with_obs.feather
+    data-name: paired_predicted_observed_temperatures.csv
     data-description: >-
       A tabular version of model predictions with paired observations from three models.
       Predictions from the deep learning with (DA) and without (no_DA)
@@ -223,7 +223,7 @@ entities:
       data-max: NA
       data-units: NA
     -
-      attr-label: forecaste_type
+      attr-label: forecast_type
       attr-def: >-
         Forecast type used to generate the predictions, either either the persistence model (persistence), the deep learning model with data assimalation (DA) or the
         deep learning without data assimilation (no_DA).
@@ -285,8 +285,7 @@ entities:
     -
       attr-label: max_temp_c_predicted
       attr-def:  >-
-        Predicted maximum water temperature. There are NA's for the persistence forecast 
-        when there were not observations on issue_time -1 with which to generate forecasts. 
+        Predicted maximum water temperature. There are NA's for the persistence forecast when there were no observations on issue_time -1 with which to generate forecasts. 
       attr-defs: This data release
       data-min: -0.82 
       data-max: 44.49 

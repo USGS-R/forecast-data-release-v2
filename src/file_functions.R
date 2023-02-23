@@ -16,7 +16,7 @@ zip_this <- function(out_file, .object){
 
 zip_obs <- function(out_file, in_file){
   if (grepl('csv', in_file)) {
-    zip_this(out_file, .object = readr::read_csv(in_file))
+    zip_this(out_file, .object = suppressMessages(readr::read_csv(in_file, )))
   } else if (grepl('rds', in_file)) {
     zip_this(out_file, .object = readRDS(in_file))
   } else {
