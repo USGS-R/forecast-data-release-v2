@@ -10,11 +10,11 @@ abstract: >-
 
 cross-cites:
   -
-    authors: ["Jacob A. Zwart", "Samantha K. Oliver", "William D. Watkins", "Jeffrey M. Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
+    authors: ["Jacob A. Zwart", "Jeremy Diaz", "Scott Hamshaw", "Samantha Oliver", "Jesse Ross", "Margaux Sleckman", "Alison Appling", "Hayley Corson-Dosch", "Xiowei Jia", "Jordan Read", "Jefferey Sadler", "Theodore Thompson", "David Watkins", "Ellie White"]
     title: >-
-      Source code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
-    pubdate: 2022
-    link: https://zenodo.org/record/7382575#.Y9xTV3bMKiM
+      Source code: Evaluating deep learning architecture and data assimilation for improving water temperature forecasts at unmonitored locations
+    pubdate: 2023
+    link: https://doi.org/10.5281/zenodo.6516512
   -
     authors: ["Samantha K. Oliver", "Alison P. Appling", "Rasha A Atshan", "William D. Watkins", "Jeffrey M. Sadler", "Hayley Corson-Dosch", "Jacob A. Zwart", "Jordan S. Read"]
     title: >-
@@ -51,7 +51,7 @@ entities:
       Predictions of outflow and water temperature for outflow reaches of the Pepacton and
       Cannonsville reservoirs, generated from calibrated reservoir models built with GLM v3.1.
       Code used to generate these predictions can be found in the "res-temperature-process-models"
-      in Zwart et al. 2022.
+      in Zwart et al. 2023.
     attributes:
     -
       attr-label: res_id
