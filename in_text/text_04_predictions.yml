@@ -244,8 +244,8 @@ entities:
       attr-def: >-
         Model seed. Represents the random seed used to initialize model training and forecasting.
       attr-defs: This data release
-      data-min: 0
-      data-max: 4
+      data-min: NA
+      data-max: NA
       data-units: NA
     -
       attr-label: pred_period
