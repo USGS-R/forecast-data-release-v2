@@ -34,7 +34,9 @@ themekeywords: ["machine learning", "deep learning", "hybrid modeling", "water",
 usage-rules: >-
   These data are subject to change and are not citable until reviewed and approved for official publication by the USGS
 
-descgeog: "The Delaware River Basin. River reach polylines as defined by the Geospatial Fabric for National Hydrologic Modeling. Reservoir polygons as defined by the national hydrography dataset high resolution"
+descgeog: >-
+  The Delaware River Basin. River reach polylines as defined by the Geospatial Fabric for National Hydrologic Modeling. Reservoir polygons as defined by the national hydrography dataset high resolution
+
 data-publisher: U.S. Geological Survey
 
 # ----contacts----

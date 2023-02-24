@@ -5,16 +5,15 @@ abstract: >-
   This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models
   that makes predictions at 70 river reaches in the upper Delaware River Basin. This section includes
   predictions from several models, including a model pre-trainer that is predictions from a distance-weighted-average
-  lotic-lentic input network (DWALLIN) model, reservoir outlet temperature predictions from a process-based model,
-  and three data-driven water temperature forecast models.  
+  lotic-lentic input network (DWALLIN) model, reservoir outlet temperature predictions from a process-based model, and three data-driven water temperature forecast models. 
 
 cross-cites:
   -
-    authors: ["Jacob A. Zwart", "Samantha K. Oliver", "William D. Watkins", "Jeffrey M. Sadler", "Alison P. Appling", "Hayley Corson-Dosch", "Xiaowei Jia", "Vipin Kumar", "Jordan Read"]
+    authors: ["Jacob A. Zwart", "Jeremy Diaz", "Scott Hamshaw", "Samantha Oliver", "Jesse Ross", "Margaux Sleckman", "Alison Appling", "Hayley Corson-Dosch", "Xiowei Jia", "Jordan Read", "Jefferey Sadler", "Theodore Thompson", "David Watkins", "Ellie White"]
     title: >-
-      Source code: Near-term forecasts of stream temperature using process-guided deep learning and data assimilation
-    pubdate: 2022
-    link: https://zenodo.org/record/7382575#.Y9xTV3bMKiM
+      Source code: Evaluating deep learning architecture and data assimilation for improving water temperature forecasts at unmonitored locations
+    pubdate: 2023
+    link: https://doi.org/10.5281/zenodo.6516512
   -
     authors: ["Samantha K. Oliver", "Alison P. Appling", "Rasha A Atshan", "William D. Watkins", "Jeffrey M. Sadler", "Hayley Corson-Dosch", "Jacob A. Zwart", "Jordan S. Read"]
     title: >-
@@ -43,11 +42,6 @@ cross-cites:
       GIS Features of the Geospatial Fabric for National Hydrologic Modeling
     pubdate: 2014
     link: http://dx.doi.org/doi:10.5066/F7542KMD
-    
-    
-    
-    
-
 
 entities:
   -
@@ -56,7 +50,7 @@ entities:
       Predictions of outflow and water temperature for outflow reaches of the Pepacton and
       Cannonsville reservoirs, generated from calibrated reservoir models built with GLM v3.1.
       Code used to generate these predictions can be found in the "res-temperature-process-models"
-      in Zwart et al. 2022.
+      in Zwart et al. 2023.
     attributes:
     -
       attr-label: res_id
@@ -93,7 +87,7 @@ entities:
       data-max: 762.163
       data-units: cubic meters per second
   -
-    data-name: dwallin_stream_preds.csv.zip
+    data-name: dwallin_stream_preds_csv.zip
     data-description: >-
       Stream temperature predictions from the distance-weighted-average lotic-lentic input network (DWALLIN).
       Predictions were generated from a combination of lotic (from PRMS-SNTemp) and lentic (GLM) models.
@@ -133,30 +127,25 @@ entities:
       data-max: 43.18
       data-units: degrees Celsius
   -
-    data-name: forecast_pgdl_da_outputs.zip
+    data-name: forecast_pgdl_da_outputs_{model-type_forcast-type}.zip
     data-description: >-
-      Forecasts of daily maximum stream temperature for five select locations in the Delaware River Basin issued from 2022-XX-XX to 2022-XXXX.
+      Forecasts of daily maximum stream temperature for 70 locations in the upper Delaware River Basin issued from 2019-01-03 to 2019-12-23 for the validation period and 
+      2021-04-18 to 2022-09-22 for the testing period. 
+      Six zip folders comprise the different forecasts (DA, no_DA, persistence), split by model type (lstm or rgcn) - either lstm_DA, lstm_noDA, rgcn_DA, or rgcn_noDA, rgcn_persistence, lstm_persistence.
       The target stream segment seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
       Forecasts were generated with a 1) persistence model that propagating the most recent observed maximum temperature 7 days into
-      the future, 2) a deep learning model, and a 3) deep learning
-      model with data assimilation. Code that trained the deep learning models can be found in the "run-pgdl-da " repository,
-      and code that generated the forecasts can be found in the "forecast-pgdl-da" repository in Zwart et al. 2022.
+      the future, 2) a deep learning model (no_DA), and a 3) deep learning
+      model with data assimilation (DA). Code that trained the deep learning models and 
+      generated the forecasts can be found in the "run-pgdl-da " repository in Zwart et al. 2023.
       
-      The zipped folder contains 12 files per issue date named forecast[{YYYY-MM-DD}]_files.zip.
-      Each issue date has two file types (a forecast .nc netCDF file and a .xml metadata file) for each model
-      (DA, no_DA, persistence {model}) and reservoir release scenario (0cfs or 100cfs {scenario}). The file name
-      includes a hash of the model instance, such that files are named
-      {hash}_{model}_forecast_[{YYYY-MM-DD}]_release[{scenario}].
-      
-      Since observations of daily maximum stream temperature were not available when we issued
-      the forecast, the persistence forecast files have NA's for the daily maximum stream temperature
-      prediction. When evaluating the performance of the persistence forecasts against the
-      deep learning models, we use yesterday's maximum temperature value as the forecast for
-      7 days into the future. See the evaluation code in the "evaluate-forecast" repository in
-      Zwart et al. 2022, for this adjustment. 
+      The zipped files contain 50 or 52 files (25 or 26 when zipped) per model type named {hash}_{model-type}_GMM_{seed}_{val-or-test}_forecast.{nc-or-xml}.
+      Each file has two file types (a forecast .nc netCDF file and a .xml metadata file) for each hash, model type, seed, and 
+      validation or test period. The hash indicates what spatial cross-validation fold the output is for and the seed 
+      represents the random seed used to initialize model training / forecasting. 
 
-      A general description of the attributes is provided below for all the forecasted nc files. No minimum and maximum values are given to capture all forecasted nc files. 
+      A general description of the attributes is provided below for all the forecasted nc files. 
+      No minimum and maximum values are given to capture all forecasted nc files. 
     attributes:
     -
       attr-label: max_temp
@@ -212,14 +201,54 @@ entities:
     data-description: >-
       A tabular version of model predictions with paired observations from three models.
       Predictions from the deep learning with (DA) and without (no_DA)
-      data assimilation had 3100XX [UPDATE] ensembles, and reported predictions
+      data assimilation had approximately 1000 ensembles, and reported predictions
       are the mean of the ensembles. The persistence model was generated
       by propagating yesterday's observed maximum temperature 7 days into
-      the future. The DA and no_DA models were used to make predictions for
-      two scenarios: the observed reservoir release values (+0cfs) and
-      a scenario where a manager increased the releases by 100cfs (+100cfs).
-      For the +100 cfs scenario, we did not pair observervations with predictions.   
+      the future. The DA and no_DA models were used to make predictions for one future 
+      reservoir release scenario using the observed reservoir release values (+0cfs).    
     attributes:
+    -
+      attr-label: model_type
+      attr-def: >-
+        Model type. Type of model was used to generate the predictions, either lstm, rgcn or NA.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: forecast_type
+      attr-def: >-
+        Forecast type used to generate the predictions, either either the persistence model (persistence), the deep learning model with data assimalation (DA) or the
+        deep learning without data assimilation (no_DA).
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: hash
+      attr-def: >-
+        Model hash. Indicator for the spatial cross validation fold used in the validation or testing period. 
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA   
+    -
+      attr-label: seed
+      attr-def: >-
+        Model seed. Represents the random seed used to initialize model training and forecasting.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: pred_period
+      attr-def: >-
+        Prediction period. Either `VAL` for the validation period from 2019-01-03 to 2019-12-23 or 
+        `TEST` for the testing period from 2021-04-18 to 2022-09-22.
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
     -
       attr-label: seg_id_nat
       attr-def: >-
@@ -235,75 +264,91 @@ entities:
       attr-def: >-
         Date that the forecast was issued.
       attr-defs: This data release
-      data-min: XX # will complete when we have latest vbersion of this dataset
-      data-max: XX # will complete when we have latest version of this dataset
-      data-units: NA
+      data-min: 2019-01-03 
+      data-max: 2022-09-22 
+      data-units: date
     -
       attr-label: time
       attr-def: >-
         Valid date of forecast
       attr-defs: This data release
-      data-min: XX # will complete when we have latest vbersion of this dataset
-      data-max: XX # will complete when we have latest vbersion of this dataset
-      data-units: NA
-    -
-      attr-label: model_name
-      attr-def:  >-
-        Model name. Which model was used to generate the predictions, either
-        the persistence model (persistence), the deep learning model with data assimalation (DA) or the
-        deep learning without data assimilation (no_DA).
-      attr-defs: This data release
-      data-min: NA
-      data-max: NA
-      data-units: NA
+      data-min: 2019-01-03 
+      data-max: 2022-09-29 
+      data-units: date UTC
     -
       attr-label: max_temp_c_predicted
       attr-def:  >-
-        Predicted maximum water temperature
+        Predicted maximum water temperature. There are NA's for the persistence forecast when there were no observations on issue_time -1 with which to generate forecasts. 
       attr-defs: This data release
-      data-min: 6.4 # will update when we have latest vbersion of this dataset
-      data-max: 24.6 # will update when we have latest vbersion of this dataset
+      data-min: -0.82 
+      data-max: 44.49 
+      data-units: degree Celcius
+    -
+      attr-label: max_temp_sd
+      attr-def:  >-
+        The standard deviation of the predicted maximum water temperature
+      attr-defs: This data release
+      data-min: 0.19
+      data-max: 610.78 
       data-units: degree Celcius
     -
       attr-label: max_temp_l90
       attr-def:  >-
-        The lower end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
+        The upper end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
       attr-defs: This data release 
-      data-min: 5.86 # will update when we have latest vbersion of this dataset
-      data-max: 22.49 # will update when we have latest vbersion of this dataset
+      data-min: -931.05 
+      data-max: 27.81 
       data-units: degree Celcius
     -
       attr-label: max_temp_u90
       attr-def:  >-
-        The upper end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
+        The lower end of the 90% confidence interval for all maximum stream temperature predictions on a given date and segment.
       attr-defs: This data release
-      data-min: 8.03 # will update when we have latest vbersion of this dataset
-      data-max: 25.03 # will update when we have latest vbersion of this dataset
-      data-units: NA
+      data-min: 0.54
+      data-max: 903.31
+      data-units: degree Celcius
     -
       attr-label: prob_exceed_75
       attr-def:  >-
         The predicted probability (in decimal fraction) of stream temperature exceeding 75 degrees F for a given segment and date. It's calculated as the fraction of ensemble predictions that exceeded 75 F.
       attr-defs: This data release
-      data-min: 0 # will update when we have latest vbersion of this dataset
-      data-max: 0.53 # will update when we have latest vbersion of this dataset
+      data-min: 0 
+      data-max: 1
       data-units: NA
+    -
+      attr-label: crps
+      attr-def:  >-
+        Continuous Rank Probability Score (CRPS). CRPS measures both the accuracy and precision of the full distribution of
+        ensemble predictions (interpreted as a probabilistic forecast), where lower values indicate a better model performance. 
+      attr-defs: This data release
+      data-min:  0.062
+      data-max:  47.531
+      data-units: degree Celcius
     -
       attr-label: lead_time
       attr-def:  >-
         Number of days beyond the forecast issue_time for which a prediction was made. Calculated as the difference between `time` and `issue_time` 
       attr-defs: This data release
-      data-min: 0 # will update when we have latest vbersion of this dataset - likely the same
-      data-max: 7 # will update when we have latest vbersion of this dataset - likely the same
+      data-min: 0 
+      data-max: 7 
       data-units: Time difference in days
     - 
       attr-label: max_temp_c
       attr-def:  >-
-        Maximum temperature
+        Observed maximum temperature
       attr-defs: This data release
-      data-min: 6.4
-      data-max: 24.6
+      data-min: -0.2
+      data-max: 33.2
       data-units: degree Celcius
+    - 
+      attr-label: scenario
+      attr-def:  >-
+        Water release scenario that was used to generate the forecasts; scenarios included
+        the planned conservation release value (+0cfs). 
+      attr-defs: This data release
+      data-min: NA
+      data-max: NA
+      data-units: NA
     - 
       attr-label: site_name
       attr-def:  >-
@@ -315,10 +360,17 @@ entities:
       data-max: NA
       data-units: NA      
     - 
-      attr-label: scenario
+      attr-label: n_obs
       attr-def:  >-
-        Water release scenario that was used to generate the forecasts; scenarios included
-        the planned conservation release value (+0cfs) or the conservation release value plus 100 cfs (+100cfs)
+        Number of observations for a given segment, model hash, seed, and validation or test period. 
+      attr-defs: This data release
+      data-min: 0
+      data-max: 13088
+      data-units: count
+    -
+      attr-label: gaged_ungaged
+      attr-def:  >-
+        Gaged or ungaged. Whether the segment had observations during training (gaged) or not (ungaged) 
       attr-defs: This data release
       data-min: NA
       data-max: NA

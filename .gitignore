@@ -6,3 +6,4 @@
 in_data/*
 out_data/*
 .remake/*
+.DS_Store

@@ -7,13 +7,19 @@ packages:
 
 sources:
   - src/fetch_filter_functions.R
+  - src/file_functions.R
 
 targets:
   4_predictions:
     depends:
       - out_data/reservoir_downstream_preds.csv
-      - out_data/dwallin_stream_preds.csv.zip
-      - out_data/forecast_pgdl_da_outputs.zip
+      - out_data/dwallin_stream_preds_csv.zip
+      - out_data/forecast_pgdl_da_outputs_rgcn_DA.zip
+      - out_data/forecast_pgdl_da_outputs_lstm_DA.zip
+      - out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip
+      - out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip
+      - out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip
+      - out_data/forecast_pgdl_da_outputs_lstm_persistence.zip
       - out_data/paired_predicted_observed_temperatures.csv
 
   # Reservoir outlet temperatures from GLM (files from delaware-model-prep/9_collaborator_data/res/)
@@ -21,13 +27,28 @@ targets:
     command: file.copy(from = 'in_data/downstream_preds.csv', to = target_name)
     
   # DWALLIN
-  out_data/dwallin_stream_preds.csv.zip:
+  out_data/dwallin_stream_preds_csv.zip:
     command: zip_obs(out_file = target_name, in_file = 'in_data/dwallin_stream_preds.csv')
     
-  # PGDL-DA 
-  out_data/forecast_pgdl_da_outputs.zip:
-    command: zip_this(target_name, 'in_data/PGDL-DA')
-    
+  # PGDL-DA
+  # out_data/forecast_pgdl_da_outputs_rgcn_DA.zip:
+  #   command: file.copy(from = 'in_data/PGDL-DA-zip', to = target_name)
+  # 
+  # out_data/forecast_pgdl_da_outputs_lstm_DA.zip:
+  #   command: file.copy(from = 'in_data/PGDL-DA-zip', to = target_name)
+  # 
+  # out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip:
+  #   command:file.copy(from = 'in_data/PGDL-DA-zip', to = target_name)
+  # 
+  # out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip:
+  #   command: file.copy(from = 'in_data/PGDL-DA-zip', to = target_name)
+  # 
+  # out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip:
+  #   command: file.copy(from = 'in_data/PGDL-DA-zip', to = target_name)
+  # 
+  # out_data/forecast_pgdl_da_outputs_lstm_persistence.zip:
+  #   command: file.copy(from = 'in_data/PGDL-DA-zip', to = target_name)
+  
   # Paired Predictions
   out_data/paired_predicted_observed_temperatures.csv:
-    command: rds_to_csv(in_rds = 'in_data/all_mods_with_obs.rds', out_csv = target_name)
+    command: feather_to_csv(in_feather = 'in_data/all_mods_with_obs.feather', out_csv = target_name)
