@@ -18,10 +18,10 @@ abstract: >-
 
   <br/>The data are organized into 4 child folders: 1) waterbody information, 2) model driver data, 3) model configurations, 4) model predictions </p>
   <ol>
-  <li><a href="https://www.sciencebase.gov/catalog/item/5f6a285d82ce38aaa244912e">Waterbody Information</a> - One shapefile of polylines for 70 river segments in this study, and one shapefile of reservoir polygons for the Pepacton and Cannonsville reservoirs</li>
-  <li><a href="https://www.sciencebase.gov/catalog/item/5f6a287382ce38aaa2449131">Model Driver Data </a> - Data used to drive predictive models (daily meteorology for river reaches and reservoirs, observed reservoir diversions and releases)</li>
-  <li><a href="https://www.sciencebase.gov/catalog/item/5f6a288982ce38aaa2449133">Model Configurations </a> - Model parameters and metadata used to configure GLM 3.1 reservoir models </li>
-  <li><a href="https://www.sciencebase.gov/catalog/item/5f6a28a782ce38aaa2449137">Model Predictions </a> - Temperature predictions data files, including GLM 3.1 predictions of outflow and water temperature for reservoir outflow reaches, stream temperature predictions from the distance-weighted-average lotic-lentic input network, and 7-day ahead deep learning water temperature forecasts at 5 priority sites. </li>
+  <li><a href="https://www.sciencebase.gov/catalog/item/624f211ed34e21f82769a7a4">Waterbody Information</a> - One shapefile of polylines for 70 river segments in this study, and one shapefile of reservoir polygons for the Pepacton and Cannonsville reservoirs</li>
+  <li><a href="https://www.sciencebase.gov/catalog/item/624f21b9d34e21f82769a7ab">Model Driver Data </a> - Data used to drive predictive models (daily meteorology for river reaches and reservoirs, observed reservoir diversions and releases)</li>
+  <li><a href="https://www.sciencebase.gov/catalog/item/624f21ddd34e21f82769a7af">Model Configurations </a> - Model parameters and metadata used to configure GLM 3.1 reservoir models </li>
+  <li><a href="https://www.sciencebase.gov/catalog/item/624f21fad34e21f82769a7b1">Model Predictions </a> - Temperature predictions data files, including GLM 3.1 predictions of outflow and water temperature for reservoir outflow reaches, stream temperature predictions from the distance-weighted-average lotic-lentic input network, and 7-day ahead deep learning water temperature forecasts at 5 priority sites. </li>
   <br/>
   <p>This research was funded by the USGS.</p>
 
