@@ -119,7 +119,7 @@ entities:
       attr-defs: This data release
       data-min: 0
       data-max: 100
-      data-units: NA
+      data-units: %
     -
       attr-label: WindSpeed
       attr-def: >-
@@ -174,7 +174,7 @@ entities:
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
       data-max: NA
-      data-units: dimensionless
+      data-units: NA
     -
       attr-label: RH
       attr-def: >-
@@ -262,7 +262,7 @@ entities:
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
       data-min: NA
       data-max: NA
-      data-units: integer
+      data-units: NA
     -
       attr-label: DLWRF
       attr-def: >-
@@ -334,7 +334,7 @@ entities:
       attr-defs: https://www.nco.ncep.noaa.gov/pmb/products/gens/gec00.t00z.pgrb2s.0p25.f003.shtml
       data-min: NA
       data-max: NA
-      data-units: m;/s
+      data-units: m/s
     -
       attr-label: WEASD
       attr-def: >-
@@ -352,9 +352,7 @@ entities:
     -
       attr-label: res_id
       attr-def: >-
-        Unique reservoir identification for this dataset, which comes from the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}".
-        
-        nhdhr_120022743 is Cannonsville Reservoir and nhdhr_151957878 is Pepacton Reservoir 
+        Unique reservoir identification for this dataset, which comes from the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}". nhdhr_120022743 is Cannonsville Reservoir and nhdhr_151957878 is Pepacton Reservoir.
       attr-defs: >- 
         https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
       data-min: NA
@@ -484,7 +482,7 @@ entities:
 process-date: !expr format(Sys.time(),'%Y%m%d')
 process-description: >-
   Stream observations and driver data were combined from multiple sources to achieve the most complete temporal coverage possible
-  from 1980-2022. Historical weather driver data from NLDAS, GridMET, and NOAA GEFS (in this release and Oliver et al. 2022) were used to
+  from 1980-2022. Historical weather driver data from NLDAS, GridMET, and NOAA GEFS (subsetted in this release from Oliver et al. 2022) were used to
   train the models, while forecasted weather data (NOAA GEFS) was used to evaluate real-time forecasts. Gridded weather
   drivers were aggregated to the reservoir polygons
   and stream polylines included in this release either using grid-to-point intersection or weighted averages of grids that intersected

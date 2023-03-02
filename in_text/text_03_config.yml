@@ -108,7 +108,7 @@ entities:
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 1.5
       data-max: 1.5
-      data-units: meters X 
+      data-units: meters
     -
       attr-label: min_layer_thick
       attr-def: >-
@@ -117,7 +117,7 @@ entities:
         https://aed.see.uwa.edu.au/research/models/GLM/configuration.html
       data-min: 0.2
       data-max: 0.2
-      data-units: meters X 
+      data-units: meters
     -
       attr-label: meteo_fl
       attr-def: >-
