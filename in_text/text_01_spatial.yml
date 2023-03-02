@@ -60,7 +60,7 @@ entities:
     -
       attr-label: subseglen
       attr-def: >-
-        Length of stream reach.
+        Length of stream reach from original Geospatial Fabric segments.
       attr-defs: https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
       data-max: NA
@@ -97,7 +97,7 @@ entities:
         This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
         This feature corresponds to "seg_id_nat" in other data files. There are 70 unique identifiers in this field.
       attr-defs: >-
-        http://dx.doi.org/doi:10.5066/F7542KMD
+        https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
       data-max: NA
       data-units: NA
@@ -113,7 +113,6 @@ entities:
         Reservoir identification number for this dataset.
         nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir.
         This field corresponds to the Permanent_Identifier field in the NHDPlus HR with an added "nhdhr_" prefix.
-        Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
       
       attr-defs: >-
         https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
