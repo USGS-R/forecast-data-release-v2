@@ -56,7 +56,7 @@ entities:
       attr-label: res_id
       attr-def: >-
         Reservoir identification number for this dataset. nhdhr_120022743 is Cannonsville Reservoir, nhdhr_151957878 is Pepacton Reservoir.
-        Is the Prmnn_I from NHD high-res prefixed with source, as "nhdhr_{Prmnn_I}"
+        This field corresponds to the Permanent_Identifier field in the NHDPlus HR with an added "nhdhr_" prefix.
       attr-defs: >-
         https://www.usgs.gov/national-hydrography/nhdplus-high-resolution
       data-min: NA
@@ -91,7 +91,7 @@ entities:
     data-description: >-
       Stream temperature predictions from the distance-weighted-average lotic-lentic input network (DWALLIN).
       Predictions were generated from a combination of lotic (from PRMS-SNTemp) and lentic (GLM) models.
-      See Oliver et al. 2021 for processing steps that were taken to calculate the DWALLIN stream temperature 
+      See Oliver et al. 2021 for processing steps that were taken to calculate the DWALLIN stream temperature
       predictions.
   
       There were a few site-dates with extremely high predicted stream temperature values.
@@ -100,6 +100,14 @@ entities:
       flow for that particular day leading to extremely high temperature predictions under those conditions.
       Subsequent versions of PRMS-SNTemp will resolve these extreme values, and we suggest against using
       stream temperature predictions above 35 degrees C, which occurs 4 times in this dataset.
+
+      Forecasts of daily maximum stream temperature for 70 locations in the upper Delaware River Basin were issued
+      from 2019-01-03 to 2019-12-23 for the validation period and 2021-04-18 to 2022-09-22 for the testing period.
+      Forecasts were generated with a 1) persistence model that propagated the most recent observed maximum temperature
+      7 days into the future, 2) a deep learning model (no_DA), and a 3) deep learning model with data assimilation (DA).
+      For each forecast type just described, an LSTM and an RGCN version of the model was developed. Code that trained the
+      deep learning models and  generated the forecasts can be found in the "run-pgdl-da " repository in Zwart et al. 2023.
+
     attributes:
     -
       attr-label: seg_id_nat
@@ -129,17 +137,19 @@ entities:
   -
     data-name: forecast_pgdl_da_outputs_{model-type_forcast-type}.zip
     data-description: >-
-      Forecasts of daily maximum stream temperature for 70 locations in the upper Delaware River Basin issued from 2019-01-03 to 2019-12-23 for the validation period and 
+      Forecasts of daily maximum stream temperature for 70 locations in the upper Delaware River Basin were issued from 2019-01-03 to 2019-12-23 for the validation period and 
       2021-04-18 to 2022-09-22 for the testing period. 
-      Six zip folders comprise the different forecasts (DA, no_DA, persistence), split by model type (lstm or rgcn) - either lstm_DA, lstm_noDA, rgcn_DA, or rgcn_noDA, rgcn_persistence, lstm_persistence.
-      The target stream segment seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
-      Forecasts were generated with a 1) persistence model that propagating the most recent observed maximum temperature 7 days into
+      Forecasts were generated with a 1) persistence model that propagated the most recent observed maximum temperature 7 days into
       the future, 2) a deep learning model (no_DA), and a 3) deep learning
       model with data assimilation (DA). Code that trained the deep learning models and 
       generated the forecasts can be found in the "run-pgdl-da " repository in Zwart et al. 2023.
+
+      Six zip folders comprise the different forecasts (DA, no_DA, persistence), split by model type (lstm or rgcn) - either lstm_DA, lstm_noDA, rgcn_DA, or rgcn_noDA, rgcn_persistence, lstm_persistence.
+      The target stream segment seg_id_nat (National Geospatial Fabric segment code) is used as the location identifier for these data.
       
-      The zipped files contain 50 or 52 files (25 or 26 when zipped) per model type named {hash}_{model-type}_GMM_{seed}_{val-or-test}_forecast.{nc-or-xml}.
+      The LSTM models contain 25 sets of paired files (50 files total), while the RGCN models contain 26 sets of paired files (52 files total).
+      Files are named {hash}_{model-type}_GMM_{seed}_{val-or-test}_forecast.{nc-or-xml}.
       Each file has two file types (a forecast .nc netCDF file and a .xml metadata file) for each hash, model type, seed, and 
       validation or test period. The hash indicates what spatial cross-validation fold the output is for and the seed 
       represents the random seed used to initialize model training / forecasting. 
@@ -156,6 +166,30 @@ entities:
       data-max: NA
       data-units: degrees C
     -
+      attr-label: min_temp
+      attr-def: >-
+        daily minimum stream temperature
+      attr-defs: this data release
+      data-min: NA
+      data-max: NA
+      data-units: degrees C
+    -
+      attr-label: mean_temp
+      attr-def: >-
+        daily mean stream temperature
+      attr-defs: this data release
+      data-min: NA
+      data-max: NA
+      data-units: degrees C
+    -
+      attr-label: discharge
+      attr-def: >-
+        ?
+      attr-defs: this data release
+      data-min: NA
+      data-max: NA
+      data-units: ?
+    -
       attr-label: data_assimilation
       attr-def: >-
         Ecological Forecasting Initiative forecasting standards data assimilation code. 0 = no data assimilation, 1 = data assimilation at given forecast issue time step
@@ -170,7 +204,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: days since {forecast issue time} 
+      data-units: days since {forecast issue time}
     -
       attr-label: time
       attr-def: >-
@@ -178,7 +212,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: NA
+      data-units: day
     -
       attr-label: seg_id_nat
       attr-def: >-
@@ -243,7 +277,7 @@ entities:
     -
       attr-label: pred_period
       attr-def: >-
-        Prediction period. Either `VAL` for the validation period from 2019-01-03 to 2019-12-23 or 
+        Prediction period. Either `VAL` for the validation period from 2019-01-03 to 2019-12-23 or
         `TEST` for the testing period from 2021-04-18 to 2022-09-22.
       attr-defs: This data release
       data-min: NA
@@ -266,7 +300,7 @@ entities:
       attr-defs: This data release
       data-min: 2019-01-03 
       data-max: 2022-09-22 
-      data-units: date
+      data-units: NA
     -
       attr-label: time
       attr-def: >-
@@ -274,7 +308,7 @@ entities:
       attr-defs: This data release
       data-min: 2019-01-03 
       data-max: 2022-09-29 
-      data-units: date UTC
+      data-units: date
     -
       attr-label: max_temp_c_predicted
       attr-def:  >-
@@ -282,7 +316,7 @@ entities:
       attr-defs: This data release
       data-min: -0.82 
       data-max: 44.49 
-      data-units: degree Celcius
+      data-units: degrees Celcius
     -
       attr-label: max_temp_sd
       attr-def:  >-
@@ -290,7 +324,7 @@ entities:
       attr-defs: This data release
       data-min: 0.19
       data-max: 610.78 
-      data-units: degree Celcius
+      data-units: degrees Celcius
     -
       attr-label: max_temp_l90
       attr-def:  >-
@@ -298,7 +332,7 @@ entities:
       attr-defs: This data release 
       data-min: -931.05 
       data-max: 27.81 
-      data-units: degree Celcius
+      data-units: degrees Celcius
     -
       attr-label: max_temp_u90
       attr-def:  >-
@@ -306,7 +340,7 @@ entities:
       attr-defs: This data release
       data-min: 0.54
       data-max: 903.31
-      data-units: degree Celcius
+      data-units: degrees Celcius
     -
       attr-label: prob_exceed_75
       attr-def:  >-
@@ -323,7 +357,7 @@ entities:
       attr-defs: This data release
       data-min:  0.062
       data-max:  47.531
-      data-units: degree Celcius
+      data-units: degrees Celcius
     -
       attr-label: lead_time
       attr-def:  >-
@@ -339,7 +373,7 @@ entities:
       attr-defs: This data release
       data-min: -0.2
       data-max: 33.2
-      data-units: degree Celcius
+      data-units: degrees Celcius
     - 
       attr-label: scenario
       attr-def:  >-
@@ -393,7 +427,7 @@ indirect-spatial: U.S.A.
 latitude-res: 0.1
 longitude-res: 0.1
 
-file-format: CSV or NetCDF and XML files compressed into a zip file
+file-format: CSV or NetCDF and XML files compressed into nested zip files
 
 
 
