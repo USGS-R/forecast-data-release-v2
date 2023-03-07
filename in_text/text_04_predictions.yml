@@ -309,7 +309,7 @@ entities:
       attr-defs: This data release
       data-min: 2019-01-03 
       data-max: 2022-09-29 
-      data-units: date UTC
+      data-units: date
     -
       attr-label: max_temp_c_predicted
       attr-def:  >-
