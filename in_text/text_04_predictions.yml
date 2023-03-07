@@ -184,11 +184,11 @@ entities:
     -
       attr-label: discharge
       attr-def: >-
-        ?
+        daily mean stream discharge
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: ?
+      data-units: cubic meters per second (cms)
     -
       attr-label: data_assimilation
       attr-def: >-
