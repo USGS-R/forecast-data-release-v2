@@ -205,7 +205,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: NA
+      data-units: days since {forecast issue time}
     -
       attr-label: time
       attr-def: >-
@@ -213,7 +213,7 @@ entities:
       attr-defs: this data release
       data-min: NA
       data-max: NA
-      data-units: NA
+      data-units: day
     -
       attr-label: seg_id_nat
       attr-def: >-
