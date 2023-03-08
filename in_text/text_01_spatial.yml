@@ -35,15 +35,17 @@ entities:
       GIS polylines data for the 70 stream segments included in the upper Delaware River Basin that
       have been included in this study. Stream reaches include those on the East and West Branch of the
       Delaware River, mainstem Delaware River reaches above Lordville, New York, and the Neversink River.
-      The stream network is originally derived from the USGS Geospatial Fabric v1.
+      The stream network is a subset of the 456 stream segments available in the study_stream_reaches 
+      shapefile (study_stream_reaches.shp) in the associated data release by
+      Oliver. et al., 2022 (https://www.sciencebase.gov/catalog/item/623e54c4d34e915b67d83580).
+      The stream network is originally derived from the USGS Geospatial Fabric v.1.  
     attributes:
     -
       attr-label: subsegid
       attr-def: >-
-        An alternative unique reach identifier which was created in order to split segments such that
-        segment start and endpoints were connected by one reach with no intersecting reaches. The ID was created
-        using the seg_id from the Geospatial Fabric and an index from one to the number of splits (e.g., {seg_id}_{index}). 
-        This feature corresponds to subseg_id in other files. There are 70 unique identifiers in this field.
+        An alternative unique reach identifier. This default identifier attribute contains some split segments (suffix `_1`,`_2`) so that each segment start and endpoints are connected with no intersecting reaches.
+        The ID was created using the seg_id from the Geospatial Fabric and an index from one to the number of splits (e.g., {seg_id}_{index}). There are 70 unique identifiers in this field.
+        This feature corresponds to subseg_id in other files. 
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -93,9 +95,10 @@ entities:
     -
       attr-label: segidnat
       attr-def: >-
-        National unique stream reach identifier. 
-        This is the ID named seg_id_nat from the Geospatial Fabric for National Hydrologic Modeling.
+        National stream reach identifier. 
+        This is the national segment ID from the Geospatial Fabric for National Hydrologic Modeling.
         This feature corresponds to "seg_id_nat" in other data files. There are 70 unique identifiers in this field.
+        While this is not the case for this data subset, please note that several split segments from the study_stream_reaches.shp in Oliver et al., with unique `subsegid` have same `segidnat` (e.g. the `segidnat` for subsegid:`3_1` and subsegid:`3_2` is 1437). 
       attr-defs: >-
         https://www.sciencebase.gov/catalog/item/535eda80e4b08e65d60fc834
       data-min: NA
