@@ -5,7 +5,9 @@ abstract: >-
   This data release contains the forcings and outputs of 7-day ahead maximum water temperature forecasting models
   that makes predictions at 70 river reaches in the upper Delaware River Basin. This section includes
   predictions from several models, including a model pre-trainer that is predictions from a distance-weighted-average
-  lotic-lentic input network (DWALLIN) model, reservoir outlet temperature predictions from a process-based model, and three data-driven water temperature forecast models. 
+  lotic-lentic input network (DWALLIN) model, reservoir outlet temperature predictions from a process-based model,
+  forecasts from a persistence stream water temperature model, and stream water temperature forecasts from two deep learning models,
+  a long-short term memory network and recurrent convolutional graph network model.
 
 cross-cites:
   -
@@ -152,7 +154,9 @@ entities:
       Files are named {hash}_{model-type}_GMM_{seed}_{val-or-test}_forecast.{nc-or-xml}.
       Each file has two file types (a forecast .nc netCDF file and a .xml metadata file) for each hash, model type, seed, and 
       validation or test period. The hash indicates what spatial cross-validation fold the output is for and the seed 
-      represents the random seed used to initialize model training / forecasting. 
+      represents the random seed used to initialize model training / forecasting. Finally, predictions from the deep learning with (DA)
+      and without (no_DA) data assimilation had approximately 1000 ensembles and reported predictions are the mean of the ensembles.
+      Predictions from the persistence model had 1 ensemble.
 
       A general description of the attributes is provided below for all the forecasted nc files. 
       No minimum and maximum values are given to capture all forecasted nc files. 
@@ -165,30 +169,6 @@ entities:
       data-min: NA
       data-max: NA
       data-units: degrees C
-    -
-      attr-label: min_temp
-      attr-def: >-
-        daily minimum stream temperature
-      attr-defs: this data release
-      data-min: NA
-      data-max: NA
-      data-units: degrees C
-    -
-      attr-label: mean_temp
-      attr-def: >-
-        daily mean stream temperature
-      attr-defs: this data release
-      data-min: NA
-      data-max: NA
-      data-units: degrees C
-    -
-      attr-label: discharge
-      attr-def: >-
-        daily mean stream discharge
-      attr-defs: this data release
-      data-min: NA
-      data-max: NA
-      data-units: cubic meters per second (cms)
     -
       attr-label: data_assimilation
       attr-def: >-
@@ -261,7 +241,8 @@ entities:
     -
       attr-label: hash
       attr-def: >-
-        Model hash. Indicator for the spatial cross validation fold used in the validation or testing period. 
+        Model hash. Indicator for the spatial cross validation fold of selected sites used in the validation or testing period. 
+        Visit the model_hash.csv for further information.
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -377,8 +358,7 @@ entities:
     - 
       attr-label: scenario
       attr-def:  >-
-        Water release scenario that was used to generate the forecasts; scenarios included
-        the planned conservation release value (+0cfs). 
+        Water release scenarios that was used to generate the forecast. For this modeling eoffrt, the scenarios included only the planned conservation release value (+0cfs). 
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -388,7 +368,8 @@ entities:
       attr-def:  >-
         Name of the site. One of the following: 
         NR = Neversink River, EBDR = East Branch of the Delaware River, WBDR = West Branch of the Delaware River, DR = Delaware River
-        EBDR, Harvard = "EBDR @ Harvard", WBDR, Hale Eddy = "WBDR @ Hale Eddy", WBDR, Hancock = "WBDR @ Hancock", DR, Lordville = "DR @ Lordville", NR, Bridgeville = "NR @ Bridgeville"
+        EBDR, Harvard = "EBDR @ Harvard", WBDR, Hale Eddy = "WBDR @ Hale Eddy", WBDR, Hancock = "WBDR @ Hancock", DR, Lordville = "DR @ Lordville", NR, Bridgeville = "NR @ Bridgeville".
+        We only include site names for the management-relevant sites for easy identification by managers. We did not include site names for all other stream segments and thus filled with NA’s.
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -414,14 +395,19 @@ build-environment: Multiple computer systems were used to generate these data, i
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
 process-description: >-
-  The distance-weighted-average lotic-lentic input network (DWALLIN) model combines
-  predictions from two process-based models to represent both stream and reservoir processes.
+  The distance-weighted-average lotic-lentic input network (DWALLIN) model combines predictions from two process-based models to represent both stream and reservoir processes.
   The stream model is a coupled hydrologic-thermodynamic model that uses inputs of reach-specific properties and local meteorology to estimate flow and water temperature.
   Our chosen process-based stream model is the open source, Precipitation Runoff Modeling System (PRMS) with the coupled Stream Network Temperature Model (SNTemp) version 5.1.0 RC. PRMS is a
   deterministic model that simulates watershed hydrology as a function of climate and land use, and the coupled SNTemp module simulates the change in stream temperature as a function of
   changes in hydrology and energy. The reservoir model is the open source General Lake Model (GLM) version 3.1. GLM is a one-dimensional dynamical model which simplifies lakes using a vertical approximation,
   where horizontal variability is ignored. GLM uses a Lagrangian approach to layer structure where layers can split and combine based on changing vertical gradients.
   GLM is a modern, implementation of other one-dimensional models.
+  Forecasts of daily maximum stream temperature for 70 locations in the upper Delaware River Basin were issued from 2019-01-03 to
+  2019-12-23 for the validation period and 2021-04-18 to 2022-09-22 for the testing period.  Forecasts were generated with a
+  1) persistence model that propagated the most recent observed maximum temperature 7 days into the future, 2) a deep learning model (no_DA),
+  and a 3) deep learning model with data assimilation (DA). For each forecast type just described, an LSTM and an RGCN version of
+  the model was developed. Code that trained the deep learning models and  generated the forecasts can be found in
+  the "run-pgdl-da " repository in Zwart et al. 2023.
 
 indirect-spatial: U.S.A.
 latitude-res: 0.1
