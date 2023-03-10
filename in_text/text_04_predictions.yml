@@ -154,7 +154,9 @@ entities:
       Files are named {hash}_{model-type}_GMM_{seed}_{val-or-test}_forecast.{nc-or-xml}.
       Each file has two file types (a forecast .nc netCDF file and a .xml metadata file) for each hash, model type, seed, and 
       validation or test period. The hash indicates what spatial cross-validation fold the output is for and the seed 
-      represents the random seed used to initialize model training / forecasting. 
+      represents the random seed used to initialize model training / forecasting. Finally, predictions from the deep learning with (DA)
+      and without (no_DA) data assimilation had approximately 1000 ensembles and reported predictions are the mean of the ensembles,
+      predictions from the persistence model had 1 ensemble.
 
       A general description of the attributes is provided below for all the forecasted nc files. 
       No minimum and maximum values are given to capture all forecasted nc files. 
