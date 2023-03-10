@@ -241,7 +241,8 @@ entities:
     -
       attr-label: hash
       attr-def: >-
-        Model hash. Indicator for the spatial cross validation fold used in the validation or testing period. 
+        Model hash. Indicator for the spatial cross validation fold of selected sites used in the validation or testing period. 
+        Visit the model_hash.csv for further information.
       attr-defs: This data release
       data-min: NA
       data-max: NA
