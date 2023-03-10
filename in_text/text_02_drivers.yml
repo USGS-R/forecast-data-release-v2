@@ -76,14 +76,14 @@ entities:
     data-name: NLDAS_time[0.377900]_x[{x}]_y[{y}].csv
     data-description: >-
       A csv file for each reservoir with input meteorological data. Files are named "NLDAS_time[0.377900]_x{x}_y{y}.csv" where the x and y locations are longitude and latitude indices from NLDAS
-      of the individual meteorological data cell (data are from Mitchell and others 2004).
+      of the individual meteorological data cell (data are from Mitchell et al., 2004).
       The filename of the NLDAS file associated with each reservoir is listed in the "meteo_fl" fields in reservoir_nml_values.json, which is in the 3_config child item.
     attributes:
     -
       attr-label: time
       attr-def: >-
         Date of this weather estimate.
-      attr-defs: This data release
+      attr-defs: Mitchell et al., 2004
       data-min: NA
       data-max: NA
       data-units: NA
@@ -92,7 +92,7 @@ entities:
       attr-def: >-
         Incoming radiant energy with wavelengths between ~300 and ~3000 nm,
         emitted by the sun and reaching the reservoir surface after passing through the atmosphere, as a daily average.
-      attr-defs: This data release
+      attr-defs: Mitchell et al., 2004
       data-min: NA
       data-max: NA
       data-units: W/m^2
@@ -100,7 +100,7 @@ entities:
       attr-label: LongWave
       attr-def: >-
         Incoming thermal radiation at wavelengths > 3000 nm directed from the atmosphere to the reservoir surface, as a daily average.
-      attr-defs: This data release
+      attr-defs: Mitchell et al., 2004
       data-min: NA
       data-max: NA
       data-units: W/m^2
@@ -108,7 +108,7 @@ entities:
       attr-label: AirTemp
       attr-def: >-
         Air temperature above the surface of the reservoir, as a daily average.
-      attr-defs: This data release
+      attr-defs: Mitchell et al., 2004
       data-min: NA
       data-max: NA
       data-units: degrees Celsius
@@ -116,7 +116,7 @@ entities:
       attr-label: RelHum
       attr-def: >-
         Percent relative humidity of the air above the surface of the reservoir, as a daily average.
-      attr-defs: This data release
+      attr-defs: Mitchell et al., 2004
       data-min: 0
       data-max: 100
       data-units: percent
@@ -124,7 +124,7 @@ entities:
       attr-label: WindSpeed
       attr-def: >-
         Speed of the wind above the reservoir, calculated to a daily number using the methods described in Winslow and others 2017.
-      attr-defs: This data release
+      attr-defs: Mitchell et al., 2004
       data-min: 0
       data-max: NA
       data-units: meters per second
@@ -132,7 +132,7 @@ entities:
       attr-label: Rain
       attr-def: >-
         Daily rate of rain reaching the reservoir surface in a day as described in Winslow and others 2017; rate as determined by Hipsey and others 2019.
-      attr-defs: This data release
+      attr-defs: Mitchell et al., 2004
       data-min: 0
       data-max: NA
       data-units: NA 
@@ -140,7 +140,7 @@ entities:
       attr-label: Snow
       attr-def: >-
         Daily rate of snow reaching the reservoir surface in a day as described in Winslow and others 2017.
-      attr-defs: This data release
+      attr-defs: Mitchell et al., 2004
       data-min: 0
       data-max: NA
       data-units: meters per day
@@ -481,8 +481,8 @@ entities:
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
 process-description: >-
-  Stream observations and driver data were combined from multiple sources to achieve the most complete temporal coverage possible
-  from 1980-2022. Historical weather driver data from NLDAS, GridMET, and NOAA GEFS (subsetted in this release from Oliver et al. 2022) were used to
+  Stream observations and driver data were utilized from multiple sources to achieve the most complete temporal coverage possible
+  from 1980-2022. Historical weather driver data from NLDAS (this release), GridMET (only stored in Oliver et al., 2022), and NOAA GEFS (subsetted in this release from Oliver et al. 2022) were used to
   train the models, while forecasted weather data (NOAA GEFS) was used to evaluate real-time forecasts. Gridded weather
   drivers were aggregated to the reservoir polygons
   and stream polylines included in this release either using grid-to-point intersection or weighted averages of grids that intersected
