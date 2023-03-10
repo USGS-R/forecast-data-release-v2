@@ -155,8 +155,8 @@ entities:
       Each file has two file types (a forecast .nc netCDF file and a .xml metadata file) for each hash, model type, seed, and 
       validation or test period. The hash indicates what spatial cross-validation fold the output is for and the seed 
       represents the random seed used to initialize model training / forecasting. Finally, predictions from the deep learning with (DA)
-      and without (no_DA) data assimilation had approximately 1000 ensembles and reported predictions are the mean of the ensembles,
-      predictions from the persistence model had 1 ensemble.
+      and without (no_DA) data assimilation had approximately 1000 ensembles and reported predictions are the mean of the ensembles.
+      Predictions from the persistence model had 1 ensemble.
 
       A general description of the attributes is provided below for all the forecasted nc files. 
       No minimum and maximum values are given to capture all forecasted nc files. 
@@ -357,8 +357,7 @@ entities:
     - 
       attr-label: scenario
       attr-def:  >-
-        Water release scenario that was used to generate the forecasts; scenarios included
-        the planned conservation release value (+0cfs). 
+        Water release scenarios that was used to generate the forecast. For this modeling eoffrt, the scenarios included only the planned conservation release value (+0cfs). 
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -368,7 +367,8 @@ entities:
       attr-def:  >-
         Name of the site. One of the following: 
         NR = Neversink River, EBDR = East Branch of the Delaware River, WBDR = West Branch of the Delaware River, DR = Delaware River
-        EBDR, Harvard = "EBDR @ Harvard", WBDR, Hale Eddy = "WBDR @ Hale Eddy", WBDR, Hancock = "WBDR @ Hancock", DR, Lordville = "DR @ Lordville", NR, Bridgeville = "NR @ Bridgeville"
+        EBDR, Harvard = "EBDR @ Harvard", WBDR, Hale Eddy = "WBDR @ Hale Eddy", WBDR, Hancock = "WBDR @ Hancock", DR, Lordville = "DR @ Lordville", NR, Bridgeville = "NR @ Bridgeville".
+        We only include site names for the management-relevant sites for easy identification by managers. We did not include site names for all other stream segments and thus filled with NA’s.
       attr-defs: This data release
       data-min: NA
       data-max: NA
