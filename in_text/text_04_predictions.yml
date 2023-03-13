@@ -172,7 +172,7 @@ entities:
     -
       attr-label: data_assimilation
       attr-def: >-
-        Ecological Forecasting Initiative forecasting standards data assimilation code. 0 = no data assimilation, 1 = data assimilation at given forecast issue time step
+        Ecological Forecasting Initiative (EFI) forecasting standards data assimilation code. 0 = no data assimilation, 1 = data assimilation at given forecast issue time step. Visit https://ecoevorxiv.org/repository/view/4054/ for more information on the data_assimilation variable. 
       attr-defs: this data release
       data-min: NA
       data-max: NA
@@ -183,7 +183,7 @@ entities:
         forecast issue time
       attr-defs: this data release
       data-min: NA
-      data-max: NA
+      data-max: N
       data-units: days since {forecast issue time}
     -
       attr-label: time
