@@ -55,4 +55,4 @@ targets:
     command: feather_to_csv(in_feather = 'in_data/all_mods_with_obs.feather', out_csv = target_name)
     
   out_data/spatial_cross_validation_train_table.csv:
-    command: file.copy(from = 'in_data/out_data/spatial_cross_validation_train_table.csv', out_csv = target_name)
+    command: file.copy(from = 'in_data/spatial_cross_validation_train_table.csv', out_csv = target_name)
