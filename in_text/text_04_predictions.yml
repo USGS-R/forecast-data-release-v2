@@ -172,7 +172,7 @@ entities:
     -
       attr-label: data_assimilation
       attr-def: >-
-        Ecological Forecasting Initiative forecasting standards data assimilation code. 0 = no data assimilation, 1 = data assimilation at given forecast issue time step
+        Ecological Forecasting Initiative (EFI) forecasting standards data assimilation code. 0 = no data assimilation, 1 = data assimilation at given forecast issue time step. Visit https://ecoevorxiv.org/repository/view/4054/ for more information on the data_assimilation variable. 
       attr-defs: this data release
       data-min: NA
       data-max: NA
@@ -183,7 +183,7 @@ entities:
         forecast issue time
       attr-defs: this data release
       data-min: NA
-      data-max: NA
+      data-max: N
       data-units: days since {forecast issue time}
     -
       attr-label: time
@@ -242,7 +242,7 @@ entities:
       attr-label: hash
       attr-def: >-
         Model hash. Indicator for the spatial cross validation fold of selected sites used in the validation or testing period. 
-        Visit the model_hash.csv for further information.
+        Visit the spatial_cross_validation_train_table.csv for further information.
       attr-defs: This data release
       data-min: NA
       data-max: NA
@@ -390,7 +390,45 @@ entities:
       data-min: NA
       data-max: NA
       data-units: NA
-      
+  -
+    data-name: spatial_cross_validation_train_table.csv
+    data-description: >-
+      Spatial cross validation training table that shows to the various model hashes and their associated sites, split between training, testing and validation sets.
+    attributes:
+    -
+      attr-label: hash
+      attr-def: >-
+        Unique hash corresponding to the unique spatial cross validation training, validation, and testing dataset.
+        The hash is used in .nc file names and indicates which stream segments were used for training, validation, and testing.
+      attr-defs: 
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: trn_seg_id
+      attr-def: >-
+        list of seg_id_nat corresponding to what segments were used for model training. Segment id's are separated with a pipe ('|')
+      attr-defs: 
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+      attr-label: val_seg_id
+      attr-def: >-
+        list of seg_id_nat corresponding to what segments were used for model validation. Segment id's are separated with a pipe ('|')
+      attr-defs: 
+      data-min: NA
+      data-max: NA
+      data-units: NA
+    -
+     attr-label: test_seg_id
+     attr-def: >-
+       list of seg_id_nat corresponding to what segments were used for model testing. Segment id's are separated with a pipe ('|')
+     attr-defs: 
+     data-min: NA
+     data-max: NA
+     data-units: NA
+
 build-environment: Multiple computer systems were used to generate these data, including Windows, OSX, and Linux. The open source languages R and Python was used on all systems.
 
 process-date: !expr format(Sys.time(),'%Y%m%d')
