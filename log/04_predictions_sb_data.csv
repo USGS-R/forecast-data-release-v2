@@ -8,4 +8,4 @@ out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip,624f21fad34e21f82769a7b1,2023-0
 out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip,624f21fad34e21f82769a7b1,2023-02-23 00:29 CST
 out_data/forecast_pgdl_da_outputs_lstm_persistence.zip,624f21fad34e21f82769a7b1,2023-02-23 00:29 CST
 out_data/paired_predicted_observed_temperatures.csv,624f21fad34e21f82769a7b1,2023-02-22 01:41 CST
-out_xml/04_predictions_fgdc_metadata.xml,624f21fad34e21f82769a7b1,2023-02-23 22:05 CST
+out_xml/04_predictions_fgdc_metadata.xml,624f21fad34e21f82769a7b1,2023-03-11 00:30 CST
