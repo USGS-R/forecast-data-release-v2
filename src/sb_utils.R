@@ -100,10 +100,14 @@ do_item_replace_tasks <- function(sb_id, files, sources) {
 #' 
 #' @return a tibble with `filepath`, `sb_id`, and `time_uploaded_to_sb` with one row per 
 #' file uploaded with this single call to `sbtools::item_replace_files``
-upload_and_record <- function(sb_id, filepath) {
+upload_and_record <- function(sb_id, filepath, dssecrets = FALSE) {
   
   # First verify that you are logged into SB. Need to do this for each task that calls 
-  sb_secret_login()
+  if(dssecrets == TRUE){
+    sb_secret_login()
+  } else {
+    sbtools::authenticate_sb()
+  }
   
   # Second, upload the file
   item_replace_files(sb_id, files = filepath)

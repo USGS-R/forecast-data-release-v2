@@ -4,7 +4,6 @@ include:
   - 2_drivers.yml
   - 3_config.yml
   - 4_predictions.yml
-#  - 5_evaluation.yml
 
 packages:
   - yaml
