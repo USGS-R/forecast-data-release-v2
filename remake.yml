@@ -123,6 +123,7 @@ targets:
       'out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip',
       'out_data/forecast_pgdl_da_outputs_lstm_persistence.zip',
       'out_data/paired_predicted_observed_temperatures.csv',
+      'out_data/spatial_cross_validation_train_table.csv',
       'out_xml/04_predictions_fgdc_metadata.xml')
 
   # ------ SB IDs --------
