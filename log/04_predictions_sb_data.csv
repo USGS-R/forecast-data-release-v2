@@ -1,11 +1,12 @@
 filepath,sb_id,time_uploaded_to_sb
-out_data/reservoir_downstream_preds.csv,624f21fad34e21f82769a7b1,2022-05-19 19:03 CST
-out_data/dwallin_stream_preds_csv.zip,624f21fad34e21f82769a7b1,2023-02-23 21:19 CST
-out_data/forecast_pgdl_da_outputs_rgcn_DA.zip,624f21fad34e21f82769a7b1,2023-02-22 23:27 CST
-out_data/forecast_pgdl_da_outputs_lstm_DA.zip,624f21fad34e21f82769a7b1,2023-02-22 23:46 CST
-out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip,624f21fad34e21f82769a7b1,2023-02-23 00:07 CST
-out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip,624f21fad34e21f82769a7b1,2023-02-23 00:27 CST
-out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip,624f21fad34e21f82769a7b1,2023-02-23 00:29 CST
-out_data/forecast_pgdl_da_outputs_lstm_persistence.zip,624f21fad34e21f82769a7b1,2023-02-23 00:29 CST
-out_data/paired_predicted_observed_temperatures.csv,624f21fad34e21f82769a7b1,2023-02-22 01:41 CST
-out_xml/04_predictions_fgdc_metadata.xml,624f21fad34e21f82769a7b1,2023-03-11 00:30 CST
+out_data/reservoir_downstream_preds.csv,624f21fad34e21f82769a7b1,2023-03-16 21:52 CST
+out_data/dwallin_stream_preds_csv.zip,624f21fad34e21f82769a7b1,2023-03-16 21:52 CST
+out_data/forecast_pgdl_da_outputs_rgcn_DA.zip,624f21fad34e21f82769a7b1,2023-03-16 22:17 CST
+out_data/forecast_pgdl_da_outputs_lstm_DA.zip,624f21fad34e21f82769a7b1,2023-03-16 22:39 CST
+out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip,624f21fad34e21f82769a7b1,2023-03-16 23:48 CST
+out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip,624f21fad34e21f82769a7b1,2023-03-17 00:10 CST
+out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip,624f21fad34e21f82769a7b1,2023-03-17 00:12 CST
+out_data/forecast_pgdl_da_outputs_lstm_persistence.zip,624f21fad34e21f82769a7b1,2023-03-17 00:12 CST
+out_data/paired_predicted_observed_temperatures.csv,624f21fad34e21f82769a7b1,2023-03-17 00:15 CST
+out_data/spatial_cross_validation_train_table.csv,624f21fad34e21f82769a7b1,2023-03-17 00:15 CST
+out_xml/04_predictions_fgdc_metadata.xml,624f21fad34e21f82769a7b1,2023-03-17 00:15 CST

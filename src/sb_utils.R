@@ -99,12 +99,14 @@ do_item_replace_tasks <- function(sb_id, files, sources) {
 #' @param filepath the path to the file(s) to be uploaded
 #' 
 #' @return a tibble with `filepath`, `sb_id`, and `time_uploaded_to_sb` with one row per 
-#' file uploaded with this single call to `sbtools::item_replace_files``
-upload_and_record <- function(sb_id, filepath, dssecrets = FALSE) {
+#' file uploaded with this single call to `sbtools::item_replace_files`
+
+upload_and_record <- function(sb_id, filepath, dssecrets = TRUE) {
   
   # First verify that you are logged into SB. Need to do this for each task that calls 
   if(dssecrets == TRUE){
     sb_secret_login()
+
   } else {
     sbtools::authenticate_sb()
   }
@@ -130,9 +132,14 @@ upload_and_record <- function(sb_id, filepath, dssecrets = FALSE) {
 #' 
 #' @details this function call will fail if more than one unique `sb_id` is in the `file_tbl`,
 #' or if any duplicated file names exist on sciencebase for this `sb_id`. 
-verify_uploads <- function(file_tbl, tgt_names, remake_file){
+verify_uploads <- function(file_tbl, tgt_names, remake_file, dssecrets = TRUE){
   
-  sb_secret_login()
+  if(dssecrets == TRUE){
+    sb_secret_login()
+  } else {
+    sbtools::authenticate_sb()
+  }
+
   sb_id <- unique(file_tbl$sb_id)
   # this call is not robust to a tbl w/ more than one unique sb_id
   stopifnot(length(sb_id) == 1)

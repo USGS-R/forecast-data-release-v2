@@ -32,27 +32,27 @@ targets:
     command: zip_obs(out_file = target_name, in_file = 'in_data/dwallin_stream_preds.csv')
     
   # PGDL-DA
-  out_data/forecast_pgdl_da_outputs_rgcn_DA.zip:
-    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_rgcn_DA.zip', to = target_name)
+#  out_data/forecast_pgdl_da_outputs_rgcn_DA.zip:
+#    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_rgcn_DA.zip', to = target_name)
 
-  out_data/forecast_pgdl_da_outputs_lstm_DA.zip:
-    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_lstm_DA.zip', to = target_name)
+#  out_data/forecast_pgdl_da_outputs_lstm_DA.zip:
+#    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_lstm_DA.zip', to = target_name)
 
-  out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip:
-    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip', to = target_name)
+#  out_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip:
+#    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_rgcn_no_DA.zip', to = target_name)
 
-  out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip:
-    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_lstm_no_DA.zip', to = target_name)
+#  out_data/forecast_pgdl_da_outputs_lstm_no_DA.zip:
+#    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_lstm_no_DA.zip', to = target_name)
 
-  out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip:
-    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_rgcn_persistence.zip', to = target_name)
+#  out_data/forecast_pgdl_da_outputs_rgcn_persistence.zip:
+#    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_rgcn_persistence.zip', to = target_name)
 
-  out_data/forecast_pgdl_da_outputs_lstm_persistence.zip:
-    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_lstm_persistence.zip', to = target_name)
+#  out_data/forecast_pgdl_da_outputs_lstm_persistence.zip:
+#    command: file.copy(from = 'in_data/forecast_pgdl_da_outputs_lstm_persistence.zip', to = target_name)
 
   # Paired Predictions
   out_data/paired_predicted_observed_temperatures.csv:
     command: feather_to_csv(in_feather = 'in_data/all_mods_with_obs.feather', to = target_name)
     
   out_data/spatial_cross_validation_train_table.csv:
-    command: file.copy(from = 'in_data/spatial_cross_validation_train_table.csv', out_csv = target_name)
+    command: file.copy(from = 'in_data/spatial_cross_validation_train_table.csv', to  = target_name)
