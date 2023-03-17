@@ -52,7 +52,7 @@ targets:
 
   # Paired Predictions
   out_data/paired_predicted_observed_temperatures.csv:
-    command: feather_to_csv(in_feather = 'in_data/all_mods_with_obs.feather', out_csv = target_name)
+    command: feather_to_csv(in_feather = 'in_data/all_mods_with_obs.feather', to = target_name)
     
   out_data/spatial_cross_validation_train_table.csv:
     command: file.copy(from = 'in_data/spatial_cross_validation_train_table.csv', to  = target_name)

@@ -12,9 +12,8 @@ abstract: >-
   
   In combination with data provided in Oliver et al. (2022), this release contains all data used to train and validate
   the water temperature forecast models. This includes a process-based model pre-trainer, forecasted gridded weather data,
-  reservoir releases, and water temperature data. Additionally, this release contains predictions from three models: a
-  deep learning model, a deep learning model with data assimilation, and a persistence model. 
-  Additionally, this release contains a tidy version of the model predictions with paired observations for easier reuse.
+  reservoir releases, and water temperature data. Additionally, this release contains predictions from five models: a long-short term memory network (LSTM), a recurrent graph convolution network (RGCN),
+  LSTM with data assimilation, a RGCN with data assimilation, and a persistence model. The release contains a tidy version of the model predictions with paired observations for easier reuse.
 
   <br/>The data are organized into 4 child folders: 1) waterbody information, 2) model driver data, 3) model configurations, 4) model predictions </p>
   <ol>
