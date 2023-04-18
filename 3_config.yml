@@ -24,7 +24,7 @@ targets:
   out_data/reservoir_nml_values.json:
     command: fetch_filter_nml(
       out_json = target_name,
-      in_rds = 'in_data/nml_list_052022.rds',
+      in_rds = 'in_data/nml_list_040123.rds',
       site_ids = reservoir_modeling_site_ids)
 
   # .nml files manually copied and renamed from res-temperature-process-models
