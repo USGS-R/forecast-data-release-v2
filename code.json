@@ -1,0 +1,38 @@
+[
+  {
+    "name": "forecast-data-release-v2",
+    "organization": "U.S. Geological Survey",
+    "description": "Data to support networked forecasting in the Delaware River Basin",
+    "version": "main",
+    "status": "Development",
+    "permissions": {
+      "usageType": "openSource",
+      "licenses": [
+        {
+          "name": "Public Domain, CC0-1.0",
+          "URL": "https://github.com/DOI-USGS/forecast-data-release-v2/raw/main/LICENSE.md"
+        }
+      ]
+    },
+    "homepageURL": "https://github.com/DOI-USGS/forecast-data-release-v2/",
+    "downloadURL": "https://github.com/DOI-USGS/forecast-data-release-v2/archive/refs/heads/main.zip",
+    "disclaimerURL": "https://github.com/DOI-USGS/forecast-data-release-v2/raw/main/DISCLAIMER.md",
+    "repositoryURL": "https://github.com/DOI-USGS/forecast-data-release-v2.git",
+    "vcs": "git",
+    "laborHours": 40,
+    "tags": [
+      "R",
+      "USGS"
+    ],
+    "languages": [
+      "R"
+    ],
+    "contact": {
+      "name": "Margaux Sleckman",
+      "email": "msleckman@usgs.gov"
+    },
+    "date": {
+      "metadataLastUpdated": "2023-04-23"
+    }
+  }
+]
